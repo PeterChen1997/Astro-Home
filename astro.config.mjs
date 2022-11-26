@@ -1,15 +1,15 @@
 import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
-
 import react from '@astrojs/react'
 import image from '@astrojs/image'
 import tailwind from '@astrojs/tailwind'
 import addClasses from 'rehype-add-classes'
+import compress from 'astro-compress'
 
 export default defineConfig({
   site: 'https://blog.peterchen97.cn',
-  integrations: [tailwind(), sitemap(), react(), image()],
+  integrations: [tailwind(), sitemap(), react(), image(), compress()],
   markdown: {
     extendDefaultPlugins: true,
     rehypePlugins: [

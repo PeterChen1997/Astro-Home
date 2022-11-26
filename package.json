@@ -21,6 +21,7 @@
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.6",
     "astro": "^1.6.11",
+    "astro-compress": "^1.1.11",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-icons": "^4.6.0",
