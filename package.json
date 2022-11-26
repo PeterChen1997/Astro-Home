@@ -28,6 +28,7 @@
   "devDependencies": {
     "@typescript-eslint/parser": "^5.44.0",
     "eslint": "^8.28.0",
-    "eslint-plugin-astro": "^0.21.0"
+    "eslint-plugin-astro": "^0.21.0",
+    "rehype-add-classes": "^1.0.0"
   }
 }

@@ -13,10 +13,15 @@ Here is a sample of some basic Markdown syntax that can be used when writing Mar
 The following HTML `<h1>`—`<h6>` elements represent six levels of section headings. `<h1>` is the highest section level while `<h6>` is the lowest.
 
 # H1
+
 ## H2
+
 ### H3
+
 #### H4
+
 ##### H5
+
 ###### H6
 
 ## Paragraph
@@ -48,14 +53,14 @@ The blockquote element represents content that is quoted from another source, op
 ## Tables
 
 | Italics   | Bold     | Code   |
-| --------  | -------- | ------ |
+| --------- | -------- | ------ |
 | *italics* | **bold** | `code` |
 
 ## Code Blocks
 
 ```html
 <!doctype html>
-<html lang="en">
+<html lang="zh" style="overflow: overlay;min-height: 100vh;">
 <head>
   <meta charset="utf-8">
   <title>Example HTML5 Document</title>

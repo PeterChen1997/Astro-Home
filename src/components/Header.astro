@@ -4,19 +4,22 @@ import { SITE_TITLE } from '../config'
 import { HOMEPAGE_URL } from '../config'
 import { IoLogoGithub } from 'react-icons/io5/index.js'
 import ThemeToggle from './ThemeToggleButton'
+
+import logoSvg from '/favicon.svg'
 ---
 
 <header class="fixed w-full p-2 z-20 backdrop-blur-md">
   <div class="mx-auto max-w-3xl">
     <nav class="flex items-center gap-3 text-base">
       <a href="/">
-        <h2 class="font-semibold tracking-tighter p-2 font-mplus text-lg">
-          <!-- <FootprintIcon /> -->
+        <h2 class="font-semibold tracking-tighter p-2 text-lg">
+          <img src={logoSvg} class="inline" />
           龙场茶室
         </h2>
       </a>
       <div class="items-center gap-6 hidden md:flex">
-        <HeaderLink href={HOMEPAGE_URL}>About</HeaderLink>
+        <HeaderLink href={'/blog'}>Blog</HeaderLink>
+        <HeaderLink href={'/about'}>About</HeaderLink>
         <HeaderLink
           href="https://github.com/craftzdog/craftzdog-uses"
           target="_blank"
