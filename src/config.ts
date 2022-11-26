@@ -3,6 +3,6 @@
 
 export const SITE_TITLE = '龙场茶室'
 export const SITE_DESCRIPTION =
-  '这是一只练习时长三年半的前端开发小白，这是一些小作文，欢迎交流'
+  '一只练习时长三年半的前端开发小白，这是他的一些小作文，欢迎交流'
 
 export const HOMEPAGE_URL = 'https://blog.peterchen97.cn'
