@@ -1,7 +1,6 @@
 ---
+import { Image } from '@astrojs/image/components'
 import HeaderLink from './HeaderLink.astro'
-import { SITE_TITLE } from '../config'
-import { HOMEPAGE_URL } from '../config'
 import { IoLogoGithub } from 'react-icons/io5/index.js'
 import ThemeToggle from './ThemeToggleButton'
 
@@ -12,8 +11,16 @@ import logoSvg from '/favicon.svg'
   <div class="mx-auto max-w-3xl">
     <nav class="flex items-center gap-3 text-base">
       <a href="/">
-        <h2 class="font-semibold tracking-tighter p-2 text-lg">
-          <img src={logoSvg} class="inline" />
+        <h2
+          class="font-semibold tracking-tighter p-2 text-lg flex items-center"
+        >
+          <Image
+            src={logoSvg}
+            class="inline"
+            width={25}
+            aspectRatio={1.0}
+            alt="icon"
+          />
           龙场茶室
         </h2>
       </a>
@@ -29,7 +36,7 @@ import logoSvg from '/favicon.svg'
         </HeaderLink>
       </div>
       <div class="flex-1"></div>
-      <ThemeToggle client:visible />
+      <ThemeToggle client:load />
       <!-- <DropdownMenu client:visible tags={Array.from(allTags)} /> -->
     </nav>
   </div>
