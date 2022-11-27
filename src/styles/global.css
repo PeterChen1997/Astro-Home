@@ -11,3 +11,13 @@ body {
   text-rendering: optimizeLegibility;
   overflow-wrap: break-word;
 }
+
+pre {
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+ol li {
+  list-style: decimal;
+}
