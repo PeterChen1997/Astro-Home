@@ -9,7 +9,7 @@ export interface Props {
   image?: string
 }
 
-const { title, description, image = '/placeholder-social.jpg' } = Astro.props
+const { title, description } = Astro.props
 ---
 
 <!-- Global Metadata -->
@@ -22,6 +22,12 @@ const { title, description, image = '/placeholder-social.jpg' } = Astro.props
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content="https://blog.peterchen97.cn/favicon.svg" />
+<meta property="og:url" content="https://blog.peterchen97.cn" />
 
 <script is:inline>
   const theme = (() => {
