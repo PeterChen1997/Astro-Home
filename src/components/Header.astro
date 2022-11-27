@@ -2,9 +2,11 @@
 import { Image } from '@astrojs/image/components'
 import HeaderLink from './HeaderLink.astro'
 import { IoLogoGithub } from 'react-icons/io5/index.js'
+import { BiRss } from 'react-icons/bi/index.js'
 import ThemeToggle from './ThemeToggleButton'
 
 import logoSvg from '/favicon.svg'
+import DropdownMenu from './DropdownMenu'
 ---
 
 <header class="fixed w-full p-2 z-20 backdrop-blur-md">
@@ -14,30 +16,28 @@ import logoSvg from '/favicon.svg'
         <h2
           class="font-semibold tracking-tighter p-2 text-lg flex items-center"
         >
-          <Image
-            src={logoSvg}
-            class="inline"
-            width={25}
-            aspectRatio={1.0}
-            alt="icon"
-          />
+          <img src={logoSvg} class="inline" />
           龙场茶室
         </h2>
       </a>
       <div class="items-center gap-6 hidden md:flex">
-        <HeaderLink href={'/blog'}>Blog</HeaderLink>
-        <HeaderLink href={'/about'}>About</HeaderLink>
+        <HeaderLink href="/blog">Blog</HeaderLink>
+        <HeaderLink href="/about">About</HeaderLink>
+        <HeaderLink href="/rss.xml" target="_blank">
+          <BiRss />
+          RSS 订阅
+        </HeaderLink>
         <HeaderLink
           href="https://github.com/craftzdog/craftzdog-uses"
           target="_blank"
         >
           <IoLogoGithub />
-          Original Source
+          Source
         </HeaderLink>
       </div>
       <div class="flex-1"></div>
-      <ThemeToggle client:load />
-      <!-- <DropdownMenu client:visible tags={Array.from(allTags)} /> -->
+      <ThemeToggle client:visible />
+      <DropdownMenu client:visible />
     </nav>
   </div>
 </header>

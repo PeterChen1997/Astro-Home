@@ -2,10 +2,17 @@
 import BaseHead from '../components/BaseHead.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
-import { SITE_TITLE, SITE_DESCRIPTION } from '../config'
-
+import { SITE_TITLE, SITE_DESCRIPTION, HOMEPAGE_URL } from '../config'
+import { Image } from '@astrojs/image/components'
 import Body from '../components/Body.astro'
 import Main from '../components/Main.astro'
+import { IoArrowForward } from 'react-icons/io5/index.js'
+
+const posts = (await Astro.glob('./blogs/*.md')).sort(
+  (a: any, b: any) =>
+    new Date(b.frontmatter.pubDate).valueOf() -
+    new Date(a.frontmatter.pubDate).valueOf()
+)
 ---
 
 <!DOCTYPE html>
@@ -16,7 +23,46 @@ import Main from '../components/Main.astro'
   <Body>
     <Header title={SITE_TITLE} />
     <Main>
-      <h1 class="text-center">{SITE_DESCRIPTION}</h1>
+      <h1 class="text-3xl font-bold py-4 text-center">{SITE_TITLE}</h1>
+      <article>
+        <section>
+          <div class="mb-8 indent-4 flex flex-col items-center">
+            <p>{SITE_DESCRIPTION}</p>
+            <a
+              class="items-center gap-1 indent-1 text-orange-500"
+              href={'/about'}
+              >Learn more about me <IoArrowForward className="inline" />
+            </a>
+          </div>
+        </section>
+        <section>
+          <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {
+              posts.map(post => (
+                <li class="text-center mb-4">
+                  <a href={post.url}>
+                    <Image
+                      class="border border-slate-300 dark:border-zinc-700 rounded-xl"
+                      src={post.frontmatter.heroImage}
+                      width={720 * 2}
+                      aspectRatio={2.0}
+                      alt="Thumbnail"
+                    />
+                    <div class="mt-3 text-xl font-bold">
+                      {post.frontmatter.title}
+                    </div>
+                    {post.frontmatter.description && (
+                      <div class="opacity-70">
+                        {post.frontmatter.description}
+                      </div>
+                    )}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+      </article>
     </Main>
     <Footer />
   </Body>
