@@ -29,7 +29,7 @@ export default defineConfig({
           h4: 'text-lg font-bold py-2',
           h5: 'font-bold py-1',
           h6: 'font-bold',
-          img: 'border border-slate-300 dark:border-zinc-700 rounded-xl mb-6',
+          img: 'border border-slate-300 dark:border-zinc-700 rounded-xl mb-6 max-h-[500px] mx-auto',
           p: 'mb-3 pb-1 leading-8 text-justify',
           a: 'underline underline-offset-2 hover:text-orange-500 decoration-orange-500',
           li: 'list-disc leading-8 text-justify',
