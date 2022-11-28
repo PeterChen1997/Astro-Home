@@ -14,11 +14,15 @@ heroImage: "/home.png"
 
 ## 👨‍💻 博主是谁
 
-19 年从业前端开发，啥都想学，啥都不精，这是我的一些账号，欢迎交流
+19 年开始从业前端开发，曾在字节跳动、猿辅导工作，目前在红杉中国工作
+
+啥都想学，啥都不精，这是我的一些账号，欢迎交流
 
 - 微信公众号：晨阳再升
 - Github：<https://github.com/PeterChen1997>
 - 即刻：Peterchen97
+
+<img src="/assets/imgs/693dc9e035d8b2ec018fc9e544648ef9d55dfbda40f64b8c9ffb6d4940575174.jpg" width="120" height= "120" style="margin: 10px auto;"/>
 
 ## ⛹ 兴趣爱好
 
@@ -27,7 +31,3 @@ heroImage: "/home.png"
 - 徒步 🚶
 - 攀岩 🧗
 - 看书 📖
-
-## 📬 联系我呀
-
-邮箱：<13093023233@163.com>
