@@ -23,6 +23,7 @@
     "@types/react-dom": "^18.0.6",
     "astro": "^1.6.11",
     "astro-compress": "^1.1.11",
+    "dayjs": "^1.11.6",
     "logrocket": "^3.0.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

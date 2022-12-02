@@ -8,11 +8,13 @@ import Body from '../components/Body.astro'
 import Main from '../components/Main.astro'
 import { IoArrowForward } from 'react-icons/io5/index.js'
 
-const posts = (await Astro.glob('./blogs/*.md')).sort(
-  (a: any, b: any) =>
-    new Date(b.frontmatter.pubDate).valueOf() -
-    new Date(a.frontmatter.pubDate).valueOf()
-)
+const posts = (await Astro.glob('./blogs/*.md'))
+  .sort(
+    (a: any, b: any) =>
+      new Date(b.frontmatter.pubDate).valueOf() -
+      new Date(a.frontmatter.pubDate).valueOf()
+  )
+  .slice(0, 6)
 ---
 
 <!DOCTYPE html>
@@ -61,6 +63,11 @@ const posts = (await Astro.glob('./blogs/*.md')).sort(
               ))
             }
           </ul>
+          <a
+            class="inline-block w-full text-center gap-1 indent-1 text-orange-500"
+            href={'/blog'}
+            >More <IoArrowForward className="inline" />
+          </a>
         </section>
       </article>
     </Main>

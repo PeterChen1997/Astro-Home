@@ -6,6 +6,8 @@ import Footer from '../components/Footer.astro'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config'
 import Main from '../components/Main.astro'
 
+import dayjs from 'dayjs'
+
 // Use Astro.glob() to fetch all posts, and then sort them by date.
 const posts = (await Astro.glob('./blogs/*.{md,mdx}')).sort(
   (a, b) =>
@@ -45,14 +47,7 @@ const posts = (await Astro.glob('./blogs/*.{md,mdx}')).sort(
             posts.map(post => (
               <li>
                 <time datetime={post.frontmatter.pubDate}>
-                  {new Date(post.frontmatter.pubDate).toLocaleDateString(
-                    'en-us',
-                    {
-                      year: 'numeric',
-                      month: 'short',
-                      day: 'numeric'
-                    }
-                  )}
+                  {dayjs(post.frontmatter.pubDate).format('YYYY-MM-DD')}
                 </time>
                 <a href={post.url}>{post.frontmatter.title}</a>
               </li>

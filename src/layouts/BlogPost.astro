@@ -45,7 +45,7 @@ const {
           )
         }
         <h1 class="text-4xl font-bold py-4">{title}</h1>
-        {pubDate && <time>{pubDate}</time>}
+        {pubDate && <time>Created At: {pubDate}</time>}
         <p>{getReadingTime(Astro.props.compiledContent())} minutes to read</p>
         {
           updatedDate && (
