@@ -35,7 +35,7 @@ ol li {
 }
 
 pre.astro-code {
-  margin: 1rem;
+  margin: 1rem 0;
   padding: 1rem;
   background-color: hsl(50deg 100% 8%) !important;
 }
