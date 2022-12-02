@@ -1,7 +1,7 @@
 ---
 layout: "../../layouts/BlogPost.astro"
 title: "[Javascript] JS 中 number 的常见问题及原因"
-description: "其实记不起上次去写自己的博客是什么时候了，中间断断续续的想写过很多东西，但是一直都不能坚持下来"
+description: "最近看到几篇关于讲解 JS 中 number 的深度好文，文中解析了 js number 的一些常见问题"
 pubDate: "2021.11.10"
 heroImage: "/assets/imgs/3165b5d7c8c48b8800582b8e585fa325c6d6329b229bece90dcabb0b15b52722.png"
 ---

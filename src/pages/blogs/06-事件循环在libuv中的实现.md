@@ -1,7 +1,7 @@
 ---
 layout: "../../layouts/BlogPost.astro"
 title: "[Node分享] 事件循环在libuv中的实现"
-description: "其实记不起上次去写自己的博客是什么时候了，中间断断续续的想写过很多东西，但是一直都不能坚持下来"
+description: "官网上摘了一段话：libuv is a multi-platform support library with a focus on asynchronous I/O. "
 pubDate: "2020.03.08"
 heroImage: "/assets/imgs/da6569e7a8ea850064ca5339c0c7f0654dac962cbf127b1816d42e5d1cfc6f65.png"
 ---
