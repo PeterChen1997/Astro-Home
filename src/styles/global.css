@@ -23,6 +23,11 @@ ol {
   margin-bottom: 20px;
 }
 
+li ul,
+li ol {
+  margin-bottom: 0;
+}
+
 ol li {
   list-style: decimal;
 }
