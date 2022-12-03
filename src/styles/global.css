@@ -18,6 +18,11 @@ pre {
   margin-bottom: 10px;
 }
 
+ul,
+ol {
+  margin-bottom: 20px;
+}
+
 ol li {
   list-style: decimal;
 }

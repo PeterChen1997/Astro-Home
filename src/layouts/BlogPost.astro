@@ -7,6 +7,7 @@ import Body from '../components/Body.astro'
 import Main from '../components/Main.astro'
 import Content from '../components/Content.astro'
 import { getReadingTime } from '../libs/readingTime'
+import dayjs from 'dayjs'
 
 export interface Props {
   content: {
@@ -45,15 +46,19 @@ const {
           )
         }
         <h1 class="text-4xl font-bold py-4">{title}</h1>
-        {pubDate && <time>Created At: {pubDate}</time>}
-        <p>{getReadingTime(Astro.props.compiledContent())} minutes to read</p>
+        {
+          pubDate && (
+            <time>Created At: {dayjs(pubDate).format('YYYY-MM-DD')}</time>
+          )
+        }
         {
           updatedDate && (
             <div>
-              Last updated on <time>{updatedDate}</time>
+              Last updated: <time>{updatedDate}</time>
             </div>
           )
         }
+        <p>{getReadingTime(Astro.props.compiledContent())} minutes to read</p>
         <hr class="border-top border-zinc-400 my-4" />
         <slot />
       </Content>
