@@ -1,7 +1,7 @@
 ---
 layout: "../../layouts/BlogPost.astro"
 title: "家庭网络搭建01-什么是 GFW"
-description: "其实记不起上次去写自己的博客是什么时候了，中间断断续续的想写过很多东西，但是一直都不能坚持下来"
+description: "Hello 朋友们，最近折腾了一些家庭网络相关的内容，中间因为 GFW 踩了不少坑，浪费了至少得有上十个小时的时间"
 pubDate: "2022-12-04"
 heroImage: "/assets/imgs/network.jpg"
 ---
