@@ -28,8 +28,12 @@ li ol {
   margin-bottom: 0;
 }
 
-ol li {
+.article ol li {
   list-style: decimal;
+}
+
+.article ul li {
+  list-style: disc;
 }
 
 ::-webkit-scrollbar,
@@ -54,4 +58,12 @@ pre.astro-code {
   border: 1px solid #2a95fa;
   border-radius: 0.3rem;
   line-height: 1.65;
+}
+
+code {
+  font-size: 0.9rem;
+}
+
+hr {
+  margin-bottom: 10px;
 }
