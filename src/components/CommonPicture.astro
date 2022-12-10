@@ -1,0 +1,18 @@
+---
+import { Picture } from 'astro-imagetools/components'
+
+export interface Props {
+  image: string
+}
+
+const { image } = Astro.props
+---
+
+<div
+  class="overflow-hidden border border-slate-300 dark:border-zinc-700 rounded-xl"
+  style={{
+    aspectRatio: '2.0'
+  }}
+>
+  <Picture layout="fill" src={image} alt="Image" width={720 * 2} />
+</div>
