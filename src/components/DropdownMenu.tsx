@@ -6,14 +6,19 @@ import DropdownMenuItem from './DropdownMenuItem'
 export default function DropdownMenu() {
   const menus = [
     {
-      key: 'blog',
-      path: '/blog',
-      title: 'Blog'
+      key: 'posts',
+      path: '/posts',
+      title: 'Posts'
     },
     {
       key: 'about',
       path: '/about',
       title: 'About'
+    },
+    {
+      key: 'projects',
+      path: '/projects',
+      title: 'Projects'
     },
     {
       key: 'rss',

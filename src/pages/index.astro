@@ -3,13 +3,12 @@ import BaseHead from '../components/BaseHead.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import { SITE_TITLE, SITE_DESCRIPTION, HOMEPAGE_URL } from '../config'
-import { Image } from '@astrojs/image/components'
 import Body from '../components/Body.astro'
 import Main from '../components/Main.astro'
 import { IoArrowForward } from 'react-icons/io5/index.js'
 import CommonPicture from '../components/CommonPicture.astro'
 
-const posts = (await Astro.glob('./blogs/*.md'))
+const posts = (await Astro.glob('./posts/*.md'))
   .sort(
     (a: any, b: any) =>
       new Date(b.frontmatter.pubDate).valueOf() -
@@ -27,17 +26,15 @@ const posts = (await Astro.glob('./blogs/*.md'))
     <Header title={SITE_TITLE} />
     <Main>
       <h1 class="text-3xl font-bold py-4 text-center">{SITE_TITLE}</h1>
+      <section>
+        <div class="mb-8 indent-4 flex flex-col items-center">
+          <p>{SITE_DESCRIPTION}</p>
+          <a class="items-center gap-1 indent-1 text-orange-500" href={'/about'}
+            >Learn more about me <IoArrowForward className="inline" />
+          </a>
+        </div>
+      </section>
       <article>
-        <section>
-          <div class="mb-8 indent-4 flex flex-col items-center">
-            <p>{SITE_DESCRIPTION}</p>
-            <a
-              class="items-center gap-1 indent-1 text-orange-500"
-              href={'/about'}
-              >Learn more about me <IoArrowForward className="inline" />
-            </a>
-          </div>
-        </section>
         <section>
           <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
             {
@@ -60,7 +57,7 @@ const posts = (await Astro.glob('./blogs/*.md'))
           </ul>
           <a
             class="inline-block w-full text-center gap-1 indent-1 text-orange-500"
-            href={'/blog'}
+            href={'/posts'}
             >More <IoArrowForward className="inline" />
           </a>
         </section>

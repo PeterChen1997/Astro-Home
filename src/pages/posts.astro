@@ -9,7 +9,7 @@ import Main from '../components/Main.astro'
 import dayjs from 'dayjs'
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
-const posts = (await Astro.glob('./blogs/*.{md,mdx}')).sort(
+const posts = (await Astro.glob('./posts/*.{md,mdx}')).sort(
   (a, b) =>
     new Date(b.frontmatter.pubDate).valueOf() -
     new Date(a.frontmatter.pubDate).valueOf()
@@ -41,6 +41,12 @@ const posts = (await Astro.glob('./blogs/*.{md,mdx}')).sort(
   <Body>
     <Header />
     <Main>
+      <h1 class="text-3xl font-bold py-4 text-center">Posts</h1>
+      <section>
+        <div class="mb-8 indent-4 flex flex-col items-center">
+          <p>记录知识与思考沿途碰撞的痕迹</p>
+        </div>
+      </section>
       <section>
         <ul>
           {

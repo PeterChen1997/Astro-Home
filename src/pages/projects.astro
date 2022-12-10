@@ -1,0 +1,94 @@
+---
+import BaseHead from '../components/BaseHead.astro'
+import Header from '../components/Header.astro'
+import Body from '../components/Body.astro'
+import Footer from '../components/Footer.astro'
+import { SITE_TITLE, SITE_DESCRIPTION } from '../config'
+import Main from '../components/Main.astro'
+
+import CommonPicture from '../components/CommonPicture.astro'
+
+// Use Astro.glob() to fetch all posts, and then sort them by date.
+const posts = [
+  {
+    demoUrl: '/',
+    sourceUrl: 'https://github.com/PeterChen1997/Astro-Home',
+    image:
+      '/assets/imgs/e09e3fec8eefa9f815a0ec33c599c3a4a9899d36734bf0a8c8d216ba7ffe1040.png',
+    title: '个人 Blog',
+    description:
+      '基于 Astro build 加 Fly.io 搭建的一个个人 Blog，整体功能可扩展性较高，但是有些地方还需要优化'
+  },
+  {
+    demoUrl: 'https://peterchen1997.github.io/Frontend-Repo/',
+    sourceUrl: 'https://github.com/PeterChen1997/Frontend-Repo',
+    image:
+      '/assets/imgs/ee3b15fae54b8da7e7dad1e28afbff7e1a7f874cc1c4f10c3def6b48acca21bd.png',
+    title: '前端小记',
+    description:
+      '基于 VuePress 搭建的一套前端基础知识的文档站点，主要是为了方便自己查阅，也可以作为一套前端知识的学习笔记'
+  },
+  {
+    demoUrl: 'https://peterchen1997.github.io/OurGame/',
+    sourceUrl: 'https://github.com/PeterChen1997/OurGame',
+    image:
+      '/assets/imgs/75bb4be8d22c98842c1d51142951bf18d44c131d2e8e68703cb2b8e91533a37d.png',
+    title: 'Ouch, keep alive!',
+    description:
+      '一款类似贪吃蛇大作战的小游戏，之前在新国大做暑期交换生实习时做的，用的是老师自建的一套引擎'
+  }
+]
+---
+
+<!DOCTYPE html>
+<html lang="zh" style="overflow: overlay;min-height: 100vh;">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <Body>
+    <Header />
+    <Main>
+      <h1 class="text-3xl font-bold py-4 text-center">Projects</h1>
+      <section>
+        <div class="mb-8 indent-4 flex flex-col items-center">
+          <p>
+            A selection of open-source projects from my
+            <a
+              target="_blank"
+              class="items-center gap-1 indent-1 underline underline-offset-2 hover:text-orange-500 decoration-orange-500"
+              href={'https://github.com/PeterChen1997'}
+              >github profile
+            </a>
+          </p>
+        </div>
+      </section>
+      <section>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {
+            posts.map(post => (
+              <li class="text-center mb-4">
+                <CommonPicture image={post.image} />
+                <div class="mt-3 text-xl font-bold">{post.title}</div>
+                {post.description && (
+                  <div class="opacity-70">{post.description}</div>
+                )}
+                <div class="mt-3" />
+                <button class="w-32 border border-slate-300 dark:border-zinc-700 rounded-md p-1   hover:bg-orange-200 dark:hover:bg-zinc-800">
+                  <a target="_blank" href={post.demoUrl}>
+                    Online Site
+                  </a>
+                </button>
+                <button class="w-32 border border-slate-300 dark:border-zinc-700 rounded-md p-1   hover:bg-orange-200 dark:hover:bg-zinc-800">
+                  <a target="_blank" href={post.sourceUrl}>
+                    Source Code
+                  </a>
+                </button>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </Main>
+    <Footer />
+  </Body>
+</html>
