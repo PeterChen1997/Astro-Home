@@ -9,7 +9,7 @@ export interface Props {
   image?: string
 }
 
-const { title, description } = Astro.props
+const { title, description, image } = Astro.props
 ---
 
 <!-- Global Metadata -->
@@ -23,12 +23,27 @@ const { title, description } = Astro.props
 <meta name="title" content={title} />
 <meta name="description" content={description} />
 
+<!-- share -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content="https://blog.peterchen97.cn/favicon.svg" />
+<meta
+  property="og:image"
+  content={image || 'https://blog.peterchen97.cn/favicon.svg'}
+/>
 <meta property="og:url" content="https://blog.peterchen97.cn" />
 
+<!-- wx share -->
+<script is:inline>
+  window.WEIXINSHARE = {
+    shareTitle: title,
+    shareImg: image || 'https://blog.peterchen97.cn/favicon.svg',
+    imgUrl: image || 'https://blog.peterchen97.cn/favicon.svg',
+    shareDesc: description
+  }
+</script>
+
+<!-- dark theme -->
 <script is:inline>
   const theme = (() => {
     if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
@@ -47,6 +62,7 @@ const { title, description } = Astro.props
   }
 </script>
 
+<!-- sentry -->
 <script>
   import * as Sentry from '@sentry/browser'
   import { BrowserTracing } from '@sentry/tracing'
@@ -77,4 +93,14 @@ const { title, description } = Astro.props
   gtag('js', new Date())
 
   gtag('config', 'G-YP4K1G1DVQ')
+</script>
+
+<script is:inline>
+  var _hmt = _hmt || []
+  ;(function () {
+    var hm = document.createElement('script')
+    hm.src = 'https://hm.baidu.com/hm.js?166146b756cbf04bd70f750f8e7b4a9e'
+    var s = document.getElementsByTagName('script')[0]
+    s.parentNode.insertBefore(hm, s)
+  })()
 </script>
