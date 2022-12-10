@@ -28,7 +28,7 @@ const {
 <html lang="zh" style="overflow: overlay;min-height: 100vh;">
   <head>
     <BaseHead title={title} description={description} />
-    <script is:inline>
+    <script define:vars={{ title, description, heroImage }}>
       window.WEIXINSHARE = {
         shareTitle: title,
         shareImg: heroImage || 'https://blog.peterchen97.cn/favicon.svg',
@@ -73,5 +73,6 @@ const {
     </Main>
     <Footer />
   </Body>
+
 
 </html>

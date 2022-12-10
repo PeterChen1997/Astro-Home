@@ -34,7 +34,7 @@ const { title, description, image } = Astro.props
 <meta property="og:url" content="https://blog.peterchen97.cn" />
 
 <!-- wx share -->
-<script is:inline>
+<script define:vars={{ title, image, description }}>
   window.WEIXINSHARE = {
     shareTitle: title,
     shareImg: image || 'https://blog.peterchen97.cn/favicon.svg',

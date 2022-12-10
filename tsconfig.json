@@ -3,6 +3,6 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "react",
-    "types": ["@astrojs/image/client"]
+    "types": ["@astrojs/image/client", "./src/env.d.ts"]
   }
 }
