@@ -104,10 +104,10 @@
   dependencies:
     prismjs "^1.28.0"
 
-"@astrojs/react@^1.2.2":
-  version "1.2.2"
-  resolved "https://mirrors.huaweicloud.com/repository/npm/@astrojs/react/-/react-1.2.2.tgz#83fa61fc729c31914b8baaefed4095bd6340d701"
-  integrity sha512-ab9fYvzkC74J7N+M3DWQuZgwu7sYjW0aLO3sEAdCX/jZZz+0BhrqS8m9QjtGJyQK/niF4tgJjpPfadopxKc56g==
+"@astrojs/react@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@astrojs/react/-/react-2.0.0.tgz#628d2a293d7187f65ac0be62ee16ce6124666c6c"
+  integrity sha512-drHnCnYH6u6hKN4ObNepw4OQiCvMsRFLeKqRbbGmME5yJyxfdkFw2K4m/8zGah90LgW1xmr9hyPsSVU3PTmd9g==
   dependencies:
     "@babel/core" ">=7.0.0-0 <8.0.0"
     "@babel/plugin-transform-react-jsx" "^7.17.12"
