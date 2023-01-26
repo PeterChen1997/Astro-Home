@@ -14,5 +14,12 @@ const { image } = Astro.props
     aspectRatio: '2.0'
   }}
 >
-  <Picture layout="fill" src={image} alt="Image" width={720 * 2} />
+  <Picture
+    layout="fill"
+    preload="webp"
+    src={image}
+    alt="Image"
+    width={720 * 2}
+    objectFit="cover"
+  />
 </div>
