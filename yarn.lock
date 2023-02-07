@@ -1349,10 +1349,10 @@ astro-eslint-parser@^0.11.0:
     eslint-visitor-keys "^3.0.0"
     espree "^9.0.0"
 
-astro-imagetools@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/astro-imagetools/-/astro-imagetools-0.7.0.tgz#9dc1226bd3c413969187615da2c3cdf176f42800"
-  integrity sha512-dFCzEAI4jzCsdj2GxdXGbrKYaxYUBLNFL6NbfDKvkMwzodkM7RGnydY6O7wJQ9HTDX9CswQtbwLNK9dvIIjUOQ==
+astro-imagetools@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/astro-imagetools/-/astro-imagetools-0.8.0.tgz#0d4d9308a2dc96967388c93ba316f56451e7e097"
+  integrity sha512-bKLdQ8+Uvrtw3fBMX88wGuf5u+Vsqw8Pe5V8beidzpsrd8RJILKmvblg3/kwRorZ626urtKBEJyew48PtGoA+g==
   dependencies:
     "@astropub/codecs" "0.4.4"
     file-type "17.1.1"
