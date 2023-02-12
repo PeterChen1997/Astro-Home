@@ -21,6 +21,11 @@ export default function DropdownMenu() {
       title: 'Projects'
     },
     {
+      key: 'links',
+      path: '/links',
+      title: 'Links'
+    },
+    {
       key: 'rss',
       path: '/rss.xml',
       title: 'RSS 订阅'

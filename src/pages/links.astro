@@ -1,0 +1,53 @@
+---
+import BaseHead from '../components/BaseHead.astro'
+import Header from '../components/Header.astro'
+import Body from '../components/Body.astro'
+import Footer from '../components/Footer.astro'
+import { SITE_TITLE, SITE_DESCRIPTION } from '../config'
+import Main from '../components/Main.astro'
+
+import CommonPicture from '../components/CommonPicture.astro'
+
+const sites = [
+  {
+    url: 'https://me.ursb.me/',
+    title: 'Airing 的小屋'
+  }
+]
+---
+
+<!DOCTYPE html>
+<html lang="zh" style="overflow: overlay;min-height: 100vh;">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <Body>
+    <Header />
+    <Main>
+      <h1 class="text-3xl font-bold py-4 text-center">Links</h1>
+      <section>
+        <div class="mb-8 indent-4 flex flex-col items-center">
+          <p>很赞的博客列表，欢迎在下方勘误留言，交换友链～</p>
+        </div>
+      </section>
+      <section>
+        <ul class="grid grid-cols-1 gap-4">
+          {
+            sites.map(site => (
+              <li class="text-center mb-4">
+                <a
+                  class="underline underline-offset-2 hover:text-orange-500 decoration-orange-300"
+                  target="_blank"
+                  href={site.url}
+                >
+                  {site.title}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </Main>
+    <Footer />
+  </Body>
+</html>
