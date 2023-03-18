@@ -36,6 +36,6 @@
     "find-up": "^6.3.0",
     "@typescript-eslint/parser": "^5.44.0",
     "eslint": "^8.28.0",
-    "eslint-plugin-astro": "^0.23.0"
+    "eslint-plugin-astro": "^0.26.0"
   }
 }
