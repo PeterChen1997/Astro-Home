@@ -1548,10 +1548,10 @@ astro-compress@^1.1.11:
     svgo "3.0.2"
     terser "5.17.3"
 
-astro-eslint-parser@^0.13.0:
-  version "0.13.0"
-  resolved "https://registry.yarnpkg.com/astro-eslint-parser/-/astro-eslint-parser-0.13.0.tgz#18c722c3d96b262efec020b7a31b366d21dc8645"
-  integrity sha512-6dYYe7GOxZYSvLineTWQA1ienSVRrfuLJEtSeSqayp+yKXPe07gvfn0BNBMsJH822L+BRjbDIZBg1arFLadH4Q==
+astro-eslint-parser@^0.14.0:
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/astro-eslint-parser/-/astro-eslint-parser-0.14.0.tgz#a8ce2f62ce683def4b975acbf9388be99c732680"
+  integrity sha512-3F8l1h7+5MNxzDg1cSQxEloalG7fj64K6vOERChUVG7RLnAzSoafADnPQlU8DpMM3WRNfRHSC4NwUCORk/aPrA==
   dependencies:
     "@astrojs/compiler" "^1.0.0"
     "@typescript-eslint/scope-manager" "^5.48.2"
@@ -2361,15 +2361,15 @@ escape-string-regexp@^5.0.0:
   resolved "https://mirrors.huaweicloud.com/repository/npm/escape-string-regexp/-/escape-string-regexp-5.0.0.tgz#4683126b500b61762f2dbebace1806e8be31b1c8"
   integrity sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==
 
-eslint-plugin-astro@^0.26.0:
-  version "0.26.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-astro/-/eslint-plugin-astro-0.26.0.tgz#7c9a7c95cb10597aef4a388c0528836082e3ee44"
-  integrity sha512-izKb6/3Y/unEAy6xVNqahMe5cQ1rDYz4+ItliwTXyuM46IMSieaSH3OSOOD/NfcWaEi1wt/1pwqYGeqDQBwMeg==
+eslint-plugin-astro@^0.27.0:
+  version "0.27.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-astro/-/eslint-plugin-astro-0.27.1.tgz#a3800c4a8c3bc332c1c2c5e4238b85725936ebb5"
+  integrity sha512-xt02HVlj5lBoAPzYOKDfVa3swjFr2Vh0Rj6TsInWmfcmQcjEkDMnu9olUAF8Q+LqHr0wQr5z6GmcxJskSqOmjQ==
   dependencies:
     "@eslint-community/eslint-utils" "^4.2.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
     "@typescript-eslint/types" "^5.25.0"
-    astro-eslint-parser "^0.13.0"
+    astro-eslint-parser "^0.14.0"
     postcss "^8.4.14"
     postcss-selector-parser "^6.0.10"
 
