@@ -63,7 +63,9 @@ const { title, description, image } = Astro.props
     Sentry.init({
       dsn: 'https://9dc4194e92514fb8bf106caf3b0cc4aa@o540966.ingest.sentry.io/4504228952801280',
       integrations: [new BrowserTracing()],
-      tracesSampleRate: 1.0
+      tracesSampleRate: 1.0,
+      replaysSessionSampleRate: 1,
+      replaysOnErrorSampleRate: 1
     })
 
   LogRocket && LogRocket.init('blog-mi42z/blog')

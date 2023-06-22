@@ -75,7 +75,7 @@ const { className = '' } = Astro.props
   })
 
   var span = document.getElementsByClassName('close')[0]
-  span.addEventListener('click', () => {
+  span?.addEventListener('click', () => {
     if (modal) {
       modal.style.display = 'none'
       document.body.style.overflow = 'auto'
