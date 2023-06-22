@@ -7,4 +7,77 @@ const { className = '' } = Astro.props
 
 <article class={`article max-w-3xl flex flex-col ${className}`}>
   <slot />
+
+  <div id="myModal" class="modal">
+    <span class="close">X</span>
+    <img class="modal-content" id="img01" />
+    <div id="caption"></div>
+  </div>
 </article>
+
+<style>
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    margin: auto;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-content {
+    margin: auto;
+    display: block;
+    width: 100%;
+  }
+
+  .close {
+    position: fixed;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  var modal = document.getElementById('myModal')
+  var modalImg = document.getElementById('img01') as HTMLImageElement
+  var imgs = document.querySelectorAll(
+    'article img'
+  ) as NodeListOf<HTMLImageElement>
+
+  imgs.forEach(function (img) {
+    img.style.cursor = 'pointer'
+    img.addEventListener('click', () => {
+      if (modal && modalImg) {
+        modal.style.display = 'flex'
+        document.body.style.overflow = 'hidden'
+
+        modalImg.src = img.src
+      }
+    })
+  })
+
+  var span = document.getElementsByClassName('close')[0]
+  span.addEventListener('click', () => {
+    if (modal) {
+      modal.style.display = 'none'
+      document.body.style.overflow = 'auto'
+    }
+  })
+</script>
