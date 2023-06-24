@@ -34,4 +34,4 @@ WORKDIR /app
 ENV NODE_ENV production
 ENV PATH /root/.volta/bin:$PATH
 
-CMD [ "yarn", "run", "preview" ]
+CMD [ "yarn", "run", "serve" ]
