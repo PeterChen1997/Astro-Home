@@ -8,7 +8,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview --host=0.0.0.0",
-    "serve": "cd ./dist && http-server -a=0.0.0.0",
+    "serve": "cd ./dist && http-server -a=0.0.0.0 -p=3000",
     "astro": "astro"
   },
   "dependencies": {
