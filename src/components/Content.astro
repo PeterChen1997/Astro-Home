@@ -1,4 +1,6 @@
 ---
+import { AiOutlineCloseCircle } from 'react-icons/ai'
+
 export interface Props {
   className?: string
 }
@@ -9,7 +11,9 @@ const { className = '' } = Astro.props
   <slot />
 
   <div id="myModal" class="modal">
-    <span class="close">X</span>
+    <span class="close">
+      <AiOutlineCloseCircle />
+    </span>
     <img class="modal-content" id="img01" />
     <div id="caption"></div>
   </div>
@@ -56,9 +60,9 @@ const { className = '' } = Astro.props
 </style>
 
 <script>
-  var modal = document.getElementById('myModal')
-  var modalImg = document.getElementById('img01') as HTMLImageElement
-  var imgs = document.querySelectorAll(
+  const modal = document.getElementById('myModal')
+  const modalImg = document.getElementById('img01') as HTMLImageElement
+  const imgs = document.querySelectorAll(
     'article img'
   ) as NodeListOf<HTMLImageElement>
 
@@ -74,7 +78,7 @@ const { className = '' } = Astro.props
     })
   })
 
-  var span = document.getElementsByClassName('close')[0]
+  const span = document.getElementsByClassName('close')[0]
   span?.addEventListener('click', () => {
     if (modal) {
       modal.style.display = 'none'

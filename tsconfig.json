@@ -3,6 +3,11 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "react",
-    "types": ["@astrojs/image/client", "./src/env.d.ts"]
+    "types": ["@astrojs/image/client", "./src/env.d.ts"],
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      }
+    ]
   }
 }
