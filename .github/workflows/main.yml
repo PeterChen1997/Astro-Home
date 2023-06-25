@@ -18,5 +18,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy
+      - run: flyctl deploy --wait-timeout=1200
       # - run: flyctl deploy --remote-only
