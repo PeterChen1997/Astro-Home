@@ -8,6 +8,7 @@ import Content from '../components/Content.astro'
 import { getReadingTime } from '../libs/readingTime'
 import dayjs from 'dayjs'
 import CommonPicture from '../components/CommonPicture.astro'
+import ViewedCount from '../components/ViewedCount'
 
 export interface Props {
   content: {
@@ -42,11 +43,10 @@ const {
         }
         {
           updatedDate && (
-            <div>
-              Last updated: <time>{updatedDate}</time>
-            </div>
+            <time>Last updated: {dayjs(pubDate).format('YYYY-MM-DD')}</time>
           )
         }
+        <ViewedCount postId={title} client:load />
         <p>{getReadingTime(Astro.props.compiledContent())} minutes to read</p>
         <hr class="border-top border-zinc-400 my-4" />
         <slot />
