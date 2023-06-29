@@ -10,6 +10,16 @@ import CommonPicture from '../components/CommonPicture.astro'
 
 const sites = [
   {
+    url: 'https://www.pseudoyu.com/zh/',
+    title: `Pseudoyu
+Blockchain | Programming | Photography | Misty
+    `
+  },
+  {
+    url: 'https://diygod.me/',
+    title: 'Hi, DIYGod'
+  },
+  {
     url: 'https://me.ursb.me/',
     title: 'Airing 的小屋'
   }
@@ -31,12 +41,12 @@ const sites = [
         </div>
       </section>
       <section>
-        <ul class="grid grid-cols-1 gap-4">
+        <ul class="grid grid-cols-1">
           {
             sites.map(site => (
-              <li class="text-center mb-4">
+              <li class="text-center">
                 <a
-                  class="underline underline-offset-2 hover:text-orange-500 decoration-orange-300"
+                  class="underline underline-offset-2 hover:text-orange-500 decoration-orange-300 whitespace-pre-line"
                   target="_blank"
                   href={site.url}
                 >
