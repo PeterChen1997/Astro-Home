@@ -1,24 +1,17 @@
+import { useEffect, useState } from 'react'
 import useAxios from 'axios-hooks'
-import { useEffect } from 'react'
+import { isClientSide, isServerSide } from '../utils'
 
 const ViewedCount = ({ postId }: { postId: string }) => {
-  const [{ data }, fetch] = useAxios<{ viewCount: number }>(
-    {
-      url: 'https://eastasia.azure.data.mongodb-api.com/app/application-0-etshh/endpoint/article/view',
-      method: 'POST',
-      data: {
-        postId
-      }
-    },
-    {
-      manual: true
-    }
-  ) ?? [{}]
-
-  useEffect(() => {
-    fetch()
-  }, [fetch])
-
+  const [{ data }] = isClientSide()
+    ? useAxios({
+        url: 'https://eastasia.azure.data.mongodb-api.com/app/application-0-etshh/endpoint/article/view',
+        method: 'POST',
+        data: {
+          postId
+        }
+      })
+    : ([{}, () => {}] as any)
   const viewedCount = data?.viewCount
   console.log(data)
 
