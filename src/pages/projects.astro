@@ -11,6 +11,14 @@ import CommonPicture from '../components/CommonPicture.astro'
 // Use Astro.glob() to fetch all posts, and then sort them by date.
 const posts = [
   {
+    demoUrl: 'https://s.peterchen97.cn',
+    image:
+      '/assets/imgs/4c4b91d8ab7326794ce06aea0512c9e998d962dfb707a6c2e1c8ac6a0b543fd2.png',
+    title: '短链生成服务',
+    description:
+      '可以将长链接生成为合适的短链接，这个基本能用，但是一些 edge case 并没有考虑'
+  },
+  {
     demoUrl: '/',
     sourceUrl: 'https://github.com/PeterChen1997/Astro-Home',
     image:
@@ -70,7 +78,7 @@ const posts = [
                 <CommonPicture image={post.image} />
                 <div class="mt-3 text-xl font-bold">{post.title}</div>
                 {post.description && (
-                  <div class="opacity-70">{post.description}</div>
+                  <div class="opacity-70 min-h-[80px]">{post.description}</div>
                 )}
                 <div class="mt-3" />
                 <button class="w-32 border border-slate-300 dark:border-zinc-700 rounded-md p-1   hover:bg-orange-200 dark:hover:bg-zinc-800">
@@ -78,11 +86,13 @@ const posts = [
                     Online Site
                   </a>
                 </button>
-                <button class="w-32 border border-slate-300 dark:border-zinc-700 rounded-md p-1   hover:bg-orange-200 dark:hover:bg-zinc-800">
-                  <a target="_blank" href={post.sourceUrl}>
-                    Source Code
-                  </a>
-                </button>
+                {post.sourceUrl && (
+                  <button class="w-32 border border-slate-300 dark:border-zinc-700 rounded-md p-1   hover:bg-orange-200 dark:hover:bg-zinc-800">
+                    <a target="_blank" href={post.sourceUrl}>
+                      Source Code
+                    </a>
+                  </button>
+                )}
               </li>
             ))
           }
