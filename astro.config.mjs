@@ -15,7 +15,7 @@ export default defineConfig({
       [
         addClasses,
         {
-          code: 'bg-gray-200 dark:bg-gray-800 p-1 rounded-md text-red-500',
+          code: 'bg-gray-200 dark:bg-gray-800 p-1 rounded-md text-red-500 mx-1',
           h1: 'text-3xl font-bold py-4',
           h2: 'text-2xl font-bold py-4',
           h3: 'text-xl font-bold py-3',
@@ -23,7 +23,7 @@ export default defineConfig({
           h5: 'font-bold py-1',
           h6: 'font-bold',
           img: 'border border-slate-300 dark:border-zinc-700 rounded-xl mb-6 max-h-[500px] mx-auto',
-          p: 'mb-3 pb-1 leading-7 text-justify',
+          p: 'mb-3 pb-1 leading-7 text-justify tracking-wide	',
           a: 'underline underline-offset-2 hover:text-orange-500 decoration-orange-500',
           li: 'leading-7 text-justify',
           ul: 'pl-5',
