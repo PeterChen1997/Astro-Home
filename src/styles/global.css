@@ -28,6 +28,10 @@ li ol {
   margin-bottom: 0;
 }
 
+ul:not(:only-child):not(:last-child) {
+  margin-bottom: 10px;
+}
+
 .article ol li {
   list-style: decimal;
 }
