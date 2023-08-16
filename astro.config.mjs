@@ -8,7 +8,15 @@ import { astroImageTools } from 'astro-imagetools'
 
 export default defineConfig({
   site: 'https://blog.peterchen97.cn',
-  integrations: [tailwind(), sitemap(), react(), compress(), astroImageTools],
+  integrations: [
+    tailwind(),
+    sitemap(),
+    react(),
+    compress({
+      Image: false
+    }),
+    astroImageTools
+  ],
   markdown: {
     extendDefaultPlugins: true,
     rehypePlugins: [
