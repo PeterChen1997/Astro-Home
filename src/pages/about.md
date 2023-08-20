@@ -24,7 +24,8 @@ heroImage: "/home.png"
 
 <img src="/assets/imgs/693dc9e035d8b2ec018fc9e544648ef9d55dfbda40f64b8c9ffb6d4940575174.jpg" width="120" height= "120" style="margin: 10px auto;"/>
 
-- 我的每日推荐: https://t.me/yangchendaily
+- 我的每日推荐: [Telegram Channel](https://t.me/yangchendaily)
+- 我的阅读划线：[Notion Link](https://peterchen97.notion.site/c1bab099d18e45188c8b17296c62452a)
 
 ## ⛹ 兴趣爱好
 
