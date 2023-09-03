@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import useAxios from 'axios-hooks'
-import { isClientSide, isServerSide } from '../utils'
+
+import { isClientSide } from '../utils'
 
 const ViewedCount = ({ postId }: { postId: string }) => {
   const [{ data }] = isClientSide()

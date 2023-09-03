@@ -5,6 +5,7 @@ import tailwind from '@astrojs/tailwind'
 import addClasses from 'rehype-add-classes'
 import compress from 'astro-compress'
 import { astroImageTools } from 'astro-imagetools'
+import NetlifyCMS from 'astro-netlify-cms'
 
 export default defineConfig({
   site: 'https://blog.peterchen97.cn',
@@ -15,7 +16,36 @@ export default defineConfig({
     compress({
       Image: false
     }),
-    astroImageTools
+    astroImageTools,
+    NetlifyCMS({
+      config: {
+        backend: {
+          name: 'git-gateway',
+          branch: 'master'
+        },
+        collections: [
+          {
+            name: 'posts',
+            label: 'Blog Posts',
+            folder: 'src/pages/posts',
+            create: true,
+            delete: true,
+            fields: [
+              { name: 'title', widget: 'string', label: 'Post Title' },
+              {
+                label: 'Layout',
+                name: 'layout',
+                widget: 'hidden',
+                default: '../../layouts/BlogPost.astro'
+              },
+              { name: 'body', widget: 'markdown', label: 'Post Body' },
+              { name: 'pubDate', widget: 'datetime', label: 'Publish Date' },
+              { name: 'heroImage', widget: 'image', label: 'Featured Image' }
+            ]
+          }
+        ]
+      }
+    })
   ],
   markdown: {
     extendDefaultPlugins: true,
