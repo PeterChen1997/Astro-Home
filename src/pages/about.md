@@ -16,7 +16,7 @@ heroImage: "/home.png"
 
 19 年开始从业前端开发，曾在字节跳动、猿辅导工作，目前在红杉中国工作
 
-啥都想学，啥都不精，这是我的一些账号，欢迎交流
+啥都想学，啥都不是很精哈哈哈，这是我的一些账号，欢迎交流
 
 - Github：<https://github.com/PeterChen1997>
 - 即刻：Peterchen97
@@ -26,11 +26,30 @@ heroImage: "/home.png"
 
 - 我的每日推荐: [Telegram Channel](https://t.me/yangchendaily)
 - 我的阅读划线：[Notion Link](https://peterchen97.notion.site/c1bab099d18e45188c8b17296c62452a)
-
+- 我参与的播客：
+  - [请回答2019。毕业这3年我们也都不赖！ | VTime13
+](https://www.xiaoyuzhoufm.com/episode/62c30c6b03c2510a49a81df8)
+  - [职场人"硬核"养生讲学 | VTime04](https://www.xiaoyuzhoufm.com/episode/618f76a7ceafa8518f8993e3)
+  - [公司遭遇不测，摸鱼躺平竟然使我安心 | VTime03](https://www.xiaoyuzhoufm.com/episode/613a55913200f2dcb5716230)
+  - [我为什么“出逃”字节跳动？盘点毕业一年跳槽的得与失 | VTime02
+](https://www.xiaoyuzhoufm.com/episode/60f927b75a259c96043aead9)
 ## ⛹ 兴趣爱好
 
+感兴趣的领域：
+
+- 新能源汽车 🚗
+- 金融 💲
+- 创业 💪
+- 效率工具 🛠
+- 中医 👨‍⚕️
+- 音乐 🎵
+
+感兴趣的活动：
+
 - 钢琴：3 年半练习生 🎹
+- 架子鼓：一个月练习生 🥁
+- 看书 📖
 - 健身：毫无训练痕迹的多年健身人士 🍐
 - 徒步 🚶
 - 攀岩 🧗
-- 看书 📖
+
