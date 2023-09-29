@@ -6,11 +6,8 @@ import { isClientSide } from '../utils'
 const ViewedCount = ({ postId }: { postId: string }) => {
   const [{ data }] = isClientSide()
     ? useAxios({
-        url: 'https://eastasia.azure.data.mongodb-api.com/app/application-0-etshh/endpoint/article/view',
-        method: 'POST',
-        data: {
-          postId
-        }
+        url: `https://n8nn.zeabur.app/webhook/444299a4-c5bf-4a75-a628-f827196e4033/blog/view/${postId}`,
+        method: 'GET'
       })
     : ([{}, () => {}] as any)
   const viewedCount = data?.viewCount
