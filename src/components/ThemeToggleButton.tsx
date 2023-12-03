@@ -21,6 +21,9 @@ export default function ThemeToggle() {
     const t = theme === 'light' ? 'dark' : 'light'
     localStorage.setItem('theme', t)
     setTheme(t)
+    if (window.REMARK42) {
+      window.REMARK42.changeTheme(t)
+    }
   }
 
   useEffect(() => {
