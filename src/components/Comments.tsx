@@ -24,7 +24,7 @@ const insertScript = (id: string, parentElement: HTMLElement) => {
   }
 
   // Get the host from the environment variables.
-  const host = 'http://8.141.89.40:8088'
+  const host = 'https://comment.peterchen97.cn'
 
   // Set the inner HTML of the script to load Remark42.
   script.innerHTML = `
@@ -89,13 +89,6 @@ export function Comments() {
     }
   }, [theme])
 
-  // Function to toggle the theme.
-  const toggleTheme = () => {
-    const t = theme === 'light' ? 'dark' : 'light'
-    localStorage.setItem('theme', t)
-    setTheme(t)
-  }
-
   useEffect(() => {
     const root = document.documentElement
     if (theme === 'light') {
@@ -112,7 +105,7 @@ export function Comments() {
   return (
     <>
       <h2 className="font-bold">Comments</h2>
-      <p>
+      <p className="mb-3">
         There are <span className="remark42__counter"></span> comments.
       </p>
       {/* The div where Remark42 will embed the comments. */}
