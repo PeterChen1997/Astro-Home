@@ -23,6 +23,8 @@ ENV NODE_ENV production
 COPY . .
 
 RUN yarn install && yarn run build
+RUN bash scripts/replace-cdn.sh
+
 FROM debian:bullseye
 
 LABEL fly_launch_runtime="nodejs"

@@ -17,7 +17,7 @@ const { image } = Astro.props
   <Picture
     layout="fill"
     preload="webp"
-    src={image}
+    src={import.meta.env.DEV ? image : `https://cdn.peterchen97.cn${image}`}
     alt="Image"
     width={720 * 2}
     objectFit="cover"
