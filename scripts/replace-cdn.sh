@@ -8,9 +8,10 @@ find "$dir" -type f -name "*.html" -print0 | while IFS= read -r -d '' file; do
     if [[ "$(uname)" == "Darwin" ]]; then
         # macOS
         sed -i '' -e 's|"/_astro/|"https://cdn.peterchen97.cn/_astro/|g' -e 's| /_astro/| https://cdn.peterchen97.cn/_astro/|g' \
-        -e 's|=/assets/|=https://cdn.peterchen97.cn/assets/|g' "$file"
+        -e 's|=/assets/|=https://cdn.peterchen97.cn/assets/|g' -e 's|src=/_astro/|src=https://cdn.peterchen97.cn/_astro/|g' "$file"
     else
         # Linux
-        sed -i -e 's|"/_astro/|"https://cdn.peterchen97.cn/_astro/|g' -e 's| /_astro/| https://cdn.peterchen97.cn/_astro/|g' -e 's|=/assets/|=https://cdn.peterchen97.cn/assets/|g' "$file"
+        sed -i -e 's|"/_astro/|"https://cdn.peterchen97.cn/_astro/|g' -e 's| /_astro/| https://cdn.peterchen97.cn/_astro/|g' \
+        -e 's|=/assets/|=https://cdn.peterchen97.cn/assets/|g' -e 's|src=/_astro/|src=https://cdn.peterchen97.cn/_astro/|g' "$file"
     fi
 done
