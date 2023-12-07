@@ -28,7 +28,7 @@ RUN yarn install
 # 现在复制剩余的文件并构建应用
 COPY . .
 RUN yarn run build
-RUN bash scripts/replace-cdn.sh
+# RUN bash scripts/replace-cdn.sh
 
 # 使用 debian:bullseye 作为生产阶段的基础镜像
 FROM debian:bullseye

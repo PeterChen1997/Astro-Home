@@ -47,9 +47,9 @@ export default defineConfig({
     //   }
     // })
   ],
-  build: {
-    assetsPrefix: 'https://cdn.peterchen97.cn'
-  },
+  // build: {
+  //   assetsPrefix: 'https://cdn.peterchen97.cn'
+  // },
   markdown: {
     extendDefaultPlugins: true,
     rehypePlugins: [
