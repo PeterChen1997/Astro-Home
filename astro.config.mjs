@@ -70,7 +70,8 @@ export default defineConfig({
           ul: 'pl-5',
           ol: 'pl-5',
           blockquote:
-            'leading-7 mb-6 border-l-4 border-gray-500 pl-4 text-justify'
+            'leading-7 mb-6 border-l-4 border-gray-500 pl-4 text-justify',
+          strong: 'dark:text-white'
         }
       ]
     ]
