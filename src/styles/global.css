@@ -55,10 +55,7 @@ ul:not(:only-child):not(:last-child) {
 pre.astro-code {
   margin: 1rem 0;
   padding: 1rem;
-  background-color: hsl(50deg 100% 8%) !important;
-}
-
-pre.astro-code {
+  background-color: #17191e;
   border: 1px solid #2a95fa;
   border-radius: 0.3rem;
   line-height: 1.65;
