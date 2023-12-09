@@ -51,4 +51,4 @@ jobs:
           ./qshell account $AK $SK PeterChen
       - name: Execute qshell
         run: |
-          ./qshell qupload2 --src-dir=. --bucket=peterchen-blog
+          ./qshell qupload2 --src-dir=dist --bucket=peter-blog
