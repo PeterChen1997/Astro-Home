@@ -1,11 +1,8 @@
-name: Fly Deploy
+name: Upload to qiniuyun
 on:
   push:
     branches:
       - master
-
-env:
-  FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 jobs:
   cancel:
     name: Cancel Previous Runs
@@ -13,10 +10,26 @@ jobs:
     steps:
       - uses: styfle/cancel-workflow-action@0.11.0
   deploy:
-    name: Deploy app
+    name: Upload
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy --wait-timeout=1200
-      # - run: flyctl deploy --remote-only
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '19.x'
+      - name: Run Yarn
+        run: yarn
+      - name: Run build
+        run: yarn build
+      - name: Upload
+        uses: luochongfei/up2qn@master
+        with:
+          bucket: peter-blog
+          zone: 华北-河北
+          access_key: ${{ secrets.AK }} # 七牛云 AccessKey 备注2
+          secret_key: ${{ secrets.SK }} # 七牛云 SecretKey 备注2
+          local_dir: dist
+          # local_exclude: "**/node_modules/**" # 要排除的内容，要符合 glob 格式
+          target_dir: / # 要上传到七牛云中的文件夹
