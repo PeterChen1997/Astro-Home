@@ -39,6 +39,7 @@ heroImage: "/home.png"
   - [公司遭遇不测，摸鱼躺平竟然使我安心 | VTime03](https://www.xiaoyuzhoufm.com/episode/613a55913200f2dcb5716230)
   - [我为什么“出逃”字节跳动？盘点毕业一年跳槽的得与失 | VTime02
 ](https://www.xiaoyuzhoufm.com/episode/60f927b75a259c96043aead9)
+- 我的 Discord 频道：[邀请链接](https://discord.gg/atrPNrtacT)
 
 
 ### 能力范围

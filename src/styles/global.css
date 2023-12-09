@@ -68,3 +68,7 @@ code {
 hr {
   margin-bottom: 10px;
 }
+
+p:only-child {
+  margin-bottom: 0;
+}
