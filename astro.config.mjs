@@ -1,11 +1,10 @@
-import { defineConfig } from 'astro/config'
 import sitemap from '@astrojs/sitemap'
+import { defineConfig } from 'astro/config'
 import react from '@astrojs/react'
 import tailwind from '@astrojs/tailwind'
 import addClasses from 'rehype-add-classes'
 import compress from 'astro-compress'
 import { astroImageTools } from 'astro-imagetools'
-// import NetlifyCMS from 'astro-netlify-cms'
 
 export default defineConfig({
   site: 'https://blog.peterchen97.cn',
