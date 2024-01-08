@@ -72,3 +72,21 @@ hr {
 p:only-child {
   margin-bottom: 0;
 }
+
+tr:not(:last-child) {
+  border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+td:first-child {
+  font-weight: 500;
+}
+
+th {
+  min-width: 68px;
+}
+
+table {
+  border: 1px solid rgb(221, 221, 221);
+  font-size: 14px;
+  min-width: 581px;
+}

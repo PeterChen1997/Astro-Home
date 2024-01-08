@@ -28,7 +28,7 @@ const posts = (await Astro.glob('./posts/*.md'))
       <h1 class="text-3xl font-bold py-4 text-center">{SITE_TITLE}</h1>
       <section>
         <div class="mb-8 indent-4 flex flex-col items-center">
-          <p>{SITE_DESCRIPTION}</p>
+          <p class="text-center">{SITE_DESCRIPTION}</p>
           <a class="items-center gap-1 indent-1 text-orange-500" href={'/about'}
             >Learn more about me <IoArrowForward className="inline" />
           </a>

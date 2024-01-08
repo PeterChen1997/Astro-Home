@@ -70,7 +70,10 @@ export default defineConfig({
           ol: 'pl-5',
           blockquote:
             'leading-7 mb-6 border-l-4 border-gray-500 pl-4 text-justify',
-          strong: 'dark:text-white'
+          strong: 'dark:text-white',
+          table: 'divide-y divide-gray-200',
+          th: 'px-2 py-3 text-left  font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider bg-gray-50 dark:bg-gray-600',
+          td: 'px-2 py-4 h-10'
         }
       ]
     ]
