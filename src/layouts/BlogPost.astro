@@ -44,7 +44,7 @@ const {
         }
         {
           updatedDate && (
-            <time>Last updated: {dayjs(pubDate).format('YYYY-MM-DD')}</time>
+            <time>Last updated: {dayjs(updatedDate).format('YYYY-MM-DD')}</time>
           )
         }
         <ViewedCount postId={title} client:load />
