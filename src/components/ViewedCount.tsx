@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import useAxios from 'axios-hooks'
 
 import { isClientSide } from '../utils'
@@ -12,7 +11,6 @@ const ViewedCount = ({ postId }: { postId: string }) => {
         })
       : ([{}, () => {}] as any)
   const viewedCount = data?.viewCount
-  console.log(data)
 
   return <p>Viewed: {viewedCount ? `${viewedCount} times` : 'loading...'}</p>
 }

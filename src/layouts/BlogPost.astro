@@ -10,6 +10,8 @@ import dayjs from 'dayjs'
 import CommonPicture from '../components/CommonPicture.astro'
 import ViewedCount from '../components/ViewedCount'
 import { Comments } from '../components/Comments'
+import { Button, Input, Select, Space } from 'antd'
+import Subscribe from '../components/Subscribe'
 
 export interface Props {
   content: {
@@ -54,10 +56,11 @@ const {
       </Content>
       <Comments client:visible />
     </Main>
-    <div class="text-zinc-500 p-4 text-center">
+    <div class="p-4 text-center">
+      <Subscribe client:load />
       <a
         target="_blank"
-        class="underline underline-offset-2 hover:text-orange-500 decoration-orange-300"
+        class="text-zinc-500 underline underline-offset-2 hover:text-orange-500 decoration-orange-300"
         href="https://github.com/PeterChen1997/Astro-Home/issues/6"
         >如有发现问题，请点击这里勘误🐶</a
       >
