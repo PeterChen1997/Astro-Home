@@ -11,7 +11,8 @@
     "serve": "cd ./dist && http-server -a=0.0.0.0 -p=3000",
     "astro": "astro",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=chpt_5396494000f09e4"
   },
   "dependencies": {
     "@astrojs/image": "^0.17.0",
