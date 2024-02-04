@@ -28,7 +28,7 @@ export default function DropdownMenu({open}: {open?: boolean}) {
     {
       key: 'rss',
       path: '/rss.xml',
-      title: 'RSS 订阅'
+      title: 'RSS'
     },
     {
       key: 'source',
