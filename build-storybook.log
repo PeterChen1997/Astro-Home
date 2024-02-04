@@ -1,0 +1,81 @@
+yarn run v1.22.21
+$ storybook build --output-dir /tmp/chromatic--10985-BVG8RXV1dIUT
+@storybook/cli v7.6.12
+
+info => Cleaning outputDir: /tmp/chromatic--10985-BVG8RXV1dIUT
+info => Loading presets
+info => Building manager..
+info => Manager built (153 ms)
+info => Building preview..
+info => Copying static files: /workspace/Astro-Home/node_modules/@storybook/manager/static at /tmp/chromatic--10985-BVG8RXV1dIUT/sb-common-assets
+vite v4.3.9 building for production...
+
+./sb-common-assets/fonts.css doesn't exist at build time, it will remain unchanged to be resolved at runtime
+transforming...
+node_modules/telejson/dist/index.mjs (1413:15) Use of eval in "node_modules/telejson/dist/index.mjs" is strongly discouraged as it poses security risks and may cause issues with minification.
+node_modules/telejson/dist/index.mjs (1416:18) Use of eval in "node_modules/telejson/dist/index.mjs" is strongly discouraged as it poses security risks and may cause issues with minification.
+✓ 670 modules transformed.
+rendering chunks...
+computing gzip size...
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/youtube-9f26eb0b.svg                      0.72 kB │ gzip:   0.35 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/tutorials-adff6365.svg                    1.27 kB │ gzip:   0.62 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/discord-f7d1b78c.svg                      2.41 kB │ gzip:   1.12 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/github-cdfc3270.svg                       2.72 kB │ gzip:   1.22 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/context-c612d889.png                      6.12 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/styling-c83082e0.png                      7.24 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/iframe.html                                     12.76 kB │ gzip:   3.60 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/docs-5b0c7100.png                        27.88 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/share-b59d6c77.png                       40.77 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/accessibility-cd6d60f7.png               42.34 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/figma-plugin-b0a5ad2d.png                44.25 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/theming-b6e819c3.png                     44.37 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/testing-6a59f681.png                     49.31 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/addon-library-bc7ba705.png              467.37 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/Header-a6911580.css                       0.51 kB │ gzip:   0.30 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/Button-bc1a867b.css                       0.52 kB │ gzip:   0.29 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/Page.stories-ece1482a.css                 0.93 kB │ gzip:   0.40 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/preview-3eeaa695.css                     17.59 kB │ gzip:   3.98 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/preview-b6544de3.js                       0.15 kB │ gzip:   0.15 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/react-16-142a3105.js                      0.16 kB │ gzip:   0.16 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/index-499bf612.js                         0.21 kB │ gzip:   0.17 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/WithTooltip-V3YHNWJZ-da1ba4fd.js          0.36 kB │ gzip:   0.21 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/syntaxhighlighter-V7JZZA35-b05fa99b.js    0.38 kB │ gzip:   0.23 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/index-a14fc4fc.js                         0.49 kB │ gzip:   0.31 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/preview-ac772e04.js                       0.50 kB │ gzip:   0.30 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/preview-73104b77.js                       0.64 kB │ gzip:   0.45 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/_commonjsHelpers-042e6b4d.js              0.73 kB │ gzip:   0.39 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/index-356e4a49.js                         0.77 kB │ gzip:   0.47 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/Header.stories-f625a66d.js                0.84 kB │ gzip:   0.44 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/preview-0ef86afd.js                       0.86 kB │ gzip:   0.55 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/jsx-runtime-09ad29cb.js                   1.04 kB │ gzip:   0.65 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/entry-preview-2c0872ee.js                 1.15 kB │ gzip:   0.67 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/Button-554a034d.js                        1.21 kB │ gzip:   0.58 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/DocsRenderer-NNNQARDV-95eaaf5a.js         1.25 kB │ gzip:   0.66 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/Button.stories-a1e8b2b3.js                1.50 kB │ gzip:   0.57 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/Header-fef501cf.js                        1.55 kB │ gzip:   0.73 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/index-11d98b33.js                         2.59 kB │ gzip:   1.26 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/preview-30b54f76.js                       3.21 kB │ gzip:   1.37 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/iframe-0a99a36e.js                        5.01 kB │ gzip:   1.68 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/preview-d01b88e8.js                       5.23 kB │ gzip:   2.41 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/preview-da31036b.js                       7.62 kB │ gzip:   1.55 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/index-f2bd0723.js                         7.66 kB │ gzip:   3.23 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/preview-c56bf6ac.js                       8.28 kB │ gzip:   3.17 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/Configure-5545e13d.js                    16.94 kB │ gzip:   7.69 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/Color-6VNJS4EI-ea47565d.js               30.98 kB │ gzip:  11.70 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/DropdownMenu.stories-c9ddda63.js         37.68 kB │ gzip:  13.04 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/preview-a07ea659.js                      72.07 kB │ gzip:  24.41 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/index-f1eb1ba1.js                        78.40 kB │ gzip:  23.55 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/index-6ee1abb9.js                       123.96 kB │ gzip:  40.09 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/entry-preview-docs-c41a089b.js          213.13 kB │ gzip:  66.83 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/index-fe4ed9f9.js                       539.41 kB │ gzip: 176.03 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/Page.stories-141fb101.js                563.09 kB │ gzip: 149.74 kB
+../../tmp/chromatic--10985-BVG8RXV1dIUT/assets/formatter-SWP5E3XI-353eec81.js          601.56 kB │ gzip: 186.20 kB
+
+(!) Some chunks are larger than 500 kBs after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 11.62s
+info => Preview built (13 s)
+info => Output directory: /tmp/chromatic--10985-BVG8RXV1dIUT
+Done in 14.61s.
