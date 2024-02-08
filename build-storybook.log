@@ -1,0 +1,14 @@
+yarn run v1.22.21
+$ storybook build --output-dir /tmp/chromatic--4878-t41IvjvfenQl
+@storybook/cli v7.6.12
+
+info => Cleaning outputDir: /tmp/chromatic--4878-t41IvjvfenQl
+info => Loading presets
+info => Building manager..
+info => Manager built (155 ms)
+info => Building preview..
+info => Copying static files: /workspace/Astro-Home/node_modules/@storybook/manager/static at /tmp/chromatic--4878-t41IvjvfenQl/sb-common-assets
+vite v4.3.9 building for production...
+
+./sb-common-assets/fonts.css doesn't exist at build time, it will remain unchanged to be resolved at runtime
+transforming...
