@@ -42,7 +42,7 @@ const Subscribe = () => {
       <div className="my-1 text-xl">📰 邮箱订阅 📰</div>
       <div className="my-1">不错过每篇更新~</div>
       <input
-        className="w-[200px] border py-1 px-2 m-1 rounded-md dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+        className="w-[200px] border py-1 px-2 m-1 rounded-md dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 placeholder:text-center"
         placeholder="peter@mail.com"
         onChange={e => setEmail(e.target.value)}
       />
