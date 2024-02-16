@@ -81,4 +81,4 @@ heroImage: "/home.png"
 
 国外还有好多地方想去哈哈哈
 
-<iframe src="https://www.google.com/maps/d/embed?mid=1NZ70u7O0IOLH1k1yLk44jyFJ8V4UQzhd&ehbc=2E312F" width="640" height="480"></iframe>
+<iframe src="https://www.google.com/maps/d/embed?mid=1NZ70u7O0IOLH1k1yLk44jyFJ8V4UQzhd&ehbc=2E312F" width="100%" height="480" style="margin-bottom: 20px;"></iframe>
