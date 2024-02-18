@@ -3,42 +3,41 @@ import React, { Fragment } from 'react'
 import { IoMenu } from 'react-icons/io5/index.js'
 import DropdownMenuItem from './DropdownMenuItem'
 
-export default function DropdownMenu({open}: {open?: boolean}) {
+export default function DropdownMenu({ open }: { open?: boolean }) {
   const menus = [
     {
       key: 'posts',
-      path: '/posts',
+      path: '/posts/index.html',
       title: 'Posts'
     },
     {
       key: 'about',
-      path: '/about',
+      path: '/about/index.html',
       title: 'About'
     },
     {
       key: 'projects',
-      path: '/projects',
+      path: '/projects/index.html',
       title: 'Projects'
     },
     {
       key: 'links',
-      path: '/links',
+      path: '/links/index.html',
       title: 'Links'
     },
     {
       key: 'rss',
       path: '/rss.xml',
       title: 'RSS Link'
-    },
-    {
-      key: 'source',
-      path: 'https://github.com/craftzdog/craftzdog-uses',
-      title: 'Source'
     }
   ]
 
   return (
-    <Menu as="div" className="relative inline-block text-left block md:hidden" __demoMode={open}>
+    <Menu
+      as="div"
+      className="relative inline-block text-left block md:hidden"
+      __demoMode={open}
+    >
       <div>
         <Menu.Button
           className="inline-flex justify-center rounded-md border border-zinc-400 dark:border-zinc-700 px-2 py-2 text-sm font-medium shadow-sm hover:bg-orange-200 dark:hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100 transition-all"
