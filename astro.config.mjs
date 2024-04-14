@@ -63,7 +63,7 @@ export default defineConfig({
           h5: 'font-bold py-1',
           h6: 'font-bold',
           img: 'border border-slate-300 dark:border-zinc-700 rounded-xl mb-6 max-h-[500px] mx-auto',
-          p: 'mb-3 pb-1 leading-7 text-justify tracking-wide	',
+          p: 'mb-3 pb-1 leading-7 tracking-wide	',
           a: 'underline underline-offset-2 hover:text-orange-500 decoration-orange-500',
           li: 'leading-7 text-justify',
           ul: 'pl-5',
