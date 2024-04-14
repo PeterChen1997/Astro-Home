@@ -103,7 +103,7 @@ We can’t deny that the traditional education system has many problems, but the
 
 So is there a new way to take the essence and discard the dross? I have read a books called 《未来学校》. It gives some deep thinking thoughts to solve this paradox. **Maybe it’s not a practical way, but it truly solve the problem in the draft.**
 
-![picture 5](/assets/imgs/6b89665503150f998477b65fea1bf16ff42cff8198a735d34082b1bc9531f76f.jpeg)  
+![picture 7](/assets/imgs/4791e0822d320be1ef079e97ea95a10d943bb88d8a0a848d54098ab5b1b63309.png)  
 
 If I have enough economical strength. I will send my children to the public primary school at first. They will get to know our neighbor’s children and will not get score pressure from my side. After that, I will send them to the international middle school and hight school. If they want, I will send them to the US or the Singapore for a bigger world vision.
 
