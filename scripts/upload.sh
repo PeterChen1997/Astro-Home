@@ -1,7 +1,7 @@
 sudo rm -rf ./dist
 sudo yarn build
 
-rm -rf /Users/peterchen/.qshell/users/晨阳/qupload2
+sudo rm -rf /Users/peterchen/.qshell/users/晨阳/qupload2
 
 # 需要删除缓存
 sudo ~/Downloads/qshell qupload2 --src-dir=dist --bucket=peter-blog --overwrite --thread-count 5
