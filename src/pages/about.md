@@ -14,7 +14,7 @@ heroImage: "/home.png"
 
 ## 👨‍💻 博主是谁
 
-19 年开始从业前端开发，曾在字节跳动、猿辅导工作，目前在红杉中国工作
+19 年开始从业前端开发，曾在字节跳动、猿辅导工作，目前在红杉中国工作，这是我的 <a class=" underline underline-offset-2 hover:text-orange-500 decoration-orange-300" href="https://me.peterchen97.cn" target="_blank">简历📝</a>
 
 一些有用的特质：
 
