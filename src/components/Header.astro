@@ -2,6 +2,8 @@
 import HeaderLink from './HeaderLink.astro'
 import { IoLogoGithub } from 'react-icons/io5/index.js'
 import { BiRss } from 'react-icons/bi/index.js'
+import { PiTelegramLogo } from 'react-icons/pi/index.js'
+
 import ThemeToggle from './ThemeToggleButton'
 
 import logoSvg from '/favicon.svg'
@@ -24,6 +26,10 @@ import DropdownMenu from './DropdownMenu'
         <HeaderLink href="/about/index.html">About</HeaderLink>
         <HeaderLink href="/projects/index.html">Projects</HeaderLink>
         <HeaderLink href="/links/index.html">Links</HeaderLink>
+        <HeaderLink href="https://daily.peterchen97.cn" target="_blank">
+          <PiTelegramLogo />
+          Daily
+        </HeaderLink>
         <HeaderLink href="/rss.xml" target="_blank">
           <BiRss />
           RSS 订阅

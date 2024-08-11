@@ -29,6 +29,11 @@ export default function DropdownMenu({ open }: { open?: boolean }) {
       key: 'rss',
       path: '/rss.xml',
       title: 'RSS Link'
+    },
+    {
+      key: 'daily',
+      path: 'https://daily.peterchen97.cn',
+      title: 'Daily'
     }
   ]
 
