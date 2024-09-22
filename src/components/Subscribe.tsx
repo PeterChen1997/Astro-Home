@@ -8,7 +8,7 @@ const Subscribe = () => {
   const [{ data, loading }, execute] = isClientSide()
     ? useAxios(
         {
-          url: `https://n8nn.zeabur.app/webhook/blog-subscribe`,
+          url: `https://n8n.peterchen97.cn/webhook/blog-subscribe`,
           method: 'GET'
         },
         {

@@ -7,7 +7,7 @@ const VisitedCount = () => {
   const [{ data }] =
     isClientSide() && import.meta.env.MODE !== 'development'
       ? useAxios({
-          url: `https://n8nn.zeabur.app/webhook/visit`,
+          url: `https://n8n.peterchen97.cn/webhook/visit`,
           method: 'GET'
         })
       : ([{}, () => {}] as any)
