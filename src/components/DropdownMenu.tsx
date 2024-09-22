@@ -2,40 +2,59 @@ import { Menu, Transition } from '@headlessui/react'
 import React, { Fragment } from 'react'
 import { IoMenu } from 'react-icons/io5/index.js'
 import DropdownMenuItem from './DropdownMenuItem'
+import { IoLogoGithub } from 'react-icons/io5/index.js'
+import { BiRss } from 'react-icons/bi/index.js'
+import { PiTelegramLogo } from 'react-icons/pi/index.js'
+
+export const MENUS = [
+  {
+    key: 'posts',
+    path: '/posts/index.html',
+    title: 'Posts'
+  },
+  {
+    key: 'about',
+    path: '/about/index.html',
+    title: 'About'
+  },
+  {
+    key: 'projects',
+    path: '/projects/index.html',
+    title: 'Projects'
+  },
+  {
+    key: 'links',
+    path: '/links/index.html',
+    title: 'Links'
+  },
+  {
+    key: 'daily',
+    path: 'https://daily.peterchen97.cn',
+    title: 'Daily',
+    icon: PiTelegramLogo,
+    hideIcon: true,
+    target: '_blank'
+  },
+  {
+    key: 'rss',
+    path: '/rss.xml',
+    title: 'RSS',
+    icon: BiRss,
+    hideTitle: true,
+    target: '_blank'
+  },
+  {
+    key: 'github',
+    path: 'https://github.com/PeterChen1997',
+    title: 'Github',
+    icon: IoLogoGithub,
+    hideTitle: true,
+    target: '_blank'
+  }
+]
 
 export default function DropdownMenu({ open }: { open?: boolean }) {
-  const menus = [
-    {
-      key: 'posts',
-      path: '/posts/index.html',
-      title: 'Posts'
-    },
-    {
-      key: 'about',
-      path: '/about/index.html',
-      title: 'About'
-    },
-    {
-      key: 'projects',
-      path: '/projects/index.html',
-      title: 'Projects'
-    },
-    {
-      key: 'links',
-      path: '/links/index.html',
-      title: 'Links'
-    },
-    {
-      key: 'rss',
-      path: '/rss.xml',
-      title: 'RSS Link'
-    },
-    {
-      key: 'daily',
-      path: 'https://daily.peterchen97.cn',
-      title: 'Daily'
-    }
-  ]
+  
 
   return (
     <Menu
@@ -66,7 +85,7 @@ export default function DropdownMenu({ open }: { open?: boolean }) {
             {/* <div className="px-3 py-2 uppercase font-bold text-xs">
               Categories
             </div> */}
-            {menus.map(menu => {
+            {MENUS.map(menu => {
               return (
                 <DropdownMenuItem key={menu.key} href={menu.path}>
                   {menu.title}
