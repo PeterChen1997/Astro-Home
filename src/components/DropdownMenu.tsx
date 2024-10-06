@@ -31,7 +31,13 @@ export const MENUS = [
     key: 'daily',
     path: 'https://daily.peterchen97.cn',
     title: 'Daily',
-    icon: PiTelegramLogo,
+    hideIcon: true,
+    target: '_blank'
+  },
+  {
+    key: 'photos',
+    path: 'https://peterchen97.notion.site/Public-Photos-11645019717480419bb4f12e5ed5e48a',
+    title: 'Photos',
     hideIcon: true,
     target: '_blank'
   },
@@ -54,8 +60,6 @@ export const MENUS = [
 ]
 
 export default function DropdownMenu({ open }: { open?: boolean }) {
-  
-
   return (
     <Menu
       as="div"
@@ -87,7 +91,11 @@ export default function DropdownMenu({ open }: { open?: boolean }) {
             </div> */}
             {MENUS.map(menu => {
               return (
-                <DropdownMenuItem key={menu.key} href={menu.path}>
+                <DropdownMenuItem
+                  key={menu.key}
+                  href={menu.path}
+                  target={menu.target}
+                >
                   {menu.title}
                 </DropdownMenuItem>
               )

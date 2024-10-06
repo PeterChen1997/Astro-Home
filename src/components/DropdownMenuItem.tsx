@@ -8,13 +8,15 @@ function classNames(...classes: string[]) {
 type Props = {
   href: string
   children: ReactNode
+  target?: string
 }
 
-export default function DropdownMenuItem({ href, children }: Props) {
+export default function DropdownMenuItem({ target, href, children }: Props) {
   return (
     <Menu.Item>
       {({ active }) => (
         <a
+          target={target}
           href={href}
           className={classNames(
             active ? 'bg-orange-200 dark:bg-zinc-700' : '',
