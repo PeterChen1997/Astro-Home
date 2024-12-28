@@ -90,3 +90,11 @@ table {
   font-size: 14px;
   min-width: 581px;
 }
+
+li > p {
+  margin-bottom: 0 !important;
+}
+
+p {
+  padding: 6px 2px;
+}
