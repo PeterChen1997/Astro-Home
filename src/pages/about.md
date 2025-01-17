@@ -2,7 +2,7 @@
 layout: "../layouts/BlogPost.astro"
 title: "关于"
 description: "欢迎来到我的小破站，很高兴遇见你！"
-updatedDate: "2024-04-15"
+updatedDate: "2025-01-17"
 heroImage: "/home.png"
 ---
 
@@ -64,10 +64,10 @@ heroImage: "/home.png"
 
 感兴趣的活动：
 
-- 钢琴：3 年半练习生 🎹
-- 架子鼓：6 个月练习生 🥁
 - 看书 📖
+- 架子鼓：一年半练习生 🥁
 - 健身：毫无训练痕迹的多年健身人士 🍐
+- 钢琴：三年半练习生 🎹
 - 徒步 🚶
 - 攀岩 🧗
 
@@ -82,6 +82,6 @@ heroImage: "/home.png"
 
 ## 🗺️ 我的足迹
 
-国外还有好多地方想去哈哈哈
+世界很大，还想去看看！
 
 <iframe src="https://www.google.com/maps/d/embed?mid=1NZ70u7O0IOLH1k1yLk44jyFJ8V4UQzhd&ehbc=2E312F" width="100%" height="480" style="margin-bottom: 20px;"></iframe>
