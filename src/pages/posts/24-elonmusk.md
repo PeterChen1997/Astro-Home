@@ -3,7 +3,7 @@ layout: "../../layouts/BlogPost.astro"
 title: "马斯克传-读书小记"
 description: "马斯克五十年的一览无余"
 pubDate: "2024-04-20"
-heroImage: "/assets/imgs/3409a7da783b322c559950d81891b877a3621ec769e6c122b9f6992384eb8cbc.png"
+heroImage: "https://blog.peterchen97.cn/assets/imgs/3409a7da783b322c559950d81891b877a3621ec769e6c122b9f6992384eb8cbc.png"
 ---
 
 这是今年读完的第一本书，因为这本书太火了，导致我对他的预期很高，读完的时候其实感觉收获没有太多，和硅谷钢铁侠给我的印象比较类似，这类平铺直叙的传记内容，并没有超出预期，结果开始写了发现叭叭叭写了一大堆hhh。读传记其实还真是千人千面，每个人都能从自己的**认知、体验和感触**出发，读完都会有自己独一无二的不同收获，所以还是值得一试地
@@ -30,7 +30,7 @@ heroImage: "/assets/imgs/3409a7da783b322c559950d81891b877a3621ec769e6c122b9f6992
 
 对于传记来说，按照时间关系进行描绘是常见的设计，此书也不例外。全书按照马斯克从出生到现在的关键时间点，逐一展开了详细的描绘，整体的内容比较新颖，有部分故事没有听过，并且配合一些具有年代感的图片进行描述，画面感非常强，体验还是不错的
 
-![picture 1](/assets/imgs/2bb06a570124ce95ac002b40c9b1fd0b0ecb3a77188f9ff9426cdfcd96a19b85.png)  
+![picture 1](https://blog.peterchen97.cn/assets/imgs/2bb06a570124ce95ac002b40c9b1fd0b0ecb3a77188f9ff9426cdfcd96a19b85.png)  
 
 但是书的后半部分，写道马斯克近几年和 twitter 相爱相杀相分，节奏突然就变得冗长和拖沓，可能是因为越靠近信息越多吧，作者整体没有做太多精简，而且大部分的故事也没有趣味性，就导致书籍节奏变的有些奇怪，导致这块我都是跳着看完的，这块体验还值得加强
 
@@ -65,7 +65,7 @@ heroImage: "/assets/imgs/3409a7da783b322c559950d81891b877a3621ec769e6c122b9f6992
   - 年份：2022
   - 估值：27 亿美元
 
-![picture 8](/assets/imgs/03f32f3b8d0c5751b467de60dae7f8d953b50caf76579b3a05404b0e463a6242.png)  
+![picture 8](https://blog.peterchen97.cn/assets/imgs/03f32f3b8d0c5751b467de60dae7f8d953b50caf76579b3a05404b0e463a6242.png)  
 
 **不难看出马斯克这个人就是为了创业而生的。** 结合创业公司的数量，行业分散度，成功程度来看，人类历史上这样的人才也属实罕见
 
@@ -77,7 +77,7 @@ heroImage: "/assets/imgs/3409a7da783b322c559950d81891b877a3621ec769e6c122b9f6992
 
 可能现在 Model S 的设计已经过时了，但是在当年，这样的设计就是实打实的豪车，在我眼里至少和奔驰不相上下。所以至少在十几年前，马斯克就把特斯拉的品牌调性深深的植入在了中国市场中了
 
-![picture 2](/assets/imgs/529aee2e4d69abf0bf4fcebac67978cc16a3167478d4e6dfdb81eb6093bd0429.png)  
+![picture 2](https://blog.peterchen97.cn/assets/imgs/529aee2e4d69abf0bf4fcebac67978cc16a3167478d4e6dfdb81eb6093bd0429.png)  
 
 再到后来，就是在大学里读到硅谷钢铁侠这本书了。那时相信没有一个男生没有幻想过自己能成为钢铁侠这样，技术和财力雄厚的 geek，如果有这么一个人能够做到，那么他的过去必然值得一读
 
@@ -93,7 +93,7 @@ heroImage: "/assets/imgs/3409a7da783b322c559950d81891b877a3621ec769e6c122b9f6992
 
 通过书中的不少经历都能看出，**马斯克对于他认定事情的那股犟劲，绝对不是一般人能够模仿的**，比如 SpaceX 早期试射的那段故事，如果马斯克在当时说放弃，所有人都会认为这是一个明智的决定，因为这是符合一个正常人对于风险成本收益的最佳评估逻辑的，但是，马斯克说不，**就算是我冒着坐牢风险，挪用公款，也要支撑它继续做下去**，好在幸运的是，牢里少了一个马斯克，多了一家人类历史上最伟大的公司；
 
-![picture 3](/assets/imgs/d9b27481384e58ee0581fa4d5607193d62cc246ea8972425fa8ef3ace87b8681.png)  
+![picture 3](https://blog.peterchen97.cn/assets/imgs/d9b27481384e58ee0581fa4d5607193d62cc246ea8972425fa8ef3ace87b8681.png)  
 
 很多大人物的成功，背后可能都有这么几次孤注一掷和破釜沉舟，这个坚定选择的魄力，值得敬佩。但同时，我们也要用另一个角度来看这个优秀品质：马斯克是看到了未来，认为他做的就是对的，认为他做的一定能成功吗？其实不尽然，不排除马斯克看到了一部分，但更多时候，可能只是犟罢了2333。这一点在后面 twitter 迁移服务器这件事上，表现的还是比较明显的
 
@@ -111,7 +111,7 @@ heroImage: "/assets/imgs/3409a7da783b322c559950d81891b877a3621ec769e6c122b9f6992
 
 > 读书仍然是埃隆的心灵寄托之一。有时候他会用一整个下午加上晚上的大部分时间阅读，一看就是9个小时。他跟着家人去别人家吃饭时，会泡在主人的书房里。进城的时候，他会四处闲逛，最后家人往往会在书店里找到他——坐在地板上，沉浸在自己的世界里。他对漫画也有很深的研究，超级英雄们孤注一掷的热情让他印象深刻。埃隆说：“他们总想要拯救世界，但会内裤外穿或穿紧身铁衣，你仔细琢磨一下，就会觉得哪里怪怪的，但他们的的确确是在试图拯救世界。”
 
-![picture 4](/assets/imgs/7a1e177bec8cd7843a9e77517ff496de4e844a08afb912db56fc9cdfa1405109.png)  
+![picture 4](https://blog.peterchen97.cn/assets/imgs/7a1e177bec8cd7843a9e77517ff496de4e844a08afb912db56fc9cdfa1405109.png)  
 
 马斯克看上去好像无所不知，造汽车、造火箭和做应用架构，都能手到擒来，还能做出决定性的决策。我相信大部分接触过马斯克的人，都毫不迟疑的会认为马斯克是个天才
 
@@ -131,17 +131,17 @@ heroImage: "/assets/imgs/3409a7da783b322c559950d81891b877a3621ec769e6c122b9f6992
 
 **关于营销**，musk 几乎没有花费任何传统广告费用，就成功推广了 Tesla 和 SpaceX。他完全依靠个人能力，通过 twitter 和公众采访，演讲，就完成了品牌价值的输出，这种能力其实是非常恐怖的。关于 Tesla 刹车事件，之所以沸腾到人尽皆知，可能也是公司并没有重点花钱去处理公关导致的结果，但是就在这种情况下，Tesla 的国内销量依然遥遥领先。
 
-![picture 5](/assets/imgs/6077a5995b9406952d65b9ca6c1ec1b1a504efdc5ce723a54e3de9d2bcd710e7.png)  
+![picture 5](https://blog.peterchen97.cn/assets/imgs/6077a5995b9406952d65b9ca6c1ec1b1a504efdc5ce723a54e3de9d2bcd710e7.png)  
 
 **关于资源整合**，musk 在整合技术、资金、人才和市场机会方面的能力，在 spaceX 的成功路径上，非常清晰明显的表现了出来。在造火箭这件事情上，如果只有钱，是没法将钢铁送上太空的，这一点不论是在美国还是在国内，都是一样的
 
 在国内的企业家中，就有这样一位和 musk 拥有同样能力的人，也就是被戏称为雷布斯的**雷军**。
 
-![picture 6](/assets/imgs/5c246584a481964fe82a795133df8c676f468eecb4ad22cc31628c866aa0c9dc.png)  
+![picture 6](https://blog.peterchen97.cn/assets/imgs/5c246584a481964fe82a795133df8c676f468eecb4ad22cc31628c866aa0c9dc.png)  
 
 关于雷军，最近最火的事情，无疑就是小米 Su7 了。是不是突然把这两个人一对比，发现这个能力的体现，简直是一模一样。通过优秀的营销和资源整合能力，从预订数量来看，雷军也交出了一张完美的答卷
 
-![picture 7](/assets/imgs/aa1cc2a5281fb06b874e6705774d44fd4ddd31eee878ab341bad207649bb9bc2.png)  
+![picture 7](https://blog.peterchen97.cn/assets/imgs/aa1cc2a5281fb06b874e6705774d44fd4ddd31eee878ab341bad207649bb9bc2.png)  
 
 那么他们是如何做到的呢，我简单想了下，应该有以下几点：
 
@@ -168,7 +168,7 @@ heroImage: "/assets/imgs/3409a7da783b322c559950d81891b877a3621ec769e6c122b9f6992
 
 ⬆️ 上面的这段内容，我愿称之为本书最精华的片段，所有在工作中有所思悟的人，都不能错过的一段精华。上面每一条内容，我都能找到自己的工作经历与之匹配，可以说上是优质打工人必备的思考模型
 
-![picture 9](/assets/imgs/1d029153ea6751511f9dd20f02cf22804644ec73c1f2f9999a3da26cf374729c.png)  
+![picture 9](https://blog.peterchen97.cn/assets/imgs/1d029153ea6751511f9dd20f02cf22804644ec73c1f2f9999a3da26cf374729c.png)  
 
 其实这个就是马斯克所推崇的第一性原理的**工作层面的表现**，就拿第一项来说，书中就有一个非常贴切的案例：
 
@@ -190,7 +190,7 @@ heroImage: "/assets/imgs/3409a7da783b322c559950d81891b877a3621ec769e6c122b9f6992
 
 > **“知识诅咒”** 指的是一旦人了解了某种知识，就很难站在没掌握这个知识的角度，去思考和理解他人。 “知识诅咒”是1990年斯坦福大学的博士候选人伊丽莎白·牛顿（Elizabeth Newton）通过实验首次提出的。 
 
-![picture 10](/assets/imgs/1c9dce4f15043c99ae45e3964e0cccbe4cdf96b4a9431823db3a96bb0891e7cc.png)  
+![picture 10](https://blog.peterchen97.cn/assets/imgs/1c9dce4f15043c99ae45e3964e0cccbe4cdf96b4a9431823db3a96bb0891e7cc.png)  
 
 就和上面的案例一样，如果实习生对你提了个幼稚的问题，下意识的发怒是大多数人对于无稽之谈的本能反应，因为你认为他应该和你拥有一样的信息源和上下文，就好像你的工作同事一本正经的跟你说 1 + 1 = 3 一样，你肯定会说：**啊？你在逗我？这不是小学生都知道是等于 2 吗**
 
@@ -208,7 +208,7 @@ heroImage: "/assets/imgs/3409a7da783b322c559950d81891b877a3621ec769e6c122b9f6992
 
 很多时候，因为决策基本上都是金字塔的形状，越往上需要去处理的信息就越多，尽管管理者获取了足够的信息，并且希望做出高质量的决策，但是依然可能会出现偏差，毕竟没有人比一线人员更懂业务。那么在有限的时间内，做出决策是第一位的，只要靠近正确就行，毕竟我们要**模糊的正确好过精确的错误**。决策的**数量和质量是不可兼得的**，在数量上升的时候，保证质量超过行业平均水平，那就是优秀的管理者，**指望管理者一件事情也不做错，把自己应该做的思考工作也做了，是错误而且幼稚的**
 
-![picture 11](/assets/imgs/6af8b21a62d35902aa08dcd468a9870fadca03e96ddd4eebe2534b6deca9b7db.png)  
+![picture 11](https://blog.peterchen97.cn/assets/imgs/6af8b21a62d35902aa08dcd468a9870fadca03e96ddd4eebe2534b6deca9b7db.png)  
 
 之前老板也分享过沈南鹏沈总的工作习惯，对于任务来说，立马决定做或不做，要么就往后放，这就是一流管理者的决策日常。打个比方，可能 musk 在做出减少钉子数量的决策时，只用了 10s，作为工人的你知道的话，你会怎么做呢
 
@@ -225,7 +225,7 @@ heroImage: "/assets/imgs/3409a7da783b322c559950d81891b877a3621ec769e6c122b9f6992
 
 <br />
 
-![picture 13](/assets/imgs/4d211c45d431c26efc17a56656bc01a7cc75904ca68b05060fbe7f976eaccbb4.png)  
+![picture 13](https://blog.peterchen97.cn/assets/imgs/4d211c45d431c26efc17a56656bc01a7cc75904ca68b05060fbe7f976eaccbb4.png)  
 
 其实这是一个双赢的交流方式，领导得到了他想要的信息，你也能够帮助上级正确实现目标，并且对你的职业生涯带来正面影响，何乐而不为呢
 
@@ -239,7 +239,7 @@ heroImage: "/assets/imgs/3409a7da783b322c559950d81891b877a3621ec769e6c122b9f6992
     - 马斯克说：“没有人会为看起来像垃圾一样的东西掏钱。”让一家汽车公司正确起步的方法是先打造一辆高价值的车，然后再转向大众市场车型。
         - 蔚来给马斯克点赞
 
-![picture 14](/assets/imgs/48f17735df49d9e5fafc5868e680c7ac6f008beb4b1977c51e41dbe727746c77.png)  
+![picture 14](https://blog.peterchen97.cn/assets/imgs/48f17735df49d9e5fafc5868e680c7ac6f008beb4b1977c51e41dbe727746c77.png)  
 
 - **知易行难**
     - 马斯克常说，设计出一辆车很容易，难的是制造出一辆车。
@@ -259,7 +259,7 @@ heroImage: "/assets/imgs/3409a7da783b322c559950d81891b877a3621ec769e6c122b9f6992
 
 最后给大家分享几个书中看到的有意思的小知识，那小记就到这了，下次见！
 
-![picture 15](/assets/imgs/666503adb2282b43fbb00ef390985330dee477946ebb85d647f4d9a73e0caf07.png)  
+![picture 15](https://blog.peterchen97.cn/assets/imgs/666503adb2282b43fbb00ef390985330dee477946ebb85d647f4d9a73e0caf07.png)  
 
 - 有钱也解决不了脱发，或者没法简单解决
 - 马斯克没有肚脐
