@@ -34,10 +34,12 @@ ul:not(:only-child):not(:last-child) {
 
 .article ol li {
   list-style: decimal;
+  word-break: break-all;
 }
 
 .article ul li {
   list-style: disc;
+  word-break: break-all;
 }
 
 ::-webkit-scrollbar,
