@@ -16,7 +16,7 @@ heroImage: "/assets/imgs/bc80937794dc06adafc661415c0ecfe9ff16e3d92fbd85cf32e7fb0
 
 沉迷小红书，不如沉迷小蓝书
 
-> 快捷指令 (参考视频配置即可使用)：[下载地址](https://www.icloud.com/shortcuts/78655b1e80b14736b6050b9b4ba6292b)
+> 快捷指令 (参考视频配置即可使用)：[下载地址](https://www.icloud.com/shortcuts/07827478789b4671b1778e009caae83b)
 
 <video width="320" height="240" controls class="mx-auto">
   <source src="/assets/videos/shortcut.mp4" type="video/mp4">
@@ -41,13 +41,14 @@ heroImage: "/assets/imgs/bc80937794dc06adafc661415c0ecfe9ff16e3d92fbd85cf32e7fb0
 ## 2. 三步安装，零门槛上手
 
 1. **下载指令**  
-   - 点开这条链接：  
-     https://www.icloud.com/shortcuts/78655b1e80b14736b6050b9b4ba6292b  
+   - 点开这条链接：  [Link](https://www.icloud.com/shortcuts/07827478789b4671b1778e009caae83b)
+       
 
-2. **授权访问**  
-   - 首次运行会要权限：如跳转微信读书  
+2. **授权访问**
+- iCloud Disk 权限：点击 文件 - iCloud，打开 iCloud Drive 权限，用于存储时间数据
+- 首次运行时会请求应用打开权限：如跳转微信读书  
 
-3. **设置自动化**  
+1. **设置自动化**  
    - 打开 iPhone「快捷指令 > 自动化 > 创建个人自动化」
    - 触发条件选「App」，点“**小红书**”，勾“打开时”
    - 动作选“运行快捷指令”，列表里挑刚刚下载的那条 
@@ -99,3 +100,7 @@ Done！以后只要你手痒打开小红书，提醒立刻弹出来，甚至可�
 
 
 ![picture 1](/assets/imgs/3b73d12db2ed1835600e0f35031e8baacaa88d89ed339ec727f557149e943000.png)  
+
+# 附录
+
+1. 如果你想在每次打开 app 的时候都触发，不想进入 3 分钟的冷却，欢迎使用狠人版的 shortcut：[Link](https://www.icloud.com/shortcuts/3d1afafa9c8d42369a88d37600831f02)
