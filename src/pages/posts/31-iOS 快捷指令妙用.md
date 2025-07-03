@@ -6,6 +6,7 @@ pubDate: "2025-06-17 10:00:00"
 heroImage: "/assets/imgs/bc80937794dc06adafc661415c0ecfe9ff16e3d92fbd85cf32e7fb0d52d5b1e7.png"
 ---
 
+> 本文由 AI 优化组织完成，非个人完整编写
 
 > “想看两分钟攻略，结果刷到半夜；书单躺在书架，灰都落了一层……”  
 >   
@@ -42,7 +43,6 @@ heroImage: "/assets/imgs/bc80937794dc06adafc661415c0ecfe9ff16e3d92fbd85cf32e7fb0
 
 1. **下载指令**  
    - 点开这条链接：  [Link](https://www.icloud.com/shortcuts/07827478789b4671b1778e009caae83b)
-       
 
 2. **授权访问**
 - iCloud Disk 权限：点击 文件 - iCloud，打开 iCloud Drive 权限，用于存储时间数据
