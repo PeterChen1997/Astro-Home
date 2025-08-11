@@ -65,19 +65,28 @@ const VisitedCount = () => {
     }
   }, [])
 
-  const [{ data }] =
+  // 确定是否应该发起请求
+  const shouldMakeRequest =
     isClientSide() &&
     import.meta.env.MODE !== 'development' &&
     userInfo.fingerprint
-      ? useAxios({
-          url: `https://n8n.peterchen97.cn/webhook/visit`,
-          method: 'GET',
-          params: {
+
+  // 始终调用 useAxios，但可以通过 manual 参数控制是否实际发起请求
+  const [{ data }] = useAxios(
+    {
+      url: `https://n8n.peterchen97.cn/webhook/visit`,
+      method: 'GET',
+      params: shouldMakeRequest
+        ? {
             fingerprint: userInfo.fingerprint,
             userType: userInfo.isNewUser ? 'new' : 'returning'
           }
-        })
-      : ([{}, () => {}] as any)
+        : {}
+    },
+    {
+      manual: !shouldMakeRequest
+    }
+  )
 
   const viewedCount = data?.viewCount
 
