@@ -1,4 +1,3 @@
-import useAxios from 'axios-hooks'
 import { FaUsers, FaEye } from 'react-icons/fa/index.js'
 import { useEffect, useState } from 'react'
 
@@ -43,15 +42,6 @@ const VisitedCount = () => {
     setIsInitialized(true)
   }, [])
 
-  // 手动模式的 axios hook
-  const [{ data }, executeRequest] = useAxios(
-    {
-      url: `https://n8n.peterchen97.cn/webhook/visit`,
-      method: 'POST'
-    },
-    { manual: true }
-  )
-
   // 发送统计请求 - 确保初始化完成且需要统计时只发送一次
   useEffect(() => {
     if (
@@ -63,22 +53,37 @@ const VisitedCount = () => {
       return
     }
 
-    executeRequest({
-      data: {
-        uniqueUser: isUniqueUser
-      }
-    })
-  }, [isInitialized, shouldTrack, isUniqueUser, executeRequest])
+    const sendVisitData = async () => {
+      try {
+        const response = await fetch(
+          'https://n8n.peterchen97.cn/webhook/visit',
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              uniqueUser: isUniqueUser
+            })
+          }
+        )
 
-  // 更新显示的数据
-  useEffect(() => {
-    if (data?.uvCount !== undefined) {
-      setUvCount(data.uvCount)
+        if (response.ok) {
+          const data = await response.json()
+          if (data?.uvCount !== undefined) {
+            setUvCount(data.uvCount)
+          }
+          if (data?.pvCount !== undefined) {
+            setPvCount(data.pvCount)
+          }
+        }
+      } catch (error) {
+        console.error('Failed to send visit data:', error)
+      }
     }
-    if (data?.pvCount !== undefined) {
-      setPvCount(data.pvCount)
-    }
-  }, [data])
+
+    sendVisitData()
+  }, [isInitialized, shouldTrack, isUniqueUser])
 
   return (
     <div className="flex flex-row justify-center items-center gap-4">
