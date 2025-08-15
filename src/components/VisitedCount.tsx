@@ -3,12 +3,46 @@ import { useEffect, useState } from 'react'
 
 import { isClientSide } from '../utils'
 
+// 从 localStorage 读取缓存的访问量数据
+const loadCachedCounts = () => {
+  if (!isClientSide()) return { uvCount: null, pvCount: null }
+
+  try {
+    const cachedData = localStorage.getItem('site_visit_counts')
+    if (cachedData) {
+      const { uvCount, pvCount } = JSON.parse(cachedData)
+      return { uvCount, pvCount }
+    }
+  } catch (error) {
+    console.error('Failed to load cached visit counts:', error)
+  }
+  return { uvCount: null, pvCount: null }
+}
+
+// 缓存访问量数据到 localStorage
+const cacheCounts = (uv: number, pv: number) => {
+  if (!isClientSide()) return
+
+  try {
+    const dataToCache = {
+      uvCount: uv,
+      pvCount: pv
+    }
+    localStorage.setItem('site_visit_counts', JSON.stringify(dataToCache))
+  } catch (error) {
+    console.error('Failed to cache visit counts:', error)
+  }
+}
+
 const VisitedCount = () => {
   const [shouldTrack, setShouldTrack] = useState(false)
   const [isUniqueUser, setIsUniqueUser] = useState(false)
   const [isInitialized, setIsInitialized] = useState(false)
-  const [uvCount, setUvCount] = useState<number | null>(null)
-  const [pvCount, setPvCount] = useState<number | null>(null)
+
+  // 初始化时同步读取缓存作为初始值
+  const cachedData = loadCachedCounts()
+  const [uvCount, setUvCount] = useState<number | null>(cachedData.uvCount)
+  const [pvCount, setPvCount] = useState<number | null>(cachedData.pvCount)
 
   // 检查是否需要统计访问
   useEffect(() => {
@@ -44,12 +78,7 @@ const VisitedCount = () => {
 
   // 发送统计请求 - 确保初始化完成且需要统计时只发送一次
   useEffect(() => {
-    if (
-      !isInitialized ||
-      !isClientSide() ||
-      import.meta.env.MODE === 'development' ||
-      !shouldTrack
-    ) {
+    if (!isInitialized || !isClientSide() || !shouldTrack) {
       return
     }
 
@@ -70,10 +99,10 @@ const VisitedCount = () => {
 
         if (response.ok) {
           const data = await response.json()
-          if (data?.uvCount !== undefined) {
+          if (data?.uvCount !== undefined && data?.pvCount !== undefined) {
+            // 更新 localStorage + setState
+            cacheCounts(data.uvCount, data.pvCount)
             setUvCount(data.uvCount)
-          }
-          if (data?.pvCount !== undefined) {
             setPvCount(data.pvCount)
           }
         }
@@ -88,17 +117,17 @@ const VisitedCount = () => {
   return (
     <div className="flex flex-row justify-center items-center gap-4">
       <div className="flex flex-row items-center gap-1">
-        <FaUsers />
-        <span title="独立访客">
-          UV:{' '}
-          {uvCount !== null ? uvCount.toLocaleString('en-US') : 'loading...'}
-        </span>
-      </div>
-      <div className="flex flex-row items-center gap-1">
         <FaEye />
         <span title="页面浏览量">
           PV:{' '}
           {pvCount !== null ? pvCount.toLocaleString('en-US') : 'loading...'}
+        </span>
+      </div>
+      <div className="flex flex-row items-center gap-1">
+        <FaUsers />
+        <span title="独立访客">
+          UV:{' '}
+          {uvCount !== null ? uvCount.toLocaleString('en-US') : 'loading...'}
         </span>
       </div>
     </div>
