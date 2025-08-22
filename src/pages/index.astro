@@ -5,8 +5,9 @@ import Footer from '../components/Footer.astro'
 import { SITE_TITLE, SITE_DESCRIPTION, HOMEPAGE_URL } from '../config'
 import Body from '../components/Body.astro'
 import Main from '../components/Main.astro'
+import PageHeader from '../components/PageHeader.astro'
+import PostCard from '../components/PostCard.astro'
 import { IoArrowForward } from 'react-icons/io5/index.js'
-import CommonPicture from '../components/CommonPicture.astro'
 
 const posts = (await Astro.glob('./posts/*.md'))
   .sort(
@@ -23,45 +24,52 @@ const posts = (await Astro.glob('./posts/*.md'))
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <Body>
-    <Header title={SITE_TITLE} />
+    <Header />
     <Main>
-      <h1 class="text-3xl font-bold py-4 text-center">{SITE_TITLE}</h1>
-      <section>
-        <div class="mb-8 indent-4 flex flex-col items-center">
-          <p class="text-center">{SITE_DESCRIPTION}</p>
-          <a class="items-center gap-1 indent-1 text-orange-500" href={'/about'}
-            >Learn more about me <IoArrowForward className="inline" />
-          </a>
-        </div>
-      </section>
-      <article>
-        <section>
-          <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {
-              posts.map(post => (
-                <li class="text-center mb-4">
-                  <a href={post.url}>
-                    <CommonPicture image={post.frontmatter.heroImage} />
-                    <div class="mt-3 text-xl font-bold">
-                      {post.frontmatter.title}
-                    </div>
-                    {post.frontmatter.description && (
-                      <div class="opacity-70">
-                        {post.frontmatter.description}
-                      </div>
-                    )}
-                  </a>
-                </li>
-              ))
-            }
-          </ul>
+      <PageHeader title="龙场茶室" />
+
+      <div class="max-w-6xl mx-auto px-4">
+        {/* 关于我的部分 */}
+        <section class="mb-12 text-center">
+          <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+            {SITE_DESCRIPTION}
+          </p>
           <a
-            class="inline-block w-full text-center gap-1 indent-1 text-orange-500"
-            href={'/posts'}
-            >More <IoArrowForward className="inline" />
+            class="text-orange-500 hover:text-orange-600 underline underline-offset-2 transition-colors duration-200"
+            href={'/about'}
+          >
+            关于我的
+            <IoArrowForward className="inline w-4 h-4 ml-1" />
           </a>
         </section>
-      </article>
+
+        {/* 最新文章部分 */}
+        <section class="mb-12">
+          <div class="flex items-baseline gap-4 mb-8">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white">
+              一些文章
+            </h2>
+            <div class="text-sm text-gray-500 dark:text-gray-400 font-medium">
+              最近的 {posts.length} 篇文章
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            {posts.map(post => <PostCard post={post} />)}
+          </div>
+
+          {/* 查看更多按钮 */}
+          <div class="text-center mt-8">
+            <a
+              class="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+              href={'/posts'}
+            >
+              查看所有文章
+              <IoArrowForward className="w-4 h-4" />
+            </a>
+          </div>
+        </section>
+      </div>
     </Main>
     <Footer />
   </Body>

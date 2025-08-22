@@ -5,6 +5,7 @@ import Body from '../components/Body.astro'
 import Footer from '../components/Footer.astro'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config'
 import Main from '../components/Main.astro'
+import PageHeader from '../components/PageHeader.astro'
 
 import CommonPicture from '../components/CommonPicture.astro'
 
@@ -97,16 +98,12 @@ const sites = [
   <Body>
     <Header />
     <Main>
+      <PageHeader
+        title="友链"
+        description="很赞的博客列表，欢迎在下方 issues 中留言，交换友链～"
+      />
+
       <div class="max-w-6xl mx-auto px-4">
-        <h1 class="text-3xl font-bold py-4 text-center">Links</h1>
-        <section class="mb-12">
-          <div class="text-center">
-            <p class="text-lg text-gray-600 dark:text-gray-300 mb-2">
-              很赞的博客列表，欢迎在下方 issues 中留言，交换友链～
-            </p>
-            <div class="w-24 h-1 bg-orange-400 mx-auto rounded-full"></div>
-          </div>
-        </section>
         <section class="mb-12">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {

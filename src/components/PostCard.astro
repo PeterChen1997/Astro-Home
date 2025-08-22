@@ -1,0 +1,148 @@
+---
+import dayjs from 'dayjs'
+import 'dayjs/locale/zh-cn'
+
+dayjs.locale('zh-cn')
+
+export interface Props {
+  post: any
+}
+
+const { post } = Astro.props
+
+// 计算阅读时间的函数
+function getReadingTime(content: string) {
+  const wordsPerMinute = 200
+  const words = content.split(/\s+/).length
+  const readingTime = Math.ceil(words / wordsPerMinute)
+  return readingTime
+}
+---
+
+<article
+  class="group relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-orange-300 dark:hover:border-orange-400"
+>
+  <a href={post.url} class="block relative">
+    {/* 背景图片 */}
+    {
+      post.frontmatter.heroImage ? (
+        <div class="absolute inset-0">
+          <img
+            src={post.frontmatter.heroImage}
+            alt={post.frontmatter.title}
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
+        </div>
+      ) : (
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700" />
+      )
+    }
+
+    {/* 内容层 */}
+    <div class="relative p-4 h-[200px] flex flex-col justify-between">
+      {/* 头部信息 */}
+      <div class="flex items-start justify-between mb-3">
+        <div class="flex-1">
+          <time
+            datetime={post.frontmatter.pubDate}
+            class={`text-xs font-medium px-2 py-1 rounded-full ${
+              post.frontmatter.heroImage
+                ? 'text-orange-400 bg-black/20 backdrop-blur-sm'
+                : 'text-orange-500 bg-orange-50 dark:bg-orange-500/10'
+            }`}
+          >
+            {dayjs(post.frontmatter.pubDate).format('MM-DD')}
+          </time>
+        </div>
+        <div class="flex-shrink-0 ml-3">
+          <div
+            class={`flex items-center text-xs ${
+              post.frontmatter.heroImage
+                ? 'text-white/80 bg-black/20 backdrop-blur-sm rounded-full px-2 py-1'
+                : 'text-gray-500 dark:text-gray-400'
+            }`}
+          >
+            <svg
+              class="w-3 h-3 mr-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            {getReadingTime(post.compiledContent())}min
+          </div>
+        </div>
+      </div>
+
+      {/* 标题 */}
+      <h2
+        class={`text-lg font-semibold mt-1 mb-2 group-hover:text-orange-500 transition-colors duration-200 ${
+          post.frontmatter.heroImage
+            ? 'text-white drop-shadow-lg'
+            : 'text-gray-900 dark:text-white'
+        }`}
+        style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;"
+      >
+        {post.frontmatter.title}
+      </h2>
+
+      {/* 描述 */}
+      {
+        post.frontmatter.description && (
+          <p
+            class={`text-sm leading-relaxed mb-3 ${
+              post.frontmatter.heroImage
+                ? 'text-white/90 drop-shadow-md'
+                : 'text-gray-600 dark:text-gray-300'
+            }`}
+            style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;"
+          >
+            {post.frontmatter.description}
+          </p>
+        )
+      }
+
+      {/* 标签 */}
+      {
+        post.frontmatter.tags && (
+          <div class="flex flex-wrap gap-1 mt-auto">
+            {post.frontmatter.tags.slice(0, 3).map((tag: string) => (
+              <span
+                class={`text-xs px-2 py-0.5 rounded ${
+                  post.frontmatter.heroImage
+                    ? 'text-white bg-white/20 backdrop-blur-sm'
+                    : 'text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-700'
+                }`}
+              >
+                #{tag}
+              </span>
+            ))}
+            {post.frontmatter.tags.length > 3 && (
+              <span
+                class={`text-xs ${
+                  post.frontmatter.heroImage
+                    ? 'text-white/70'
+                    : 'text-gray-500 dark:text-gray-500'
+                }`}
+              >
+                +{post.frontmatter.tags.length - 3}
+              </span>
+            )}
+          </div>
+        )
+      }
+    </div>
+  </a>
+
+  {/* 悬停效果 */}
+  <div
+    class="absolute inset-0 rounded-lg bg-gradient-to-r from-orange-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+  >
+  </div>
+</article>

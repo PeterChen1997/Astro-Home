@@ -10,34 +10,34 @@ export const MENUS = [
   {
     key: 'posts',
     path: '/posts/index.html',
-    title: 'Posts'
+    title: '文章'
   },
   {
     key: 'about',
     path: '/about/index.html',
-    title: 'About'
+    title: '关于'
   },
   {
     key: 'projects',
     path: '/projects/index.html',
-    title: 'Projects'
+    title: '项目'
   },
   {
     key: 'links',
     path: '/links/index.html',
-    title: 'Links'
+    title: '友链'
   },
   {
     key: 'daily',
     path: 'https://daily.peterchen97.cn',
-    title: 'Daily',
+    title: '日常',
     hideIcon: true,
     target: '_blank'
   },
   {
     key: 'photos',
     path: 'https://peterchen97.notion.site/Public-Photos-11645019717480419bb4f12e5ed5e48a',
-    title: 'Photos',
+    title: '照片',
     hideIcon: true,
     target: '_blank'
   },

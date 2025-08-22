@@ -1,0 +1,26 @@
+---
+export interface Props {
+  title: string
+  description?: string
+}
+
+const { title, description } = Astro.props
+---
+
+<div class="max-w-6xl mx-auto px-4">
+  <h1 class="text-3xl font-bold py-4 text-center">{title}</h1>
+  <section>
+    <div class="text-center">
+      {
+        description && (
+          <>
+            <p class="text-lg text-gray-600 dark:text-gray-300 mb-2">
+              {description}
+            </p>
+            <div class="mb-12 w-24 h-1 bg-orange-400 mx-auto rounded-full" />
+          </>
+        )
+      }
+    </div>
+  </section>
+</div>

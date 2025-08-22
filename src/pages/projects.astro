@@ -5,6 +5,7 @@ import Body from '../components/Body.astro'
 import Footer from '../components/Footer.astro'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config'
 import Main from '../components/Main.astro'
+import PageHeader from '../components/PageHeader.astro'
 
 import CommonPicture from '../components/CommonPicture.astro'
 
@@ -77,48 +78,88 @@ const posts = [
   <Body>
     <Header />
     <Main>
-      <h1 class="text-3xl font-bold py-4 text-center">Projects</h1>
-      <section>
-        <div class="mb-8 indent-4 flex flex-col items-center">
-          <p>
-            A selection of open-source projects from my
-            <a
-              target="_blank"
-              class="items-center gap-1 indent-1 underline underline-offset-2 hover:text-orange-500 decoration-orange-500"
-              href={'https://github.com/PeterChen1997'}
-              >github profile
-            </a>
-          </p>
-        </div>
-      </section>
-      <section>
-        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {
-            posts.map(post => (
-              <li class="text-center mb-4">
-                <CommonPicture image={post.image} />
-                <div class="mt-3 text-xl font-bold">{post.title}</div>
-                {post.description && (
-                  <div class="opacity-70 min-h-[80px]">{post.description}</div>
-                )}
-                <div class="mt-3" />
-                <button class="w-32 border border-slate-300 dark:border-zinc-700 rounded-md p-1   hover:bg-orange-200 dark:hover:bg-zinc-800">
-                  <a target="_blank" href={post.demoUrl}>
-                    Online Site
-                  </a>
-                </button>
-                {post.sourceUrl && (
-                  <button class="w-32 border border-slate-300 dark:border-zinc-700 rounded-md p-1   hover:bg-orange-200 dark:hover:bg-zinc-800">
-                    <a target="_blank" href={post.sourceUrl}>
-                      Source Code
-                    </a>
-                  </button>
-                )}
-              </li>
-            ))
-          }
-        </ul>
-      </section>
+      <PageHeader
+        title="项目"
+        description="精选的开源项目合集，记录我的技术探索之路"
+      />
+
+      <div class="max-w-6xl mx-auto px-4">
+        <section class="mb-12">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {
+              posts.map(post => (
+                <div class="group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-orange-300 dark:hover:border-orange-400">
+                  {/* 图片区域 */}
+                  <div class="relative  overflow-hidden">
+                    <CommonPicture image={post.image} />
+                  </div>
+
+                  {/* 内容区域 */}
+                  <div class="px-6 py-4">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-orange-500 transition-colors duration-200">
+                      {post.title}
+                    </h3>
+                    {post.description && (
+                      <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed line-clamp-3">
+                        {post.description}
+                      </p>
+                    )}
+
+                    {/* 按钮区域 */}
+                    <div class="flex gap-3">
+                      <a
+                        target="_blank"
+                        href={post.demoUrl}
+                        class="flex-1 inline-flex items-center justify-center px-4 py-2.5 bg-orange-600 text-white text-sm font-medium rounded-xl hover:bg-orange-700 transition-all duration-200 shadow-md hover:shadow-lg "
+                      >
+                        <svg
+                          class="w-4 h-4 mr-2"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                          />
+                        </svg>
+                        在线访问
+                      </a>
+                      {post.sourceUrl && (
+                        <a
+                          target="_blank"
+                          href={post.sourceUrl}
+                          class="flex-1 inline-flex items-center justify-center px-4 py-2.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-200 shadow-md hover:shadow-lg "
+                        >
+                          <svg
+                            class="w-4 h-4 mr-2"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                            />
+                          </svg>
+                          源代码
+                        </a>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* 悬停效果 */}
+                  <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                </div>
+              ))
+            }
+          </div>
+        </section>
+      </div>
     </Main>
     <Footer />
   </Body>
