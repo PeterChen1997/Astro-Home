@@ -7,18 +7,45 @@ const { pathname } = Astro.url
 const isActive = href === pathname || href === pathname.replace(/\/$/, '')
 ---
 
-<a href={href} class:list={[{ active: isActive }]} {...props}>
+<a href={href} class:list={['nav-link', { active: isActive }]} {...props}>
   <slot />
 </a>
 <style>
-  a {
+  .nav-link {
     display: inline-flex;
     text-decoration: none;
     align-items: center;
-    gap: 4px;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #4b5563;
+    transition: all 0.15s ease;
   }
-  a.active {
-    font-weight: bolder;
-    text-decoration: underline;
+
+  .nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #1f2937;
+  }
+
+  :global(.dark) .nav-link {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  :global(.dark) .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #fff;
+  }
+
+  .nav-link.active {
+    background-color: rgba(0, 0, 0, 0.06);
+    color: #111827;
+    font-weight: 600;
+  }
+
+  :global(.dark) .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
   }
 </style>

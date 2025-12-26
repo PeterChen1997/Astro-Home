@@ -1,0 +1,128 @@
+---
+import BaseHead from '../components/BaseHead.astro'
+import Header from '../components/Header.astro'
+import Body from '../components/Body.astro'
+import Footer from '../components/Footer.astro'
+import { SITE_TITLE } from '../config'
+import Main from '../components/Main.astro'
+import PageHeader from '../components/PageHeader.astro'
+
+// 书籍数据 - 按年份分组
+const books = [
+  {
+    year: 2025,
+    items: [
+      {
+        rating: 9,
+        comment: '傅高义教授的这本书是了解邓小平和当代中国改革开放历史的必读之作，史料详实，观点中立客观。',
+        book_title: '邓小平时代',
+        douban_rating: 9.4,
+        cover_image_url: 'https://img3.doubanio.com/view/subject/s/public/s24516687.jpg',
+        description: '邓小平深刻影响了中国历史和世界历史的走向，也改变了每一个当代中国人的命运。解读邓小平的政治生涯及其行为逻辑，就是解读当代中国，解读个人命运背后的历史变局。'
+      }
+    ]
+  },
+  {
+    year: 2024,
+    items: [
+      {
+        rating: 8,
+        comment: '示例书籍评论',
+        book_title: '示例书籍',
+        douban_rating: 8.5,
+        cover_image_url: 'https://img3.doubanio.com/view/subject/s/public/s24516687.jpg',
+        description: '这是一本示例书籍的描述文字。'
+      }
+    ]
+  }
+]
+
+const totalBooks = books.reduce((acc, y) => acc + y.items.length, 0)
+---
+
+<!DOCTYPE html>
+<html lang="zh" style="overflow: overlay;min-height: 100vh;">
+  <head>
+    <BaseHead title={`书架 - ${SITE_TITLE}`} description="我的阅读书单，记录读过的每一本书" />
+    <style>
+      .book-cover {
+        aspect-ratio: 2/3;
+        object-fit: cover;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+      .book-item {
+        transition: transform 0.2s ease;
+      }
+      .book-item:hover {
+        transform: translateY(-2px);
+      }
+      .book-item:hover .book-cover {
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      }
+    </style>
+  </head>
+  <Body>
+    <Header />
+    <Main>
+      <PageHeader
+        title="书架"
+        description={`共 ${totalBooks} 本书`}
+      />
+
+      <div class="max-w-3xl mx-auto px-4 pb-16">
+        {books.map((yearGroup) => (
+          <section class="mb-12">
+            {/* 年份 */}
+            <h2 class="text-sm font-medium text-gray-400 dark:text-gray-500 mb-6 tracking-wide">
+              {yearGroup.year}
+            </h2>
+
+            {/* 书籍列表 */}
+            <div class="space-y-6">
+              {yearGroup.items.map((book) => (
+                <article class="book-item flex gap-5">
+                  {/* 封面 */}
+                  <div class="flex-shrink-0">
+                    <img
+                      src={book.cover_image_url}
+                      alt={book.book_title}
+                      class="book-cover w-20 rounded-md"
+                      loading="lazy"
+                    />
+                  </div>
+
+                  {/* 信息 */}
+                  <div class="flex-1 min-w-0 py-1">
+                    <h3 class="text-base font-semibold text-gray-900 dark:text-white mb-1">
+                      {book.book_title}
+                    </h3>
+                    
+                    {/* 评分 */}
+                    <div class="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400 mb-2">
+                      <span>豆瓣 {book.douban_rating}</span>
+                      <span class="text-gray-300 dark:text-gray-600">·</span>
+                      <span class="text-orange-500">我评 {book.rating}/10</span>
+                    </div>
+
+                    {/* 简介 */}
+                    <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-2">
+                      {book.description}
+                    </p>
+
+                    {/* 我的评论 */}
+                    {book.comment && (
+                      <p class="text-sm text-gray-600 dark:text-gray-300 italic">
+                        "{book.comment}"
+                      </p>
+                    )}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </Main>
+    <Footer />
+  </Body>
+</html>
