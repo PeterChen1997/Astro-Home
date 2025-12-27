@@ -16,6 +16,12 @@ export const MENUS = [
     title: '书架'
   },
   {
+    key: 'cangshuge',
+    path: 'https://book.hweb.peterchen97.cn/',
+    title: '藏书阁',
+    target: '_blank'
+  },
+  {
     key: 'projects',
     path: '/projects/index.html',
     title: '项目'
@@ -64,6 +70,7 @@ export const MENUS = [
 const MOBILE_MENUS = [
   { key: 'posts', path: '/posts/index.html', title: '文章' },
   { key: 'bookshelf', path: '/bookshelf/index.html', title: '书架' },
+  { key: 'cangshuge', path: 'https://book.hweb.peterchen97.cn/', title: '藏书阁', target: '_blank' },
   { key: 'projects', path: '/projects/index.html', title: '项目' },
   { key: 'links', path: '/links/index.html', title: '友链' },
   { key: 'about', path: '/about/index.html', title: '关于' },
