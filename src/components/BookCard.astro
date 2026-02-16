@@ -1,0 +1,85 @@
+---
+export interface Props {
+  title: string
+  difficulty: string
+  category: string
+  rating: number | string
+  quote?: string
+  review: string
+  readingTime: string
+  link?: {
+    text: string
+    url: string
+  }
+}
+
+const {
+  title,
+  difficulty,
+  category,
+  rating,
+  quote,
+  review,
+  readingTime,
+  link
+} = Astro.props
+---
+
+<div class="w-full my-2">
+  <div
+    class="bg-white dark:bg-gray-800 rounded-xl shadow-md dark:shadow-gray-900/30 overflow-hidden border border-gray-100 dark:border-gray-700 transition-colors"
+  >
+    <div class="p-5 pb-3">
+      <h2
+        class="m-0 mb-2.5 text-xl text-gray-800 dark:text-gray-100 font-semibold"
+      >
+        {title}
+      </h2>
+      <div
+        class="flex flex-wrap gap-4 mb-2.5 text-gray-600 dark:text-gray-400 text-sm"
+      >
+        <div class="flex items-center gap-2">
+          <span class="text-gray-400 dark:text-gray-500">难度</span>
+          <span class="text-gray-700 dark:text-gray-300">{difficulty}</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-gray-400 dark:text-gray-500">分类</span>
+          <span class="text-gray-700 dark:text-gray-300">{category}</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-gray-400 dark:text-gray-500">评分</span>
+          <span class="text-orange-500 font-medium">{rating}</span>
+        </div>
+      </div>
+      <div class="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+        {
+          quote && (
+            <p class="font-semibold text-gray-700 dark:text-gray-300 border-l-4 border-orange-400 dark:border-orange-500 pl-3 my-2 italic">
+              「{quote}」
+            </p>
+          )
+        }
+        <p class="my-2">{review}</p>
+        {
+          link && (
+            <p class="my-2">
+              {link.text}：
+              <a
+                target="_blank"
+                class="text-gray-500 dark:text-gray-400 underline underline-offset-2 hover:text-orange-500 dark:hover:text-orange-400 decoration-orange-300 dark:decoration-orange-500 transition-colors"
+                href={link.url}
+              >
+                全文
+              </a>
+            </p>
+          )
+        }
+      </div>
+    </div>
+    <div
+      class="bg-gray-50 dark:bg-gray-700/50 px-5 py-3 text-sm text-gray-500 dark:text-gray-400 border-t border-gray-100 dark:border-gray-700"
+    >
+      阅读时长：{readingTime}
+    </div>
+  </div>
+</div>

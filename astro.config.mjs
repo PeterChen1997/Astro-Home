@@ -2,6 +2,7 @@ import sitemap from '@astrojs/sitemap'
 import { defineConfig } from 'astro/config'
 import react from '@astrojs/react'
 import tailwind from '@astrojs/tailwind'
+import mdx from '@astrojs/mdx'
 import addClasses from 'rehype-add-classes'
 import compress from 'astro-compress'
 import { astroImageTools } from 'astro-imagetools'
@@ -12,6 +13,7 @@ export default defineConfig({
     tailwind(),
     sitemap(),
     react(),
+    mdx(),
     compress({
       Image: false
     }),
