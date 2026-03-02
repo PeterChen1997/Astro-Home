@@ -2,12 +2,12 @@
 layout: "../../layouts/BlogPost.astro"
 title: "国内订阅 Google AI Pro，用上 Antigravity 真挺难"
 description: "踩坑记录：账号地区、Antigravity、以及“网页端无法续费”的最终解法（Android + Play 美区）。"
-pubDate: "2025-12-26"
+pubDate: "2026-03-02"
 heroImage: "/assets/imgs/2b14941894f199b4e2076b4e19a70099aa356fa4dc0b7567f8c38eda9afe1c67.png"
 ---
 > 本文由 AI 优化组织完成，非个人完整编写，AI 参与度：90%
 > 
-> 写于 **2025.12.26**，涉及价格、活动、权益、可用地区等都有时效性
+> 写于 **2025.12.26**，最后更新于 **2026.03.02**，涉及价格、活动、权益、可用地区等都有时效性
 
 
 最近同事们都在安利 Antigravity, 为了把 Antigravity 用起来，在「账号地区」和「付款/续费」上踩了不少坑，差不多就是——**没想到 2025 年，还有想付钱付不出去的时候** 🤣
@@ -142,6 +142,17 @@ Play 美区生效后：
 - **NotebookLM**：更多上限/更强能力
 - **Storage**：从 15 GB 升到 **2 TB**
 
+## 🆕 Google Cloud 每月免费抵用金（2026.03 更新）
+
+Google 开发者计划为 AI 订阅用户提供了 **每月 Google Cloud 抵用金**，可用于 Gen AI & Cloud 相关服务：
+
+- **AI Pro 用户**：每月 **$10** Google Cloud credits
+- **AI Ultra 用户**：每月 **$100** Google Cloud credits
+
+领取地址：[Google 开发者计划 - 我的福利](https://developers.google.com/program/my-benefits?hl=zh-cn)
+
+> 有效期到 **2027 年**，每个月都可以领取。这 $10 是通用的 Google Cloud credits，除了开小规格云服务器（e2-micro 之类），也可以直接用来**调用 Vertex AI / Gemini API**，对做 AI 应用开发的同学来说非常实用。**注意绑的卡不要有太多余额，关注账单计费，别超额被反薅。** 🫡
+
 ![picture 7](/assets/imgs/dff9b64ad78928d779e86c425c4c90ed7ac1bd09ac718057591f3f91295fb938.png)  
 
 如果你平常会用：
@@ -149,6 +160,7 @@ Play 美区生效后：
 - NotebookLM 做资料整理
 - Code Assist / CLI 帮你写代码、改代码
 - 或者希望 Workspace（Gmail/Docs）里直接上 AI
+- **GCP 云服务器**做轻量开发/测试
 
 那 AI Pro 的“捆绑价值”会比你想象得大。
 
