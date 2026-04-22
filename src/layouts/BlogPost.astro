@@ -50,7 +50,7 @@ const {
           )
         }
         <ViewedCount postId={title} client:load />
-        <p>{getReadingTime(Astro.props.compiledContent())} minutes to read</p>
+        <p>{typeof Astro.props.compiledContent === 'function' ? getReadingTime(Astro.props.compiledContent()) : (Astro.props.content.readingTime || '')} minutes to read</p>
         <hr class="border-top border-zinc-400 my-4" />
         <slot />
       </Content>

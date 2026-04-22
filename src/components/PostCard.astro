@@ -75,7 +75,7 @@ function getReadingTime(content: string) {
                 stroke-width="2"
                 d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
-            {getReadingTime(post.compiledContent())}min
+            {typeof post.compiledContent === 'function' ? getReadingTime(post.compiledContent()) : (post.frontmatter.readingTime || '')}min
           </div>
         </div>
       </div>

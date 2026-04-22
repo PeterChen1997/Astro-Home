@@ -1,0 +1,49 @@
+---
+export interface Props {
+  bvid: string
+  danmaku?: boolean
+}
+
+const { bvid, danmaku = false } = Astro.props
+
+// 从完整URL中提取BV号，或者直接使用传入的BV号
+const extractBvid = (input: string): string => {
+  // 如果是完整URL，提取BV号
+  const urlMatch = input.match(/bilibili\.com\/video\/(BV[\w]+)/)
+  if (urlMatch) {
+    return urlMatch[1]
+  }
+  // 如果已经是BV号格式，直接返回
+  if (input.startsWith('BV')) {
+    return input
+  }
+  return input
+}
+
+const videoId = extractBvid(bvid)
+// 使用和原始 iframe 一样的参数格式
+const embedUrl = `//player.bilibili.com/player.html?isOutside=true&bvid=${videoId}&p=1&danmaku=${
+  danmaku ? 1 : 0
+}`
+---
+
+<div class="bilibili-video-wrapper my-6">
+  <div
+    class="relative w-full overflow-hidden rounded-xl shadow-lg dark:shadow-gray-900/30 bg-black"
+    style="padding-bottom: 56.25%; height: 0;"
+  >
+    <iframe
+      src={embedUrl}
+      scrolling="no"
+      frameborder="0"
+      allowfullscreen={true}
+      class="absolute top-0 left-0 w-full h-full"
+      loading="lazy"></iframe>
+  </div>
+</div>
+
+<style>
+  .bilibili-video-wrapper iframe {
+    border: none;
+  }
+</style>
