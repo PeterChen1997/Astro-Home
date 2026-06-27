@@ -15,7 +15,7 @@ const ViewedCount = ({ postId }: { postId: string }) => {
     const fetchViewCount = async () => {
       try {
         const response = await fetch(
-          `https://n8n.peterchen97.cn/webhook/444299a4-c5bf-4a75-a628-f827196e4033/blog/view/${postId}`
+          `https://n.hweb.peterchen97.cn/webhook/444299a4-c5bf-4a75-a628-f827196e4033/blog/view/${postId}`
         )
 
         if (response.ok) {

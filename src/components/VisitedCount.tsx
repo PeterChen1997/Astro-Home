@@ -85,7 +85,7 @@ const VisitedCount = () => {
     const sendVisitData = async () => {
       try {
         const response = await fetch(
-          'https://n8n.peterchen97.cn/webhook/visit',
+          'https://n.hweb.peterchen97.cn/webhook/visit',
           {
             method: 'POST',
             headers: {

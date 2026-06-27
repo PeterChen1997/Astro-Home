@@ -1,0 +1,178 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - region "Notifications alt+T"
+    - generic [ref=e3]:
+      - generic [ref=e7]:
+        - img [ref=e10]
+        - generic [ref=e12]:
+          - generic [ref=e13]:
+            - generic [ref=e14]: Home
+            - list [ref=e15]:
+              - listitem [ref=e16]:
+                - link "Home" [ref=e17] [cursor=pointer]:
+                  - /url: /dashboard/home
+                  - img [ref=e18]
+                  - generic [ref=e21]: Home
+              - listitem [ref=e22]:
+                - link "Projects" [ref=e23] [cursor=pointer]:
+                  - /url: /dashboard/projects
+                  - img [ref=e24]
+                  - generic [ref=e26]: Projects
+              - listitem [ref=e27]:
+                - link "Deployments" [ref=e28] [cursor=pointer]:
+                  - /url: /dashboard/deployments
+                  - img [ref=e29]
+                  - generic [ref=e34]: Deployments
+              - listitem [ref=e35]:
+                - link "Monitoring" [ref=e36] [cursor=pointer]:
+                  - /url: /dashboard/monitoring
+                  - img [ref=e37]
+                  - generic [ref=e41]: Monitoring
+              - listitem [ref=e42]:
+                - link "Schedules" [ref=e43] [cursor=pointer]:
+                  - /url: /dashboard/schedules
+                  - img [ref=e44]
+                  - generic [ref=e47]: Schedules
+              - listitem [ref=e48]:
+                - link "Traefik File System" [ref=e49] [cursor=pointer]:
+                  - /url: /dashboard/traefik
+                  - img [ref=e50]
+                  - generic [ref=e52]: Traefik File System
+              - listitem [ref=e53]:
+                - link "Docker" [ref=e54] [cursor=pointer]:
+                  - /url: /dashboard/docker
+                  - img [ref=e55]
+                  - generic [ref=e58]: Docker
+              - listitem [ref=e59]:
+                - link "Swarm" [ref=e60] [cursor=pointer]:
+                  - /url: /dashboard/swarm
+                  - img [ref=e61]
+                  - generic [ref=e64]: Swarm
+              - listitem [ref=e65]:
+                - link "Requests" [ref=e66] [cursor=pointer]:
+                  - /url: /dashboard/requests
+                  - img [ref=e67]
+                  - generic [ref=e70]: Requests
+          - generic [ref=e71]:
+            - generic [ref=e72]: Settings
+            - list [ref=e73]:
+              - listitem [ref=e74]:
+                - link "Web Server" [ref=e75] [cursor=pointer]:
+                  - /url: /dashboard/settings/server
+                  - img [ref=e76]
+                  - generic [ref=e78]: Web Server
+              - listitem [ref=e79]:
+                - link "Profile" [ref=e80] [cursor=pointer]:
+                  - /url: /dashboard/settings/profile
+                  - img [ref=e81]
+                  - generic [ref=e84]: Profile
+              - listitem [ref=e85]:
+                - link "Remote Servers" [ref=e86] [cursor=pointer]:
+                  - /url: /dashboard/settings/servers
+                  - img [ref=e87]
+                  - generic [ref=e90]: Remote Servers
+              - listitem [ref=e91]:
+                - link "Users" [ref=e92] [cursor=pointer]:
+                  - /url: /dashboard/settings/users
+                  - img [ref=e93]
+                  - generic [ref=e98]: Users
+              - listitem [ref=e99]:
+                - link "Audit Logs" [ref=e100] [cursor=pointer]:
+                  - /url: /dashboard/settings/audit-logs
+                  - img [ref=e101]
+                  - generic [ref=e104]: Audit Logs
+              - listitem [ref=e105]:
+                - link "SSH Keys" [ref=e106] [cursor=pointer]:
+                  - /url: /dashboard/settings/ssh-keys
+                  - img [ref=e107]
+                  - generic [ref=e110]: SSH Keys
+              - listitem [ref=e111]:
+                - link "AI" [ref=e112] [cursor=pointer]:
+                  - /url: /dashboard/settings/ai
+                  - img [ref=e113]
+                  - generic [ref=e116]: AI
+              - listitem [ref=e117]:
+                - link "Tags" [ref=e118] [cursor=pointer]:
+                  - /url: /dashboard/settings/tags
+                  - img [ref=e119]
+                  - generic [ref=e123]: Tags
+              - listitem [ref=e124]:
+                - link "Git" [ref=e125] [cursor=pointer]:
+                  - /url: /dashboard/settings/git-providers
+                  - img [ref=e126]
+                  - generic [ref=e130]: Git
+              - listitem [ref=e131]:
+                - link "Registry" [ref=e132] [cursor=pointer]:
+                  - /url: /dashboard/settings/registry
+                  - img [ref=e133]
+                  - generic [ref=e137]: Registry
+              - listitem [ref=e138]:
+                - link "S3 Destinations" [ref=e139] [cursor=pointer]:
+                  - /url: /dashboard/settings/destinations
+                  - img [ref=e140]
+                  - generic [ref=e144]: S3 Destinations
+              - listitem [ref=e145]:
+                - link "Certificates" [ref=e146] [cursor=pointer]:
+                  - /url: /dashboard/settings/certificates
+                  - img [ref=e147]
+                  - generic [ref=e150]: Certificates
+              - listitem [ref=e151]:
+                - link "Cluster" [ref=e152] [cursor=pointer]:
+                  - /url: /dashboard/settings/cluster
+                  - img [ref=e153]
+                  - generic [ref=e163]: Cluster
+              - listitem [ref=e164]:
+                - link "Notifications" [ref=e165] [cursor=pointer]:
+                  - /url: /dashboard/settings/notifications
+                  - img [ref=e166]
+                  - generic [ref=e169]: Notifications
+              - listitem [ref=e170]:
+                - link "SSO" [ref=e171] [cursor=pointer]:
+                  - /url: /dashboard/settings/sso
+                  - img [ref=e172]
+                  - generic [ref=e175]: SSO
+          - generic [ref=e176]:
+            - generic [ref=e177]: Extra
+            - list [ref=e178]:
+              - listitem [ref=e179]:
+                - link "Documentation" [ref=e180] [cursor=pointer]:
+                  - /url: https://docs.dokploy.com/docs/core
+                  - img [ref=e182]
+                  - generic [ref=e184]: Documentation
+              - listitem [ref=e185]:
+                - link "Support" [ref=e186] [cursor=pointer]:
+                  - /url: https://discord.gg/2tBnJ3jDJc
+                  - img [ref=e188]
+                  - generic [ref=e191]: Support
+        - list [ref=e193]:
+          - listitem
+          - listitem [ref=e194]:
+            - button "UU Account" [ref=e195] [cursor=pointer]:
+              - generic [ref=e197]: UU
+              - generic [ref=e199]: Account
+              - img [ref=e200]
+        - button "Toggle Sidebar" [ref=e203]
+      - main [ref=e204]:
+        - generic [ref=e207]:
+          - button "Toggle Sidebar" [ref=e208] [cursor=pointer]:
+            - img [ref=e209]
+            - generic [ref=e211]: Toggle Sidebar
+          - navigation "breadcrumb" [ref=e212]:
+            - list [ref=e213]:
+              - listitem [ref=e214]:
+                - link "Docker" [ref=e215] [cursor=pointer]:
+                  - /url: /dashboard/docker
+        - generic [ref=e219]:
+          - generic [ref=e220]:
+            - heading "Docker Containers" [level=3] [ref=e221]:
+              - img [ref=e222]
+              - text: Docker Containers
+            - paragraph [ref=e226]: See all the containers of your dokploy server
+          - generic [ref=e229]:
+            - generic [ref=e230]:
+              - textbox "Filter by name..." [ref=e232]
+              - button "Columns" [ref=e233] [cursor=pointer]:
+                - text: Columns
+                - img [ref=e234]
+            - generic [ref=e238]: Loading...
+  - alert [ref=e239]

@@ -1,0 +1,367 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - region "Notifications alt+T":
+      - list:
+        - listitem [ref=e556]:
+          - img [ref=e558]
+          - generic [ref=e561]: Compose config Updated
+    - generic [ref=e3]:
+      - generic [ref=e7]:
+        - list [ref=e138]:
+          - listitem [ref=e139]:
+            - button "My Organization" [ref=e140] [cursor=pointer]:
+              - generic [ref=e141]:
+                - img [ref=e143]
+                - paragraph [ref=e148]: My Organization
+              - img [ref=e149]
+          - listitem [ref=e152]:
+            - button [ref=e153] [cursor=pointer]:
+              - img [ref=e154]
+        - generic [ref=e12]:
+          - generic [ref=e13]:
+            - generic [ref=e14]: Home
+            - list [ref=e15]:
+              - listitem [ref=e16]:
+                - link "Home" [ref=e17] [cursor=pointer]:
+                  - /url: /dashboard/home
+                  - img [ref=e18]
+                  - generic [ref=e21]: Home
+              - listitem [ref=e22]:
+                - link "Projects" [ref=e23] [cursor=pointer]:
+                  - /url: /dashboard/projects
+                  - img [ref=e24]
+                  - generic [ref=e26]: Projects
+              - listitem [ref=e157]:
+                - link "Deployments" [ref=e158] [cursor=pointer]:
+                  - /url: /dashboard/deployments
+                  - img [ref=e159]
+                  - generic [ref=e164]: Deployments
+              - listitem [ref=e165]:
+                - link "Monitoring" [ref=e166] [cursor=pointer]:
+                  - /url: /dashboard/monitoring
+                  - img [ref=e167]
+                  - generic [ref=e171]: Monitoring
+              - listitem [ref=e172]:
+                - link "Schedules" [ref=e173] [cursor=pointer]:
+                  - /url: /dashboard/schedules
+                  - img [ref=e174]
+                  - generic [ref=e177]: Schedules
+              - listitem [ref=e178]:
+                - link "Traefik File System" [ref=e179] [cursor=pointer]:
+                  - /url: /dashboard/traefik
+                  - img [ref=e180]
+                  - generic [ref=e182]: Traefik File System
+              - listitem [ref=e183]:
+                - link "Docker" [ref=e184] [cursor=pointer]:
+                  - /url: /dashboard/docker
+                  - img [ref=e185]
+                  - generic [ref=e188]: Docker
+              - listitem [ref=e189]:
+                - link "Swarm" [ref=e190] [cursor=pointer]:
+                  - /url: /dashboard/swarm
+                  - img [ref=e191]
+                  - generic [ref=e194]: Swarm
+              - listitem [ref=e195]:
+                - link "Requests" [ref=e196] [cursor=pointer]:
+                  - /url: /dashboard/requests
+                  - img [ref=e197]
+                  - generic [ref=e200]: Requests
+          - generic [ref=e27]:
+            - generic [ref=e28]: Settings
+            - list [ref=e29]:
+              - listitem [ref=e201]:
+                - link "Web Server" [ref=e202] [cursor=pointer]:
+                  - /url: /dashboard/settings/server
+                  - img [ref=e203]
+                  - generic [ref=e205]: Web Server
+              - listitem [ref=e30]:
+                - link "Profile" [ref=e31] [cursor=pointer]:
+                  - /url: /dashboard/settings/profile
+                  - img [ref=e32]
+                  - generic [ref=e35]: Profile
+              - listitem [ref=e206]:
+                - link "Remote Servers" [ref=e207] [cursor=pointer]:
+                  - /url: /dashboard/settings/servers
+                  - img [ref=e208]
+                  - generic [ref=e211]: Remote Servers
+              - listitem [ref=e212]:
+                - link "Users" [ref=e213] [cursor=pointer]:
+                  - /url: /dashboard/settings/users
+                  - img [ref=e214]
+                  - generic [ref=e219]: Users
+              - listitem [ref=e220]:
+                - link "Audit Logs" [ref=e221] [cursor=pointer]:
+                  - /url: /dashboard/settings/audit-logs
+                  - img [ref=e222]
+                  - generic [ref=e225]: Audit Logs
+              - listitem [ref=e226]:
+                - link "SSH Keys" [ref=e227] [cursor=pointer]:
+                  - /url: /dashboard/settings/ssh-keys
+                  - img [ref=e228]
+                  - generic [ref=e231]: SSH Keys
+              - listitem [ref=e232]:
+                - link "AI" [ref=e233] [cursor=pointer]:
+                  - /url: /dashboard/settings/ai
+                  - img [ref=e234]
+                  - generic [ref=e237]: AI
+              - listitem [ref=e238]:
+                - link "Tags" [ref=e239] [cursor=pointer]:
+                  - /url: /dashboard/settings/tags
+                  - img [ref=e240]
+                  - generic [ref=e244]: Tags
+              - listitem [ref=e245]:
+                - link "Git" [ref=e246] [cursor=pointer]:
+                  - /url: /dashboard/settings/git-providers
+                  - img [ref=e247]
+                  - generic [ref=e251]: Git
+              - listitem [ref=e252]:
+                - link "Registry" [ref=e253] [cursor=pointer]:
+                  - /url: /dashboard/settings/registry
+                  - img [ref=e254]
+                  - generic [ref=e258]: Registry
+              - listitem [ref=e259]:
+                - link "S3 Destinations" [ref=e260] [cursor=pointer]:
+                  - /url: /dashboard/settings/destinations
+                  - img [ref=e261]
+                  - generic [ref=e265]: S3 Destinations
+              - listitem [ref=e266]:
+                - link "Certificates" [ref=e267] [cursor=pointer]:
+                  - /url: /dashboard/settings/certificates
+                  - img [ref=e268]
+                  - generic [ref=e271]: Certificates
+              - listitem [ref=e272]:
+                - link "Cluster" [ref=e273] [cursor=pointer]:
+                  - /url: /dashboard/settings/cluster
+                  - img [ref=e274]
+                  - generic [ref=e284]: Cluster
+              - listitem [ref=e285]:
+                - link "Notifications" [ref=e286] [cursor=pointer]:
+                  - /url: /dashboard/settings/notifications
+                  - img [ref=e287]
+                  - generic [ref=e290]: Notifications
+              - listitem [ref=e291]:
+                - link "License" [ref=e292] [cursor=pointer]:
+                  - /url: /dashboard/settings/license
+                  - img [ref=e293]
+                  - generic [ref=e297]: License
+              - listitem [ref=e298]:
+                - link "SSO" [ref=e299] [cursor=pointer]:
+                  - /url: /dashboard/settings/sso
+                  - img [ref=e300]
+                  - generic [ref=e303]: SSO
+              - listitem [ref=e304]:
+                - link "Whitelabeling" [ref=e305] [cursor=pointer]:
+                  - /url: /dashboard/settings/whitelabeling
+                  - img [ref=e306]
+                  - generic [ref=e312]: Whitelabeling
+          - generic [ref=e36]:
+            - generic [ref=e37]: Extra
+            - list [ref=e38]:
+              - listitem [ref=e39]:
+                - link "Documentation" [ref=e40] [cursor=pointer]:
+                  - /url: https://docs.dokploy.com/docs/core
+                  - img [ref=e42]
+                  - generic [ref=e44]: Documentation
+              - listitem [ref=e45]:
+                - link "Support" [ref=e46] [cursor=pointer]:
+                  - /url: https://discord.gg/2tBnJ3jDJc
+                  - img [ref=e48]
+                  - generic [ref=e51]: Support
+        - list [ref=e53]:
+          - listitem [ref=e313]:
+            - button "Update Available" [ref=e315] [cursor=pointer]:
+              - img [ref=e316]
+              - generic [ref=e319]: Update Available
+          - listitem [ref=e54]:
+            - button "PC Account 13093023233@163.com" [ref=e323] [cursor=pointer]:
+              - generic [ref=e57]: PC
+              - generic [ref=e58]:
+                - generic [ref=e59]: Account
+                - generic [ref=e324]: 13093023233@163.com
+              - img [ref=e60]
+          - generic [ref=e325]: Version v0.29.4
+        - button "Toggle Sidebar" [ref=e63]
+      - main [ref=e64]:
+        - generic [ref=e66]:
+          - generic [ref=e68]:
+            - button "Toggle Sidebar" [ref=e69] [cursor=pointer]:
+              - img [ref=e70]
+              - generic [ref=e72]: Toggle Sidebar
+            - generic [ref=e73]:
+              - button "ai" [ref=e326] [cursor=pointer]:
+                - img [ref=e75]
+                - generic [ref=e78]: ai
+                - img [ref=e79]
+              - paragraph [ref=e327]: production
+              - button "n8n" [ref=e328] [cursor=pointer]:
+                - img [ref=e329]
+                - generic [ref=e335]: n8n
+                - img [ref=e336]
+              - button [ref=e338] [cursor=pointer]:
+                - img [ref=e339]
+          - generic [ref=e83]:
+            - generic [ref=e85]:
+              - generic [ref=e86]:
+                - heading "n8n" [level=3] [ref=e87]:
+                  - generic [ref=e88]:
+                    - button [ref=e90] [cursor=pointer]
+                    - img [ref=e92]
+                  - text: n8n
+                - generic [ref=e98]: ai-n8n-cndv9k
+              - generic [ref=e99]:
+                - generic [ref=e101] [cursor=pointer]: Dokploy Server
+                - generic [ref=e342]:
+                  - button [ref=e343] [cursor=pointer]:
+                    - img [ref=e344]
+                  - button [ref=e347] [cursor=pointer]:
+                    - img [ref=e348]
+            - generic [ref=e103]:
+              - tablist [ref=e105]:
+                - tab "General" [selected] [ref=e106] [cursor=pointer]
+                - tab "Environment" [ref=e351] [cursor=pointer]
+                - tab "Domains" [ref=e352] [cursor=pointer]
+                - tab "Deployments" [ref=e353] [cursor=pointer]
+                - tab "Containers" [ref=e354] [cursor=pointer]
+                - tab "Backups" [ref=e355] [cursor=pointer]
+                - tab "Schedules" [ref=e356] [cursor=pointer]
+                - tab "Volume Backups" [ref=e357] [cursor=pointer]
+                - tab "Logs" [ref=e358] [cursor=pointer]
+                - tab "Monitoring" [ref=e359] [cursor=pointer]
+                - tab "Advanced" [ref=e360] [cursor=pointer]
+              - tabpanel "General" [ref=e107]:
+                - generic [ref=e108]:
+                  - generic [ref=e109]:
+                    - generic [ref=e110]:
+                      - generic [ref=e111]:
+                        - heading "Deploy Settings" [level=3] [ref=e112]
+                        - generic [ref=e113]: Compose
+                      - paragraph [ref=e114]: Create a compose file to deploy your compose
+                    - generic [ref=e116]:
+                      - button "Deploy" [ref=e361] [cursor=pointer]:
+                        - generic [ref=e362]:
+                          - img [ref=e363]
+                          - text: Deploy
+                      - button "Reload" [ref=e368] [cursor=pointer]:
+                        - generic [ref=e369]:
+                          - img [ref=e370]
+                          - text: Reload
+                      - button "Stop" [ref=e375] [cursor=pointer]:
+                        - generic [ref=e376]:
+                          - img [ref=e377]
+                          - text: Stop
+                      - button "Open Terminal" [ref=e117] [cursor=pointer]:
+                        - img [ref=e118]
+                        - text: Open Terminal
+                      - generic [ref=e380]:
+                        - generic [ref=e381]: Autodeploy
+                        - switch "Toggle autodeploy" [checked] [ref=e382] [cursor=pointer]
+                  - generic [ref=e120]:
+                    - heading "Provider Select the source of your code Preview Compose" [level=3] [ref=e383]:
+                      - generic [ref=e123]:
+                        - generic [ref=e124]: Provider
+                        - paragraph [ref=e125]: Select the source of your code
+                      - generic [ref=e126]:
+                        - button "Preview Compose" [ref=e384] [cursor=pointer]:
+                          - img [ref=e385]
+                          - text: Preview Compose
+                        - img [ref=e387]
+                    - generic [ref=e391]:
+                      - tablist [ref=e393]:
+                        - tab "github GitHub" [ref=e394] [cursor=pointer]:
+                          - img "github" [ref=e395]
+                          - text: GitHub
+                        - tab "gitlab GitLab" [ref=e397] [cursor=pointer]:
+                          - img "gitlab" [ref=e398]
+                          - text: GitLab
+                        - tab "Bitbucket" [ref=e403] [cursor=pointer]:
+                          - img [ref=e404]
+                          - text: Bitbucket
+                        - tab "Gitea" [ref=e407] [cursor=pointer]:
+                          - img [ref=e408]
+                          - text: Gitea
+                        - tab "Git" [ref=e415] [cursor=pointer]:
+                          - img [ref=e416]
+                          - text: Git
+                        - tab "Raw" [selected] [ref=e418] [cursor=pointer]:
+                          - img [ref=e419]
+                          - text: Raw
+                      - tabpanel "Raw" [ref=e422]:
+                        - generic [ref=e423]:
+                          - generic [ref=e425]:
+                            - heading "Compose File" [level=3] [ref=e426]
+                            - paragraph [ref=e427]: Configure your Docker Compose file for this service.
+                          - generic [ref=e434]:
+                            - generic [ref=e435]:
+                              - generic [ref=e562]:
+                                - generic [ref=e563]: "1"
+                                - generic [ref=e564]: "2"
+                                - generic [ref=e565]: "3"
+                                - generic [ref=e566]: "4"
+                                - generic [ref=e567]: "5"
+                                - generic [ref=e568]: "6"
+                                - generic [ref=e569]: "7"
+                                - generic [ref=e570]: "8"
+                                - generic [ref=e571]: "9"
+                                - generic [ref=e572]: "10"
+                                - generic [ref=e573]: "11"
+                                - generic [ref=e574]: "12"
+                                - generic [ref=e575]: "13"
+                                - generic [ref=e576]: "14"
+                                - generic [ref=e577]: "15"
+                                - generic [ref=e578]: "16"
+                                - generic [ref=e579]: "17"
+                                - generic [ref=e580]: "18"
+                                - generic [ref=e581]: "19"
+                                - generic [ref=e582]: "20"
+                                - generic [ref=e583]: "21"
+                                - generic [ref=e584]: "22"
+                                - generic [ref=e585]: "23"
+                                - generic [ref=e586]: "24"
+                                - generic [ref=e587]: "25"
+                                - generic [ref=e588]: "26"
+                                - generic [ref=e589]: "27"
+                                - generic [ref=e590]: "28"
+                                - generic [ref=e591]: "29"
+                                - generic [ref=e592]: "30"
+                                - generic [ref=e593]: "31"
+                                - generic [ref=e594]: "32"
+                              - generic [ref=e595]:
+                                - generic [ref=e596]: ⌄
+                                - generic [ref=e597]: ⌄
+                                - generic [ref=e598]: ⌄
+                                - generic [ref=e599]: ⌄
+                                - generic [ref=e600]: ⌄
+                                - generic [ref=e601]: ⌄
+                                - generic [ref=e602]: ⌄
+                            - textbox [ref=e478]:
+                              - generic [ref=e479]: "version: \"3.8\""
+                              - generic [ref=e480]: "services:"
+                              - generic [ref=e481]: "n8n:"
+                              - generic [ref=e482]: "image: docker.n8n.io/n8nio/n8n:2.20.9"
+                              - generic [ref=e483]: "restart: on-failure"
+                              - generic [ref=e484]: "environment:"
+                              - generic [ref=e485]: "- N8N_HOST=${N8N_HOST}"
+                              - generic [ref=e486]: "- N8N_PORT=${N8N_PORT}"
+                              - generic [ref=e487]: "- N8N_PROTOCOL=http"
+                              - generic [ref=e488]: "- NODE_ENV=production"
+                              - generic [ref=e489]: "- WEBHOOK_URL=https://${N8N_HOST}/"
+                              - generic [ref=e490]: "- GENERIC_TIMEZONE=${GENERIC_TIMEZONE}"
+                              - generic [ref=e491]: "- N8N_SECURE_COOKIE=false"
+                              - generic [ref=e493]: "- DB_POSTGRESDB_PORT=5432"
+                              - generic [ref=e494]: "- DB_POSTGRESDB_USER=postgres"
+                              - generic [ref=e495]: "- DB_POSTGRESDB_PASSWORD=icdzdofkxkeze2ih"
+                              - generic [ref=e496]: "- DB_POSTGRESDB_HOST=default-pgdb-bdt64m"
+                              - generic [ref=e497]: "- DB_TYPE=postgresdb"
+                              - generic [ref=e498]: "- DB_POSTGRESDB_DATABASE=n8n"
+                              - generic [ref=e500]: "- PASSWORD=L1mhJ8A3HlxU96Qa2YjqTt0n4r57MoDe"
+                              - generic [ref=e501]: "- N8N_ENCRYPTION_KEY=L1mhJ8A3HlxU96Qa2YjqTt0n4r57MoDe"
+                              - generic [ref=e502]: "- VUE_APP_URL_BASE_API=https://${N8N_HOST}"
+                              - generic [ref=e503]: "volumes:"
+                              - generic [ref=e504]: "- n8n_data:/home/node/.n8n"
+                              - generic [ref=e505]: "networks:"
+                              - generic [ref=e506]: "dokploy-network:"
+                              - generic [ref=e507]: "external: true"
+                              - generic [ref=e508]: "volumes:"
+                              - generic [ref=e509]: "n8n_data:"
+                          - button "Save" [ref=e513] [cursor=pointer]
+  - alert [ref=e137]

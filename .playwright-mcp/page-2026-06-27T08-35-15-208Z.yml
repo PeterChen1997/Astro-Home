@@ -1,0 +1,402 @@
+- generic:
+  - generic:
+    - region "Notifications alt+T"
+    - generic:
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - list:
+                - listitem:
+                  - button:
+                    - generic:
+                      - generic:
+                        - img
+                      - generic:
+                        - paragraph: My Organization
+                    - img
+                - listitem:
+                  - button:
+                    - img
+            - generic:
+              - generic:
+                - generic: Home
+                - list:
+                  - listitem:
+                    - link:
+                      - /url: /dashboard/home
+                      - img
+                      - generic: Home
+                  - listitem:
+                    - link:
+                      - /url: /dashboard/projects
+                      - img
+                      - generic: Projects
+                  - listitem:
+                    - link:
+                      - /url: /dashboard/deployments
+                      - img
+                      - generic: Deployments
+                  - listitem:
+                    - link:
+                      - /url: /dashboard/monitoring
+                      - img
+                      - generic: Monitoring
+                  - listitem:
+                    - link:
+                      - /url: /dashboard/schedules
+                      - img
+                      - generic: Schedules
+                  - listitem:
+                    - link:
+                      - /url: /dashboard/traefik
+                      - img
+                      - generic: Traefik File System
+                  - listitem:
+                    - link:
+                      - /url: /dashboard/docker
+                      - img
+                      - generic: Docker
+                  - listitem:
+                    - link:
+                      - /url: /dashboard/swarm
+                      - img
+                      - generic: Swarm
+                  - listitem:
+                    - link:
+                      - /url: /dashboard/requests
+                      - img
+                      - generic: Requests
+              - generic:
+                - generic: Settings
+                - list:
+                  - listitem:
+                    - link:
+                      - /url: /dashboard/settings/server
+                      - img
+                      - generic: Web Server
+                  - listitem:
+                    - link:
+                      - /url: /dashboard/settings/profile
+                      - img
+                      - generic: Profile
+                  - listitem:
+                    - link:
+                      - /url: /dashboard/settings/servers
+                      - img
+                      - generic: Remote Servers
+                  - listitem:
+                    - link:
+                      - /url: /dashboard/settings/users
+                      - img
+                      - generic: Users
+                  - listitem:
+                    - link:
+                      - /url: /dashboard/settings/audit-logs
+                      - img
+                      - generic: Audit Logs
+                  - listitem:
+                    - link:
+                      - /url: /dashboard/settings/ssh-keys
+                      - img
+                      - generic: SSH Keys
+                  - listitem:
+                    - link:
+                      - /url: /dashboard/settings/ai
+                      - img
+                      - generic: AI
+                  - listitem:
+                    - link:
+                      - /url: /dashboard/settings/tags
+                      - img
+                      - generic: Tags
+                  - listitem:
+                    - link:
+                      - /url: /dashboard/settings/git-providers
+                      - img
+                      - generic: Git
+                  - listitem:
+                    - link:
+                      - /url: /dashboard/settings/registry
+                      - img
+                      - generic: Registry
+                  - listitem:
+                    - link:
+                      - /url: /dashboard/settings/destinations
+                      - img
+                      - generic: S3 Destinations
+                  - listitem:
+                    - link:
+                      - /url: /dashboard/settings/certificates
+                      - img
+                      - generic: Certificates
+                  - listitem:
+                    - link:
+                      - /url: /dashboard/settings/cluster
+                      - img
+                      - generic: Cluster
+                  - listitem:
+                    - link:
+                      - /url: /dashboard/settings/notifications
+                      - img
+                      - generic: Notifications
+                  - listitem:
+                    - link:
+                      - /url: /dashboard/settings/license
+                      - img
+                      - generic: License
+                  - listitem:
+                    - link:
+                      - /url: /dashboard/settings/sso
+                      - img
+                      - generic: SSO
+                  - listitem:
+                    - link:
+                      - /url: /dashboard/settings/whitelabeling
+                      - img
+                      - generic: Whitelabeling
+              - generic:
+                - generic: Extra
+                - list:
+                  - listitem:
+                    - link:
+                      - /url: https://docs.dokploy.com/docs/core
+                      - generic:
+                        - img
+                      - generic: Documentation
+                  - listitem:
+                    - link:
+                      - /url: https://discord.gg/2tBnJ3jDJc
+                      - generic:
+                        - img
+                      - generic: Support
+            - generic:
+              - list:
+                - listitem:
+                  - generic:
+                    - button:
+                      - img
+                      - generic: Update Available
+                - listitem:
+                  - button:
+                    - generic:
+                      - generic: PC
+                    - generic:
+                      - generic: Account
+                      - generic: 13093023233@163.com
+                    - img
+                - generic: Version v0.29.4
+            - button
+      - main:
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - button:
+                  - img
+                  - generic: Toggle Sidebar
+                - generic:
+                  - button:
+                    - img
+                    - generic: ai
+                    - img
+                  - paragraph: production
+                  - button:
+                    - img
+                    - generic: n8n
+                    - img
+                  - button:
+                    - img
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - heading [level=3]:
+                          - generic:
+                            - generic:
+                              - button
+                            - img
+                          - text: n8n
+                        - generic: ai-n8n-cndv9k
+                      - generic:
+                        - generic:
+                          - generic: Dokploy Server
+                        - generic:
+                          - button:
+                            - img
+                          - button:
+                            - img
+                  - generic:
+                    - generic:
+                      - generic:
+                        - tablist:
+                          - tab [selected]: General
+                          - tab: Environment
+                          - tab: Domains
+                          - tab: Deployments
+                          - tab: Containers
+                          - tab: Backups
+                          - tab: Schedules
+                          - tab: Volume Backups
+                          - tab: Logs
+                          - tab: Monitoring
+                          - tab: Advanced
+                      - tabpanel "General":
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - heading [level=3]: Deploy Settings
+                                - generic: Compose
+                              - paragraph: Create a compose file to deploy your compose
+                            - generic:
+                              - generic:
+                                - button [expanded]:
+                                  - generic:
+                                    - img
+                                    - text: Deploy
+                                - button:
+                                  - generic:
+                                    - img
+                                    - text: Reload
+                                - button:
+                                  - generic:
+                                    - img
+                                    - text: Stop
+                                - button:
+                                  - img
+                                  - text: Open Terminal
+                                - generic:
+                                  - generic: Autodeploy
+                                  - switch [checked]
+                          - generic:
+                            - generic:
+                              - heading [level=3]:
+                                - generic:
+                                  - generic: Provider
+                                  - paragraph: Select the source of your code
+                                - generic:
+                                  - button:
+                                    - img
+                                    - text: Preview Compose
+                                  - img
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - tablist:
+                                    - tab:
+                                      - img
+                                      - text: GitHub
+                                    - tab:
+                                      - img
+                                      - text: GitLab
+                                    - tab:
+                                      - img
+                                      - text: Bitbucket
+                                    - tab:
+                                      - img
+                                      - text: Gitea
+                                    - tab:
+                                      - img
+                                      - text: Git
+                                    - tab [selected]:
+                                      - img
+                                      - text: Raw
+                                - tabpanel "Raw":
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - heading [level=3]: Compose File
+                                        - paragraph: Configure your Docker Compose file for this service.
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - generic:
+                                                - generic:
+                                                  - generic:
+                                                    - generic:
+                                                      - generic: "1"
+                                                      - generic: "2"
+                                                      - generic: "3"
+                                                      - generic: "4"
+                                                      - generic: "5"
+                                                      - generic: "6"
+                                                      - generic: "7"
+                                                      - generic: "8"
+                                                      - generic: "9"
+                                                      - generic: "10"
+                                                      - generic: "11"
+                                                      - generic: "12"
+                                                      - generic: "13"
+                                                      - generic: "14"
+                                                      - generic: "15"
+                                                      - generic: "16"
+                                                      - generic: "17"
+                                                      - generic: "18"
+                                                      - generic: "19"
+                                                      - generic: "20"
+                                                      - generic: "21"
+                                                      - generic: "22"
+                                                      - generic: "23"
+                                                      - generic: "24"
+                                                      - generic: "25"
+                                                      - generic: "26"
+                                                      - generic: "27"
+                                                      - generic: "28"
+                                                      - generic: "29"
+                                                      - generic: "30"
+                                                      - generic: "31"
+                                                      - generic: "32"
+                                                    - generic:
+                                                      - generic: ⌄
+                                                      - generic: ⌄
+                                                      - generic: ⌄
+                                                      - generic: ⌄
+                                                      - generic: ⌄
+                                                      - generic: ⌄
+                                                      - generic: ⌄
+                                                  - textbox:
+                                                    - generic: "version: \"3.8\""
+                                                    - generic: "services:"
+                                                    - generic: "n8n:"
+                                                    - generic: "image: docker.n8n.io/n8nio/n8n:2.20.9"
+                                                    - generic: "restart: on-failure"
+                                                    - generic: "environment:"
+                                                    - generic: "- N8N_HOST=${N8N_HOST}"
+                                                    - generic: "- N8N_PORT=${N8N_PORT}"
+                                                    - generic: "- N8N_PROTOCOL=http"
+                                                    - generic: "- NODE_ENV=production"
+                                                    - generic: "- WEBHOOK_URL=https://${N8N_HOST}/"
+                                                    - generic: "- GENERIC_TIMEZONE=${GENERIC_TIMEZONE}"
+                                                    - generic: "- N8N_SECURE_COOKIE=false"
+                                                    - generic: "- DB_POSTGRESDB_PORT=5432"
+                                                    - generic: "- DB_POSTGRESDB_USER=postgres"
+                                                    - generic: "- DB_POSTGRESDB_PASSWORD=icdzdofkxkeze2ih"
+                                                    - generic: "- DB_POSTGRESDB_HOST=default-pgdb-bdt64m"
+                                                    - generic: "- DB_TYPE=postgresdb"
+                                                    - generic: "- DB_POSTGRESDB_DATABASE=n8n"
+                                                    - generic: "- PASSWORD=L1mhJ8A3HlxU96Qa2YjqTt0n4r57MoDe"
+                                                    - generic: "- N8N_ENCRYPTION_KEY=L1mhJ8A3HlxU96Qa2YjqTt0n4r57MoDe"
+                                                    - generic: "- VUE_APP_URL_BASE_API=https://${N8N_HOST}"
+                                                    - generic: "volumes:"
+                                                    - generic: "- n8n_data:/home/node/.n8n"
+                                                    - generic: "networks:"
+                                                    - generic: "dokploy-network:"
+                                                    - generic: "external: true"
+                                                    - generic: "volumes:"
+                                                    - generic: "n8n_data:"
+                                    - generic:
+                                      - button: Save
+  - generic:
+    - alert
+  - alertdialog "Deploy Compose" [ref=e604]:
+    - generic [ref=e605]:
+      - heading "Deploy Compose" [level=2] [ref=e606]
+      - paragraph [ref=e607]: Are you sure you want to deploy this compose?
+    - generic [ref=e608]:
+      - button "Cancel" [active] [ref=e609] [cursor=pointer]
+      - button "Confirm" [ref=e610] [cursor=pointer]

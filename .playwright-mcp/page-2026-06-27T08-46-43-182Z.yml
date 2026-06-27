@@ -1,0 +1,92 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - region "Notifications alt+T"
+    - generic [ref=e3]:
+      - generic [ref=e7]:
+        - img [ref=e10]
+        - generic [ref=e12]:
+          - generic [ref=e13]:
+            - generic [ref=e14]: Home
+            - list [ref=e15]:
+              - listitem [ref=e16]:
+                - link "Home" [ref=e17] [cursor=pointer]:
+                  - /url: /dashboard/home
+                  - img [ref=e18]
+                  - generic [ref=e21]: Home
+              - listitem [ref=e22]:
+                - link "Projects" [ref=e23] [cursor=pointer]:
+                  - /url: /dashboard/projects
+                  - img [ref=e24]
+                  - generic [ref=e26]: Projects
+          - generic [ref=e27]:
+            - generic [ref=e28]: Settings
+            - list [ref=e29]:
+              - listitem [ref=e30]:
+                - link "Profile" [ref=e31] [cursor=pointer]:
+                  - /url: /dashboard/settings/profile
+                  - img [ref=e32]
+                  - generic [ref=e35]: Profile
+          - generic [ref=e36]:
+            - generic [ref=e37]: Extra
+            - list [ref=e38]:
+              - listitem [ref=e39]:
+                - link "Documentation" [ref=e40] [cursor=pointer]:
+                  - /url: https://docs.dokploy.com/docs/core
+                  - img [ref=e42]
+                  - generic [ref=e44]: Documentation
+              - listitem [ref=e45]:
+                - link "Support" [ref=e46] [cursor=pointer]:
+                  - /url: https://discord.gg/2tBnJ3jDJc
+                  - img [ref=e48]
+                  - generic [ref=e51]: Support
+        - list [ref=e53]:
+          - listitem [ref=e54]:
+            - button "UU Account" [ref=e55] [cursor=pointer]:
+              - generic [ref=e57]: UU
+              - generic [ref=e59]: Account
+              - img [ref=e60]
+        - button "Toggle Sidebar" [ref=e63]
+      - main [ref=e64]:
+        - generic [ref=e66]:
+          - generic [ref=e68]:
+            - button "Toggle Sidebar" [ref=e69] [cursor=pointer]:
+              - img [ref=e70]
+              - generic [ref=e72]: Toggle Sidebar
+            - button "Select Project" [ref=e74] [cursor=pointer]:
+              - img [ref=e75]
+              - generic [ref=e78]: Select Project
+              - img [ref=e79]
+          - generic [ref=e83]:
+            - generic [ref=e85]:
+              - generic [ref=e86]:
+                - heading "n8n" [level=3] [ref=e87]:
+                  - generic [ref=e88]:
+                    - button [ref=e90] [cursor=pointer]
+                    - img [ref=e92]
+                  - text: n8n
+                - generic [ref=e98]: ai-n8n-cndv9k
+              - generic [ref=e101] [cursor=pointer]: Dokploy Server
+            - generic [ref=e103]:
+              - tablist [ref=e105]:
+                - tab "General" [selected] [ref=e106] [cursor=pointer]
+              - tabpanel "General" [ref=e107]:
+                - generic [ref=e108]:
+                  - generic [ref=e109]:
+                    - generic [ref=e110]:
+                      - generic [ref=e111]:
+                        - heading "Deploy Settings" [level=3] [ref=e112]
+                        - generic [ref=e113]: Compose
+                      - paragraph [ref=e114]: Create a compose file to deploy your compose
+                    - button "Open Terminal" [ref=e117] [cursor=pointer]:
+                      - img [ref=e118]
+                      - text: Open Terminal
+                  - generic [ref=e120]:
+                    - heading "Provider Select the source of your code" [level=3] [ref=e122]:
+                      - generic [ref=e123]:
+                        - generic [ref=e124]: Provider
+                        - paragraph [ref=e125]: Select the source of your code
+                      - img [ref=e127]
+                    - generic [ref=e133]:
+                      - img [ref=e134]
+                      - generic [ref=e136]: Loading providers...
+  - alert [ref=e137]

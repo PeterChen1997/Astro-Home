@@ -1,0 +1,145 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - region "Notifications alt+T"
+    - generic [ref=e3]:
+      - generic [ref=e7]:
+        - img [ref=e10]
+        - generic [ref=e12]:
+          - generic [ref=e13]:
+            - generic [ref=e14]: Home
+            - list [ref=e15]:
+              - listitem [ref=e16]:
+                - link "Home" [ref=e17] [cursor=pointer]:
+                  - /url: /dashboard/home
+                  - img [ref=e18]
+                  - generic [ref=e21]: Home
+              - listitem [ref=e22]:
+                - link "Projects" [ref=e23] [cursor=pointer]:
+                  - /url: /dashboard/projects
+                  - img [ref=e24]
+                  - generic [ref=e26]: Projects
+          - generic [ref=e27]:
+            - generic [ref=e28]: Settings
+            - list [ref=e29]:
+              - listitem [ref=e30]:
+                - link "Profile" [ref=e31] [cursor=pointer]:
+                  - /url: /dashboard/settings/profile
+                  - img [ref=e32]
+                  - generic [ref=e35]: Profile
+          - generic [ref=e36]:
+            - generic [ref=e37]: Extra
+            - list [ref=e38]:
+              - listitem [ref=e39]:
+                - link "Documentation" [ref=e40] [cursor=pointer]:
+                  - /url: https://docs.dokploy.com/docs/core
+                  - img [ref=e42]
+                  - generic [ref=e44]: Documentation
+              - listitem [ref=e45]:
+                - link "Support" [ref=e46] [cursor=pointer]:
+                  - /url: https://discord.gg/2tBnJ3jDJc
+                  - img [ref=e48]
+                  - generic [ref=e51]: Support
+        - list [ref=e53]:
+          - listitem [ref=e54]:
+            - button "UU Account" [ref=e55] [cursor=pointer]:
+              - generic [ref=e57]: UU
+              - generic [ref=e59]: Account
+              - img [ref=e60]
+        - button "Toggle Sidebar" [ref=e63]
+      - main [ref=e64]:
+        - generic [ref=e66]:
+          - generic [ref=e68]:
+            - button "Toggle Sidebar" [ref=e69] [cursor=pointer]:
+              - img [ref=e70]
+              - generic [ref=e72]: Toggle Sidebar
+            - button "Select Project" [ref=e74] [cursor=pointer]:
+              - img [ref=e75]
+              - generic [ref=e78]: Select Project
+              - img [ref=e79]
+          - generic [ref=e83]:
+            - generic [ref=e84]:
+              - generic [ref=e85]:
+                - heading "pgdb" [level=3] [ref=e86]:
+                  - generic [ref=e87]:
+                    - button [ref=e89] [cursor=pointer]
+                    - img [ref=e91]
+                  - text: pgdb
+                - generic [ref=e97]: default-pgdb-bdt64m
+              - generic [ref=e100]: Dokploy Server
+            - generic [ref=e102]:
+              - tablist [ref=e104]:
+                - tab "General" [selected] [ref=e105] [cursor=pointer]
+                - tab "Backups" [ref=e106] [cursor=pointer]
+              - tabpanel "General" [ref=e107]:
+                - generic [ref=e108]:
+                  - generic [ref=e110]:
+                    - heading "Deploy Settings" [level=3] [ref=e112]
+                    - button "Open Terminal" [ref=e114] [cursor=pointer]:
+                      - generic [ref=e115]:
+                        - img [ref=e116]
+                        - text: Open Terminal
+                  - generic [ref=e119]:
+                    - heading "Internal Credentials" [level=3] [ref=e121]
+                    - generic [ref=e123]:
+                      - generic [ref=e124]:
+                        - generic [ref=e125]: User
+                        - textbox [disabled] [ref=e127]: postgres
+                      - generic [ref=e128]:
+                        - generic [ref=e129]: Database Name
+                        - textbox [disabled] [ref=e131]: pgdb
+                      - generic [ref=e132]:
+                        - generic [ref=e133]: Password
+                        - generic [ref=e134]:
+                          - generic [ref=e135]:
+                            - generic [ref=e136]:
+                              - textbox [disabled] [ref=e137]: icdzdofkxkeze2ih
+                              - button [ref=e139] [cursor=pointer]:
+                                - img [ref=e140]
+                            - button [ref=e143] [cursor=pointer]:
+                              - img [ref=e144]
+                          - button [ref=e147] [cursor=pointer]:
+                            - img [ref=e148]
+                      - generic [ref=e151]:
+                        - generic [ref=e152]: Internal Port (Container)
+                        - textbox [disabled] [ref=e154]: "5432"
+                      - generic [ref=e155]:
+                        - generic [ref=e156]: Internal Host
+                        - textbox [disabled] [ref=e158]: default-pgdb-bdt64m
+                      - generic [ref=e159]:
+                        - generic [ref=e160]: Internal Connection URL
+                        - generic [ref=e161]:
+                          - generic [ref=e162]:
+                            - textbox [disabled] [ref=e163]: postgresql://postgres:icdzdofkxkeze2ih@default-pgdb-bdt64m:5432/pgdb
+                            - button [ref=e165] [cursor=pointer]:
+                              - img [ref=e166]
+                          - button [ref=e169] [cursor=pointer]:
+                            - img [ref=e170]
+                  - generic [ref=e174]:
+                    - generic [ref=e175]:
+                      - heading "External Credentials" [level=3] [ref=e176]
+                      - paragraph [ref=e177]: In order to make the database reachable through the internet, you must set a port and ensure that the port is not being used by another application or database
+                    - generic [ref=e178]:
+                      - generic [ref=e179]:
+                        - img [ref=e181]
+                        - generic [ref=e184]:
+                          - text: You need to set an IP address in your
+                          - link "Web Server -> Server -> Update Server IP" [ref=e185] [cursor=pointer]:
+                            - /url: /dashboard/settings/server
+                          - text: to fix the database url connection.
+                      - generic [ref=e186]:
+                        - generic [ref=e189]:
+                          - text: External Port (Internet)
+                          - textbox "External Port (Internet)" [ref=e191]:
+                            - /placeholder: "5432"
+                            - text: "5432"
+                        - generic [ref=e193]:
+                          - generic [ref=e194]: External Host
+                          - generic [ref=e195]:
+                            - generic [ref=e196]:
+                              - textbox [disabled] [ref=e197]: postgresql://postgres:icdzdofkxkeze2ih@undefined:5432/pgdb
+                              - button [ref=e199] [cursor=pointer]:
+                                - img [ref=e200]
+                            - button [ref=e203] [cursor=pointer]:
+                              - img [ref=e204]
+                        - button "Save" [ref=e208] [cursor=pointer]
+  - alert [ref=e209]
