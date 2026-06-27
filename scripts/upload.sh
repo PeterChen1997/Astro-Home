@@ -1,10 +1,23 @@
-sudo rm -rf ./dist
-sudo yarn build
+#!/bin/bash
+set -e
 
-sudo rm -rf /Users/peterchen/.qshell/users/晨阳/qupload2
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
 
-# 需要删除缓存
-sudo ~/Downloads/qshell qupload2 --src-dir=dist --bucket=peter-blog --overwrite --thread-count 5
-# 不删除缓存
-# ~/Downloads/qshell qupload2 --src-dir=dist --bucket=peter-blog --thread-count 100
-sudo ~/Downloads/qshell cdnrefresh -i ./scripts/refresh.txt
+cd "$PROJECT_DIR"
+
+echo "==> Building..."
+rm -rf ./dist
+yarn build
+
+echo "==> Replacing CDN paths..."
+bash scripts/replace-cdn.sh
+
+echo "==> Uploading to Qiniu (clearing local cache)..."
+rm -rf /Users/peterchen/.qshell/users/晨阳/qupload2
+~/Downloads/qshell qupload2 --src-dir=dist --bucket=peter-blog --overwrite --thread-count 5
+
+echo "==> Refreshing CDN..."
+~/Downloads/qshell cdnrefresh -i ./scripts/refresh.txt
+
+echo "==> Deploy complete!"
