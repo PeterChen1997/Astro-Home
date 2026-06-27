@@ -94,7 +94,10 @@ th {
 table {
   border: 1px solid rgb(221, 221, 221);
   font-size: 14px;
-  min-width: 581px;
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 li > p {
