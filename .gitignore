@@ -21,3 +21,6 @@ pnpm-debug.log*
 .idea
 
 storybook-static
+
+# playwright mcp output
+.playwright-mcp/
