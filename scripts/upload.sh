@@ -10,9 +10,6 @@ echo "==> Building..."
 rm -rf ./dist
 yarn build
 
-echo "==> Replacing CDN paths..."
-bash scripts/replace-cdn.sh
-
 echo "==> Uploading to Qiniu (clearing local cache)..."
 rm -rf /Users/peterchen/.qshell/users/晨阳/qupload2
 ~/Downloads/qshell qupload2 --src-dir=dist --bucket=peter-blog --overwrite --thread-count 5
