@@ -10,8 +10,11 @@ echo "==> Building..."
 rm -rf ./dist
 yarn build
 
+echo "==> Replacing CDN paths..."
+bash scripts/replace-cdn.sh
+
 echo "==> Uploading to Qiniu (incremental, skipping unchanged files)..."
-~/Downloads/qshell qupload2 --src-dir=dist --bucket=peter-blog --overwrite --check-hash --thread-count 5
+~/Downloads/qshell qupload2 --src-dir=dist --bucket=peter-blog --overwrite --check-hash --rescan-local --thread-count 5
 
 echo "==> Refreshing CDN..."
 ~/Downloads/qshell cdnrefresh -i ./scripts/refresh.txt
