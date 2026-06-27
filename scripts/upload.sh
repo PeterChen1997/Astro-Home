@@ -10,9 +10,8 @@ echo "==> Building..."
 rm -rf ./dist
 yarn build
 
-echo "==> Uploading to Qiniu (clearing local cache)..."
-rm -rf /Users/peterchen/.qshell/users/晨阳/qupload2
-~/Downloads/qshell qupload2 --src-dir=dist --bucket=peter-blog --overwrite --thread-count 5
+echo "==> Uploading to Qiniu (incremental, skipping unchanged files)..."
+~/Downloads/qshell qupload2 --src-dir=dist --bucket=peter-blog --overwrite --check-hash --thread-count 5
 
 echo "==> Refreshing CDN..."
 ~/Downloads/qshell cdnrefresh -i ./scripts/refresh.txt
