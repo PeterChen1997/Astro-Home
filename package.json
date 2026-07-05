@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "private": true,
-  "packageManager": "yarn@1.22.19",
+  "packageManager": "pnpm@9.6.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -72,9 +72,11 @@
       "plugin:storybook/recommended"
     ]
   },
-  "resolutions": {
-    "@babel/traverse": "7.23.9",
-    "fast-xml-parser": "^4.5.4",
-    "simple-git": "^3.32.3"
+  "pnpm": {
+    "overrides": {
+      "@babel/traverse": "7.23.9",
+      "fast-xml-parser": "^4.5.4",
+      "simple-git": "^3.32.3"
+    }
   }
 }

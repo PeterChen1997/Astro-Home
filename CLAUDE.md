@@ -14,21 +14,21 @@
 
 ```bash
 # 开发服务器（不要自己运行，需要用户确认）
-npm run dev          # 或 npm start - 启动 Astro 开发服务器
+pnpm dev          # 或 pnpm start - 启动 Astro 开发服务器
 
 # 构建
-npm run build        # 构建生产版本
+pnpm build        # 构建生产版本
 
 # 预览
-npm run preview      # 预览构建后的站点（监听所有网络接口）
-npm run serve        # 使用 http-server 提供 dist 目录服务
+pnpm preview      # 预览构建后的站点（监听所有网络接口）
+pnpm serve        # 使用 http-server 提供 dist 目录服务
 
 # Storybook
-npm run storybook    # 启动 Storybook 开发服务器（端口 6006）
-npm run build-storybook  # 构建 Storybook 静态版本
+pnpm storybook    # 启动 Storybook 开发服务器（端口 6006）
+pnpm build-storybook  # 构建 Storybook 静态版本
 
 # Chromatic
-npm run chromatic    # 运行 Chromatic 可视化测试
+pnpm chromatic    # 运行 Chromatic 可视化测试
 ```
 
 ## 项目架构
@@ -205,9 +205,9 @@ app = "astro-peterchen97"
 internal_port = 3000
 ```
 
-部署流程:
-1. `npm run build` 构建
-2. 使用 `fly deploy` 部署到 Fly.io
+部署流程（静态资源发布到七牛 CDN）:
+1. 执行 `pnpm deploy`（即 `scripts/upload.sh`）
+2. 流程：`pnpm build` → `scripts/replace-cdn.sh`（改写 dist HTML 中的 `/_astro/`、`/assets/` 为 `https://cdn.peterchen97.cn/...`）→ qshell 增量上传到七牛 `peter-blog` bucket → CDN 刷新
 
 ## React 组件使用
 
@@ -226,10 +226,10 @@ Astro 中使用 React 组件时需要添加 `client:*` 指令：
 
 ## 开发注意事项
 
-1. **不要自动运行开发服务器** - 需要用户确认后才能运行 `npm run dev`
-2. **大需求完成后运行构建检查** - 执行 `npm run build` 确保没有构建错误
+1. **不要自动运行开发服务器** - 需要用户确认后才能运行 `pnpm dev`
+2. **大需求完成后运行构建检查** - 执行 `pnpm build` 确保没有构建错误
 3. **DB reset 操作需要确认** - 任何数据库重置操作需要用户确认
-4. **使用 yarn** - 项目使用 yarn 作为包管理器（yarn@1.22.19）
+4. **使用 pnpm** - 项目使用 pnpm 作为包管理器（pnpm@9.6.0）
 5. **阅读时间计算** - 基于中文 500 字/分钟的阅读速度
 
 ## 常用依赖
