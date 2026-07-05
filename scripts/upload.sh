@@ -8,7 +8,7 @@ cd "$PROJECT_DIR"
 
 echo "==> Building..."
 rm -rf ./dist
-yarn build
+pnpm build
 
 echo "==> Replacing CDN paths..."
 bash scripts/replace-cdn.sh

@@ -24,3 +24,7 @@ storybook-static
 
 # playwright mcp output
 .playwright-mcp/
+
+# local notes / scratch (not committed)
+.local/
+
