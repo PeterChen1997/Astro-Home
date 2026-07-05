@@ -71,5 +71,10 @@
     "extends": [
       "plugin:storybook/recommended"
     ]
+  },
+  "resolutions": {
+    "@babel/traverse": "7.23.9",
+    "fast-xml-parser": "^4.5.4",
+    "simple-git": "^3.32.3"
   }
 }
