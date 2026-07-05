@@ -207,7 +207,8 @@ internal_port = 3000
 
 部署流程（静态资源发布到七牛 CDN）:
 1. 执行 `pnpm run deploy`（即 `scripts/upload.sh`；注意必须用 `pnpm run deploy`，`pnpm deploy` 是 pnpm 内置的 workspace 部署保留命令，会报 ERR_PNPM_CANNOT_DEPLOY）
-2. 流程：`pnpm build` → `scripts/replace-cdn.sh`（改写 dist HTML 中的 `/_astro/`、`/assets/` 为 `https://cdn.peterchen97.cn/...`）→ qshell 增量上传到七牛 `peter-blog` bucket → CDN 刷新
+2. 流程：`pnpm build` → qshell 增量上传（`--check-hash`）到七牛 `peter-blog` bucket → CDN 刷新（`scripts/refresh.txt`）
+3. **不要改写资源路径为 `cdn.peterchen97.cn`**：站点资源（`/_astro`、`/assets`）都在 `peter-blog` bucket，由 `blog.peterchen97.cn` 服务；`cdn.peterchen97.cn` 绑定的是另一个 bucket（`self-peter-chen`），改写会导致图片 404（曾因此在 8e7728d 移除 replace-cdn.sh）
 
 ## React 组件使用
 
