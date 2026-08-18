@@ -6,6 +6,7 @@ import mdx from '@astrojs/mdx'
 import addClasses from 'rehype-add-classes'
 import compress from 'astro-compress'
 import { astroImageTools } from 'astro-imagetools'
+import rehypeWrapTables from './src/libs/rehypeWrapTables.js'
 
 export default defineConfig({
   site: 'https://blog.peterchen97.cn',
@@ -77,7 +78,8 @@ export default defineConfig({
           th: 'px-2 py-3 text-left  font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider bg-gray-50 dark:bg-gray-600',
           td: 'px-2 py-4 h-10'
         }
-      ]
+      ],
+      rehypeWrapTables
     ]
   }
 })

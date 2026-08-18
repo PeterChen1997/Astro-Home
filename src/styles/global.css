@@ -93,11 +93,23 @@ th {
 
 table {
   border: 1px solid rgb(221, 221, 221);
+  border-collapse: collapse;
   font-size: 14px;
-  display: block;
+  width: 100%;
+}
+
+.table-wrapper {
   max-width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 769px) {
+  .article th,
+  .article td {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
 }
 
 li > p {

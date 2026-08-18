@@ -82,9 +82,9 @@ function getReadingTime(content: string) {
 
       {/* 标题 */}
       <h2
-        class={`text-lg font-semibold mt-1 mb-2 group-hover:text-orange-500 transition-colors duration-200 ${
+        class={`text-lg font-semibold mt-1 mb-2 flex-shrink-0 group-hover:text-orange-500 transition-colors duration-200 ${
           post.frontmatter.heroImage
-            ? 'text-white drop-shadow-lg'
+            ? 'text-white post-card-title-shadow'
             : 'text-gray-900 dark:text-white'
         }`}
         style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;"
@@ -96,7 +96,7 @@ function getReadingTime(content: string) {
       {
         post.frontmatter.description && (
           <p
-            class={`text-sm leading-relaxed mb-3 ${
+            class={`p-0 text-sm leading-relaxed mb-3 ${
               post.frontmatter.heroImage
                 ? 'text-white/90 drop-shadow-md'
                 : 'text-gray-600 dark:text-gray-300'
@@ -146,3 +146,9 @@ function getReadingTime(content: string) {
   >
   </div>
 </article>
+
+<style>
+  .post-card-title-shadow {
+    text-shadow: 0 2px 4px rgb(0 0 0 / 50%);
+  }
+</style>
