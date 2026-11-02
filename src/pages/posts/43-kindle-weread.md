@@ -3,7 +3,7 @@ layout: "../../layouts/BlogPost.astro"
 title: "旧 Kindle 用上微信读书：从越狱到进度同步"
 description: "用 GPT-6.1 Sol 配合本地 Agent，把闲置 Kindle 改成微信读书客户端。附实机效果、完整步骤，以及数据线、白屏和等待时间这些实际踩过的坑。"
 pubDate: "2026-11-02"
-heroImage: "/assets/imgs/46f7cef76a977a5d1f866cec655d7d648e01e4e3cf425dd054fe594eb4c52378.webp"
+heroImage: "/assets/imgs/6be75e417978a76d07abb3fdddc21b3de4124090caa83ec89300ab12eb8660be.webp"
 tags: ["Kindle", "微信读书", "KOReader", "折腾记录"]
 ---
 
