@@ -84,4 +84,4 @@ heroImage: "/home.png"
 
 世界很大，还想去看看！
 
-<iframe src="https://www.google.com/maps/d/embed?mid=1NZ70u7O0IOLH1k1yLk44jyFJ8V4UQzhd&ehbc=2E312F" width="100%" height="480" style="margin-bottom: 20px;"></iframe>
+<iframe src="/embed/footprints/index.html" title="我的足迹" loading="lazy" width="100%" style="aspect-ratio: 3 / 2; min-height: 260px; border: 0; margin-bottom: 20px;"></iframe>

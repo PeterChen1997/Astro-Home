@@ -1,0 +1,603 @@
+---
+// 足迹地图嵌入页：<iframe src="/embed/footprints/index.html">。地点改 src/data/footprints.json
+import config from '../../data/footprints.json'
+import world from '../../data/geo/world-50m.geo.json'
+import provinces from '../../data/geo/china-provinces.geo.json'
+import nineDash from '../../data/geo/china-nine-dash.geo.json'
+import { parseConfig, renderFootprints, toFeatureCollection } from '../../libs/footprintMap'
+
+const footprints = renderFootprints(parseConfig(config), {
+  world: toFeatureCollection(world, 'world-50m.geo.json'),
+  provinces: toFeatureCollection(provinces, 'china-provinces.geo.json'),
+  nineDash: toFeatureCollection(nineDash, 'china-nine-dash.geo.json')
+})
+const fullRect = [0, 0, footprints.width, footprints.height].join(',')
+---
+
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>我的足迹</title>
+    <script is:inline>
+      // 跟随主站主题；主站切换主题时 storage 事件会通知到 iframe
+      ;(function () {
+        function apply() {
+          var theme = null
+          try {
+            theme = localStorage.getItem('theme')
+          } catch (e) {}
+          var dark = theme
+            ? theme === 'dark'
+            : window.matchMedia('(prefers-color-scheme: dark)').matches
+          document.documentElement.classList.toggle('dark', dark)
+        }
+        apply()
+        window.addEventListener('storage', function (e) {
+          if (e.key === 'theme') apply()
+        })
+      })()
+    </script>
+  </head>
+  <body>
+    <div class="fp">
+      <div class="fp-head">
+        <p class="fp-stats">
+          去过 <strong>{footprints.regionCount}</strong> 个国家/地区 ·
+          <strong>{footprints.placeCount}</strong> 个地方
+        </p>
+        <div class="fp-tabs" role="group" aria-label="跳转到区域">
+          {
+            footprints.presets.map((preset, i) => {
+              const rect = preset.rect.join(',')
+              return (
+                <button
+                  type="button"
+                  class={i === 0 ? 'is-active' : undefined}
+                  data-rect={rect}
+                  data-full={rect === fullRect ? 'true' : undefined}
+                >
+                  {preset.name}
+                </button>
+              )
+            })
+          }
+        </div>
+      </div>
+      <div class="fp-stage">
+        <svg
+          class="fp-map"
+          viewBox={`0 0 ${footprints.width} ${footprints.height}`}
+          data-width={footprints.width}
+          data-height={footprints.height}
+          role="img"
+          aria-label="我的足迹地图，可拖动和缩放"
+        >
+          <path class="fp-land" d={footprints.land} />
+          <path class="fp-visited" d={footprints.visited} />
+          <path class="fp-dash" d={footprints.nineDash} />
+          {
+            footprints.pins.map(pin => (
+              <g transform={`translate(${pin.x} ${pin.y})`}>
+                <g class="fp-pin" tabindex="0">
+                  <circle class="fp-hit" r="7" />
+                  <circle class="fp-dot" r="3.5" />
+                  <text class="fp-label" x="8" y="4">
+                    {pin.name}
+                  </text>
+                </g>
+              </g>
+            ))
+          }
+        </svg>
+        <div class="fp-controls">
+          <button type="button" data-zoom="in" aria-label="放大">+</button>
+          <button type="button" data-zoom="out" aria-label="缩小">−</button>
+          <button type="button" data-zoom="reset" aria-label="回到全图">⟲</button>
+        </div>
+        <div class="fp-hint" aria-hidden="true"></div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  // 拖拽 / 缩放：通过改 SVG 的 viewBox 实现。嵌在关于页里时采用和 Google 地图嵌入一样的「协作手势」：
+  // 普通滚轮、单指滑动留给页面滚动；Ctrl/⌘ + 滚轮、触控板捏合、双指才操作地图
+  // 珠海和澳门只隔几公里，放大到 80 倍两个点才分得开
+  const MAX_ZOOM = 80
+  const WHEEL_SPEED = 0.002
+  const DRAG_THRESHOLD = 3
+  const IS_APPLE = /Mac|iPhone|iPad/.test(navigator.userAgent)
+  const WHEEL_HINT = IS_APPLE ? '按住 ⌘ 再滚动即可缩放地图' : '按住 Ctrl 再滚动即可缩放地图'
+  const TOUCH_HINT = '使用双指移动和缩放地图'
+
+  type MapState = { cx: number; cy: number; k: number }
+  type Rect = [number, number, number, number]
+
+  const stageEl = document.querySelector('.fp-stage')
+  const svgEl = document.querySelector('.fp-map')
+  const hintEl = document.querySelector('.fp-hint')
+  if (
+    !(stageEl instanceof HTMLElement) ||
+    !(svgEl instanceof SVGSVGElement) ||
+    !(hintEl instanceof HTMLElement)
+  ) {
+    throw new Error('足迹地图：页面结构缺失')
+  }
+  // 收窄后的类型存进显式类型的常量，函数声明（会被提升）里也能直接用
+  const stage: HTMLElement = stageEl
+  const svg: SVGSVGElement = svgEl
+  const hint: HTMLElement = hintEl
+  const tabs = [...document.querySelectorAll('.fp-tabs button')].filter(
+    (el): el is HTMLButtonElement => el instanceof HTMLButtonElement
+  )
+  const mapWidth = Number(svg.dataset.width)
+  const mapHeight = Number(svg.dataset.height)
+
+  let state: MapState = { cx: mapWidth / 2, cy: mapHeight / 2, k: 1 }
+  let frame = 0
+  let animation = 0
+  let hintTimer = 0
+
+  const clamp = (v: number, min: number, max: number) => Math.min(max, Math.max(min, v))
+  const lerp = (a: number, b: number, t: number) => a + (b - a) * t
+
+  // k = 1 时整张地图刚好放进容器；视口宽高比始终和容器一致，铺满不留白边
+  function viewSize(box: DOMRect, k: number) {
+    const fullWidth = Math.max(mapWidth, (mapHeight * box.width) / box.height)
+    const width = fullWidth / k
+    return { width, height: (width * box.height) / box.width }
+  }
+
+  function clampState(box: DOMRect, s: MapState): MapState {
+    const k = clamp(s.k, 1, MAX_ZOOM)
+    const view = viewSize(box, k)
+    const cx = view.width >= mapWidth ? mapWidth / 2 : clamp(s.cx, view.width / 2, mapWidth - view.width / 2)
+    const cy =
+      view.height >= mapHeight ? mapHeight / 2 : clamp(s.cy, view.height / 2, mapHeight - view.height / 2)
+    return { cx, cy, k }
+  }
+
+  function render() {
+    frame = 0
+    const box = stage.getBoundingClientRect()
+    if (!box.width || !box.height) return
+    state = clampState(box, state)
+    const view = viewSize(box, state.k)
+    svg.setAttribute(
+      'viewBox',
+      `${state.cx - view.width / 2} ${state.cy - view.height / 2} ${view.width} ${view.height}`
+    )
+    // 每个地图单位对应多少屏幕像素：圆点、地名、描边据此保持固定像素大小
+    stage.style.setProperty('--fp-scale', String(box.width / view.width))
+  }
+
+  function schedule() {
+    if (!frame) frame = requestAnimationFrame(render)
+  }
+
+  // 以屏幕上 (clientX, clientY) 为中心缩放 factor 倍后的状态：该点下的地图位置保持不动
+  function zoomedState(factor: number, clientX: number, clientY: number): MapState {
+    const box = stage.getBoundingClientRect()
+    const view = viewSize(box, state.k)
+    const fx = (clientX - box.left) / box.width
+    const fy = (clientY - box.top) / box.height
+    const mx = state.cx - view.width / 2 + fx * view.width
+    const my = state.cy - view.height / 2 + fy * view.height
+    const k = clamp(state.k * factor, 1, MAX_ZOOM)
+    const next = viewSize(box, k)
+    return { cx: mx - fx * next.width + next.width / 2, cy: my - fy * next.height + next.height / 2, k }
+  }
+
+  function zoomAt(factor: number, clientX: number, clientY: number) {
+    state = zoomedState(factor, clientX, clientY)
+    schedule()
+  }
+
+  function panBy(dx: number, dy: number) {
+    const box = stage.getBoundingClientRect()
+    const unitsPerPixel = viewSize(box, state.k).width / box.width
+    state = { ...state, cx: state.cx - dx * unitsPerPixel, cy: state.cy - dy * unitsPerPixel }
+    schedule()
+  }
+
+  function flyTo(target: MapState, duration = 450) {
+    cancelAnimationFrame(animation)
+    const box = stage.getBoundingClientRect()
+    const from = state
+    const to = clampState(box, target)
+    const start = performance.now()
+    const step = (now: number) => {
+      const t = Math.min(1, (now - start) / duration)
+      const e = 1 - Math.pow(1 - t, 3)
+      state = {
+        cx: lerp(from.cx, to.cx, e),
+        cy: lerp(from.cy, to.cy, e),
+        k: Math.exp(lerp(Math.log(from.k), Math.log(to.k), e))
+      }
+      render()
+      if (t < 1) animation = requestAnimationFrame(step)
+    }
+    animation = requestAnimationFrame(step)
+  }
+
+  function fitRect([x, y, width, height]: Rect) {
+    const box = stage.getBoundingClientRect()
+    const fullWidth = viewSize(box, 1).width
+    const needed = Math.max(width, (height * box.width) / box.height) * 1.1
+    flyTo({ cx: x + width / 2, cy: y + height / 2, k: fullWidth / needed })
+  }
+
+  function setActiveTab(active: HTMLButtonElement | undefined) {
+    tabs.forEach(tab => {
+      tab.classList.toggle('is-active', tab === active)
+      tab.setAttribute('aria-pressed', String(tab === active))
+    })
+  }
+
+  // 用户手动拖拽 / 缩放后，地图就不再是某个预设区域了
+  function interrupt() {
+    cancelAnimationFrame(animation)
+    setActiveTab(undefined)
+    hint.classList.remove('is-visible')
+  }
+
+  function showHint(text: string) {
+    hint.textContent = text
+    hint.classList.add('is-visible')
+    clearTimeout(hintTimer)
+    hintTimer = window.setTimeout(() => hint.classList.remove('is-visible'), 1500)
+  }
+
+  function parseRect(value: string | undefined): Rect | undefined {
+    const numbers = (value ?? '').split(',').map(Number)
+    if (numbers.length !== 4 || numbers.some(n => !Number.isFinite(n))) return undefined
+    const [x, y, width, height] = numbers
+    return [x, y, width, height]
+  }
+
+  tabs.forEach(tab =>
+    tab.addEventListener('click', () => {
+      const rect = parseRect(tab.dataset.rect)
+      if (!rect) return
+      setActiveTab(tab)
+      fitRect(rect)
+    })
+  )
+
+  document.querySelectorAll('.fp-controls button').forEach(button =>
+    button.addEventListener('click', () => {
+      if (!(button instanceof HTMLButtonElement)) return
+      const box = stage.getBoundingClientRect()
+      const centerX = box.left + box.width / 2
+      const centerY = box.top + box.height / 2
+      if (button.dataset.zoom === 'reset') {
+        setActiveTab(tabs.find(tab => tab.dataset.full === 'true'))
+        flyTo({ cx: mapWidth / 2, cy: mapHeight / 2, k: 1 })
+        return
+      }
+      interrupt()
+      flyTo(zoomedState(button.dataset.zoom === 'in' ? 2 : 0.5, centerX, centerY), 300)
+    })
+  )
+
+  // 鼠标拖拽：移动超过阈值才开始拖，这样单击圆点仍能聚焦显示地名
+  let drag: { id: number; x: number; y: number; moved: boolean } | undefined
+  stage.addEventListener('pointerdown', e => {
+    if (e.pointerType === 'touch' || e.button !== 0) return
+    if (e.target instanceof Element && e.target.closest('.fp-controls')) return
+    drag = { id: e.pointerId, x: e.clientX, y: e.clientY, moved: false }
+  })
+  stage.addEventListener('pointermove', e => {
+    if (!drag || drag.id !== e.pointerId) return
+    const dx = e.clientX - drag.x
+    const dy = e.clientY - drag.y
+    if (!drag.moved) {
+      if (Math.hypot(dx, dy) < DRAG_THRESHOLD) return
+      drag.moved = true
+      stage.setPointerCapture(e.pointerId)
+      stage.classList.add('is-dragging')
+      interrupt()
+    }
+    panBy(dx, dy)
+    drag.x = e.clientX
+    drag.y = e.clientY
+  })
+  const endDrag = (e: PointerEvent) => {
+    if (!drag || drag.id !== e.pointerId) return
+    drag = undefined
+    stage.classList.remove('is-dragging')
+  }
+  stage.addEventListener('pointerup', endDrag)
+  stage.addEventListener('pointercancel', endDrag)
+
+  stage.addEventListener('dblclick', e => {
+    if (e.target instanceof Element && e.target.closest('.fp-controls')) return
+    interrupt()
+    flyTo(zoomedState(2, e.clientX, e.clientY), 300)
+  })
+
+  // 滚轮：Ctrl/⌘ + 滚轮缩放（Chrome/Firefox 的触控板捏合也会带 ctrlKey），普通滚轮留给页面
+  stage.addEventListener(
+    'wheel',
+    e => {
+      if (!e.ctrlKey && !e.metaKey) {
+        showHint(WHEEL_HINT)
+        return
+      }
+      e.preventDefault()
+      interrupt()
+      const unit = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? stage.clientHeight : 1
+      zoomAt(Math.exp(-e.deltaY * unit * WHEEL_SPEED), e.clientX, e.clientY)
+    },
+    { passive: false }
+  )
+
+  // Safari 的触控板捏合走非标准的 gesture 事件
+  let gestureScale = 1
+  const gestureInfo = (e: Event) =>
+    'scale' in e && typeof e.scale === 'number' && e instanceof UIEvent && 'clientX' in e && 'clientY' in e
+      ? { scale: e.scale, x: Number(e.clientX), y: Number(e.clientY) }
+      : undefined
+  stage.addEventListener('gesturestart', e => {
+    e.preventDefault()
+    gestureScale = 1
+  })
+  stage.addEventListener('gesturechange', e => {
+    const info = gestureInfo(e)
+    if (!info) return
+    e.preventDefault()
+    interrupt()
+    zoomAt(info.scale / gestureScale, info.x, info.y)
+    gestureScale = info.scale
+  })
+
+  // 触摸：单指留给页面滚动，双指平移 + 缩放
+  let pinch: { x: number; y: number; distance: number } | undefined
+  const readPinch = (touches: TouchList) => {
+    const a = touches.item(0)
+    const b = touches.item(1)
+    if (!a || !b) return undefined
+    return {
+      x: (a.clientX + b.clientX) / 2,
+      y: (a.clientY + b.clientY) / 2,
+      distance: Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY)
+    }
+  }
+  stage.addEventListener(
+    'touchmove',
+    e => {
+      const current = readPinch(e.touches)
+      if (!current) {
+        showHint(TOUCH_HINT)
+        return
+      }
+      e.preventDefault()
+      interrupt()
+      if (pinch && pinch.distance > 0) {
+        zoomAt(current.distance / pinch.distance, current.x, current.y)
+        panBy(current.x - pinch.x, current.y - pinch.y)
+      }
+      pinch = current
+    },
+    { passive: false }
+  )
+  stage.addEventListener('touchend', e => {
+    if (e.touches.length < 2) pinch = undefined
+  })
+
+  new ResizeObserver(schedule).observe(stage)
+  render()
+</script>
+
+<style is:global>
+  :root {
+    --fp-ocean: #f1f5f9;
+    --fp-land: #dde1e7;
+    --fp-border: #ffffff;
+    --fp-visited: #fdba74;
+    --fp-dash: #6b7280;
+    --fp-pin: #ea580c;
+    --fp-pin-ring: #ffffff;
+    --fp-text: #374151;
+    --fp-label: #111827;
+    --fp-label-halo: #ffffff;
+    --fp-tab-bg: #f3f4f6;
+    --fp-tab-fg: #4b5563;
+    --fp-tab-active-bg: #ea580c;
+    --fp-tab-active-fg: #ffffff;
+    --fp-control-bg: #ffffff;
+    --fp-control-fg: #374151;
+  }
+  html.dark {
+    --fp-ocean: #111827;
+    --fp-land: #374151;
+    --fp-border: #1f2937;
+    --fp-visited: #9a3412;
+    --fp-dash: #9ca3af;
+    --fp-pin: #fb923c;
+    --fp-pin-ring: #111827;
+    --fp-text: #d1d5db;
+    --fp-label: #f9fafb;
+    --fp-label-halo: #111827;
+    --fp-tab-bg: #374151;
+    --fp-tab-fg: #d1d5db;
+    --fp-tab-active-bg: #f97316;
+    --fp-tab-active-fg: #111827;
+    --fp-control-bg: #374151;
+    --fp-control-fg: #f3f4f6;
+  }
+  html,
+  body {
+    margin: 0;
+    height: 100%;
+    background: transparent;
+  }
+  body {
+    font-family: system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    color: var(--fp-text);
+  }
+  .fp {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .fp-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px 12px;
+    padding: 4px 2px 8px;
+  }
+  .fp-stats {
+    margin: 0;
+    font-size: 14px;
+  }
+  .fp-stats strong {
+    color: var(--fp-pin);
+    font-size: 16px;
+  }
+  .fp-tabs {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+  }
+  .fp-tabs button,
+  .fp-controls button {
+    font: inherit;
+    border: 0;
+    cursor: pointer;
+  }
+  .fp-tabs button {
+    flex-shrink: 0;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    background: var(--fp-tab-bg);
+    color: var(--fp-tab-fg);
+    transition: background 0.2s, color 0.2s;
+  }
+  .fp-tabs button.is-active {
+    background: var(--fp-tab-active-bg);
+    color: var(--fp-tab-active-fg);
+  }
+  .fp-tabs button:focus-visible,
+  .fp-controls button:focus-visible {
+    outline: 2px solid var(--fp-pin);
+    outline-offset: 2px;
+  }
+  .fp-stage {
+    --fp-scale: 1;
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    background: var(--fp-ocean);
+    cursor: grab;
+    /* 单指交给页面滚动；双指捏合由脚本处理，不触发页面缩放 */
+    touch-action: pan-x pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .fp-stage.is-dragging {
+    cursor: grabbing;
+  }
+  .fp-map {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .fp-land,
+  .fp-visited {
+    stroke: var(--fp-border);
+    stroke-width: calc(0.6px / var(--fp-scale));
+    stroke-linejoin: round;
+  }
+  .fp-land {
+    fill: var(--fp-land);
+  }
+  .fp-visited {
+    fill: var(--fp-visited);
+  }
+  .fp-dash {
+    fill: var(--fp-dash);
+    stroke: var(--fp-dash);
+    stroke-width: calc(0.6px / var(--fp-scale));
+  }
+  .fp-pin {
+    transform: scale(calc(1 / var(--fp-scale)));
+    cursor: pointer;
+    outline: none;
+  }
+  .fp-hit {
+    fill: transparent;
+  }
+  .fp-dot {
+    fill: var(--fp-pin);
+    stroke: var(--fp-pin-ring);
+    stroke-width: 1.5;
+    transition: r 0.15s;
+  }
+  .fp-label {
+    font-size: 13px;
+    font-weight: 600;
+    fill: var(--fp-label);
+    stroke: var(--fp-label-halo);
+    stroke-width: 3px;
+    paint-order: stroke;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s;
+  }
+  .fp-pin:hover .fp-label,
+  .fp-pin:focus .fp-label {
+    opacity: 1;
+  }
+  .fp-pin:hover .fp-dot,
+  .fp-pin:focus .fp-dot {
+    r: 5;
+  }
+  .fp-controls {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .fp-controls button {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    font-size: 18px;
+    line-height: 30px;
+    padding: 0;
+    background: var(--fp-control-bg);
+    color: var(--fp-control-fg);
+    box-shadow: 0 1px 4px rgb(0 0 0 / 20%);
+  }
+  .fp-hint {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    text-align: center;
+    font-size: 15px;
+    color: #ffffff;
+    background: rgb(0 0 0 / 45%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  .fp-hint.is-visible {
+    opacity: 1;
+  }
+</style>
