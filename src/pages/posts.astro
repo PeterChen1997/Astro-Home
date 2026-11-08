@@ -137,7 +137,7 @@ const postsByYear = posts.reduce((acc, post) => {
                                   )}
 
                                   {/* 内容层 */}
-                                  <div class="relative p-4 h-[200px] flex flex-col justify-between">
+                                  <div class="relative p-4 min-h-[200px] flex flex-col justify-between">
                                     {/* 头部信息 */}
                                     <div class="flex items-start justify-between mb-3">
                                       <div class="flex-1">
@@ -195,7 +195,7 @@ const postsByYear = posts.reduce((acc, post) => {
                                     {/* 描述 */}
                                     {post.frontmatter.description && (
                                       <p
-                                        class={`text-sm leading-relaxed mb-3 ${
+                                        class={`p-0 text-sm leading-relaxed mb-3 ${
                                           post.frontmatter.heroImage
                                             ? 'text-white/90 drop-shadow-md'
                                             : 'text-gray-600 dark:text-gray-300'
