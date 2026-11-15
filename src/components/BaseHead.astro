@@ -67,9 +67,12 @@ const { title, description, image } = Astro.props
     Sentry.init({
       dsn: 'https://9dc4194e92514fb8bf106caf3b0cc4aa@o540966.ingest.sentry.io/4504228952801280',
       integrations: [new BrowserTracing(), new Sentry.Replay()],
-      tracesSampleRate: 1.0,
-      replaysSessionSampleRate: 0.1,
-      replaysOnErrorSampleRate: 1
+      // 免费额度：trace 全采样一个月 4.6 万 span，常规会话回放早已超额被限流
+      tracesSampleRate: 0.1,
+      replaysSessionSampleRate: 0,
+      replaysOnErrorSampleRate: 1,
+      // 访客网络拉不到 /_astro 分包（文件在线上一直可访问，部署也不删旧文件），不是站点的错
+      ignoreErrors: ['Failed to fetch dynamically imported module', 'Importing a module script failed']
     })
 
   LogRocket && LogRocket.init('blog-mi42z/blog')
