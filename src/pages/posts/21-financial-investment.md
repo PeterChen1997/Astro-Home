@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/BlogPost.Astro"
+layout: "../../layouts/BlogPost.astro"
 title: "适合中国宝宝的理财课"
 description: "第四期线下读书会文字稿记录"
 pubDate: "2024-01-22"

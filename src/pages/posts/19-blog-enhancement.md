@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/BlogPost.Astro"
+layout: "../../layouts/BlogPost.astro"
 title: "博客搭建一年啦！"
 description: "博客距离搭建已经一年整了，最近对博客的部署做了一点小小的调整，可以跟大家分享下"
 pubDate: "2023-12-09"
