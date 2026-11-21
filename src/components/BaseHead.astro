@@ -2,6 +2,7 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css'
+import chunkRecovery from '../libs/chunkRecovery.js?raw'
 
 export interface Props {
   title: string
@@ -56,6 +57,8 @@ const { title, description, image } = Astro.props
   }
 </script>
 
+<script is:inline set:html={chunkRecovery}></script>
+
 <!-- sentry -->
 <script>
   import * as Sentry from '@sentry/browser'
@@ -70,10 +73,15 @@ const { title, description, image } = Astro.props
       // 免费额度：trace 全采样一个月 4.6 万 span，常规会话回放早已超额被限流
       tracesSampleRate: 0.1,
       replaysSessionSampleRate: 0,
-      replaysOnErrorSampleRate: 1,
-      // 访客网络拉不到 /_astro 分包（文件在线上一直可访问，部署也不删旧文件），不是站点的错
-      ignoreErrors: ['Failed to fetch dynamically imported module', 'Importing a module script failed']
+      replaysOnErrorSampleRate: 1
     })
+
+  window.dispatchEvent(
+    new CustomEvent('blog:chunk-reporter-ready', {
+      detail: (error: unknown) =>
+        Sentry.captureException(error, { tags: { source: 'chunk-recovery' } })
+    })
+  )
 
   LogRocket && LogRocket.init('blog-mi42z/blog')
 </script>
