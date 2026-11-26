@@ -76,12 +76,24 @@ importers:
       dayjs:
         specifier: ^1.11.8
         version: 1.11.8
+      file-type:
+        specifier: 17.1.1
+        version: 17.1.1
+      find-cache-dir:
+        specifier: 3.3.2
+        version: 3.3.2
       http-server:
         specifier: ^14.1.1
         version: 14.1.1
       logrocket:
         specifier: ^7.0.0
         version: 7.0.0
+      object-hash:
+        specifier: ^3.0.0
+        version: 3.0.0
+      potrace:
+        specifier: 2.1.8
+        version: 2.1.8
       react:
         specifier: ^17
         version: 17.0.2
@@ -91,6 +103,9 @@ importers:
       react-icons:
         specifier: ^4.9.0
         version: 4.12.0(react@17.0.2)
+      sharp:
+        specifier: 0.32.4
+        version: 0.32.4
       tailwindcss:
         specifier: ^3.0.24
         version: 3.3.2

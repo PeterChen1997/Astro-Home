@@ -12,6 +12,7 @@ import ViewedCount from '../components/ViewedCount'
 import { Comments } from '../components/Comments'
 import { Button, Input, Select, Space } from 'antd'
 import Subscribe from '../components/Subscribe'
+import RecommendsNav from '../components/RecommendsNav.astro'
 
 export interface Props {
   content: {
@@ -36,6 +37,8 @@ const readingTime =
 const headings: { depth: number; slug: string; text: string }[] =
   Astro.props.headings ?? []
 const tocHeadings = headings.filter(h => h.depth === 2)
+
+const isRecommend = Astro.url.pathname.startsWith('/recommends/')
 ---
 
 <html lang="zh" style="min-height: 100vh;">
@@ -47,6 +50,7 @@ const tocHeadings = headings.filter(h => h.depth === 2)
     <Header />
     <Main>
       <Content>
+        {isRecommend && <RecommendsNav position="top" />}
         {heroImage && <CommonPicture image={heroImage} />}
         <h1 class="post-title">{title}</h1>
         <div class="post-meta">
@@ -69,10 +73,13 @@ const tocHeadings = headings.filter(h => h.depth === 2)
             </details>
           )
         }
-        <hr class="border-t border-[color:var(--line)] mt-5 mb-6" />
+        <hr class="post-divider" />
         <slot />
       </Content>
-      <Comments client:visible />
+      {isRecommend && <RecommendsNav position="bottom" />}
+      <div class="mt-12">
+        <Comments client:visible />
+      </div>
     </Main>
     <div class="p-4 text-center">
       <Subscribe client:load />

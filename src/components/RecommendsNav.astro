@@ -1,0 +1,66 @@
+---
+// 推荐博客文章页的导航：顶部只放「返回推荐博客」，底部再列出其他推荐文章
+import dayjs from 'dayjs'
+
+export interface Props {
+  position: 'top' | 'bottom'
+}
+
+const { position } = Astro.props
+const LIST_URL = '/recommends/index.html'
+const current = Astro.url.pathname.replace(/\/$/, '')
+
+const others =
+  position === 'bottom'
+    ? (await Astro.glob('../pages/recommends/*.{md,mdx}'))
+        .filter(post => post.url && decodeURI(post.url) !== decodeURI(current))
+        .sort(
+          (a, b) =>
+            new Date(b.frontmatter.pubDate).valueOf() -
+            new Date(a.frontmatter.pubDate).valueOf()
+        )
+    : []
+---
+
+{
+  position === 'top' ? (
+    <a
+      href={LIST_URL}
+      class="self-start mb-3 text-sm text-[color:var(--muted)] hover:text-[color:var(--ink)] transition-colors"
+      data-umami-event="recommends_back_top"
+    >
+      ← 返回推荐博客
+    </a>
+  ) : (
+    <nav class="mt-12 mb-10 pt-6 border-t border-[color:var(--line)]" aria-label="其他推荐文章">
+      {others.length > 0 && (
+        <>
+          <h2 class="text-[17px] font-bold">其他推荐文章</h2>
+          <ul class="mt-2">
+            {others.map(post => (
+              <li class="border-b border-[color:var(--line)]">
+                <a href={post.url} class="group block py-3">
+                  <span class="block text-[17px] leading-7 font-semibold group-hover:underline underline-offset-4 decoration-1">
+                    {post.frontmatter.title}
+                  </span>
+                  <span class="block text-xs leading-6 text-[color:var(--muted)]">
+                    {[post.frontmatter.author, `原文 ${dayjs(post.frontmatter.pubDate).format('YYYY-MM-DD')}`]
+                      .filter(Boolean)
+                      .join(' · ')}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+      <a
+        href={LIST_URL}
+        class="inline-block mt-5 text-[15px] underline underline-offset-4 decoration-orange-500 decoration-1"
+        data-umami-event="recommends_back_bottom"
+      >
+        ← 返回推荐博客
+      </a>
+    </nav>
+  )
+}

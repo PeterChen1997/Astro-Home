@@ -180,6 +180,8 @@ li > p {
 .article h4,
 .article h5,
 .article h6 { font-size: 17px; margin: 1.4em 0 0.5em; }
+/* 标题紧跟下一级标题时不叠两份间距 */
+.article :is(h1, h2, h3) + :is(h2, h3, h4) { margin-top: 0.4em; }
 
 .article a {
   text-decoration: underline;
@@ -300,6 +302,14 @@ li > p {
 .post-meta > :not(astro-island) + :not(astro-island)::before {
   content: '·';
   margin-right: 0.6em;
+}
+
+/* 头部与正文之间的分隔线；正文第一个元素（常是 h2 / 引用）不再叠加上边距 */
+.article .post-divider {
+  margin: 1.4em 0 1.6em;
+}
+.article .post-divider + * {
+  margin-top: 0;
 }
 
 /* 可折叠目录（参考周刊「本期目录」） */
