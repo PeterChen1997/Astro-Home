@@ -29,6 +29,11 @@ export const MENUS: MenuItem[] = [
     umamiEvent: 'nav_ai_weekly_open'
   },
   {
+    key: 'recommends',
+    path: '/recommends/index.html',
+    title: '推荐博客'
+  },
+  {
     key: 'cangshuge',
     path: 'https://book.hweb.peterchen97.cn/',
     title: '藏书阁',
@@ -89,6 +94,7 @@ const MOBILE_MENUS: MenuItem[] = [
     target: '_blank',
     umamiEvent: 'nav_ai_weekly_open'
   },
+  { key: 'recommends', path: '/recommends/index.html', title: '推荐博客' },
   { key: 'cangshuge', path: 'https://book.hweb.peterchen97.cn/', title: '藏书阁', target: '_blank' },
   { key: 'projects', path: '/projects/index.html', title: '项目' },
   { key: 'links', path: '/links/index.html', title: '友链' },
