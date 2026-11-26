@@ -15,7 +15,7 @@ tags:
   - Dan Koe
 ---
 
-> 本文译自 Dan Koe 的《The influencer is dead. The Age of Experience is here.》，原文链接：[https://x.com/thedankoe/status/2112586533610156368](https://x.com/thedankoe/status/2112586533610156368)，仅作分享，版权归原作者。
+> 本文译自 Dan Koe 的[《The influencer is dead. The Age of Experience is here.》](https://x.com/thedankoe/status/2112586533610156368)，仅作分享，版权归原作者。
 
 
 如今，几乎没有哪一天，我没看到一位不懂技术的 40 多岁妈妈，仅凭一个简单的数字产品就做出上百万美元的发售业绩。

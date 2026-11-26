@@ -15,7 +15,7 @@ tags:
   - Dan Koe
 ---
 
-> 本文译自 Dan Koe 的《The most lucrative AI business to start in 2027》，原文链接：[https://x.com/thedankoe/status/2117664712532123680](https://x.com/thedankoe/status/2117664712532123680)，仅作分享，版权归原作者。
+> 本文译自 Dan Koe 的[《The most lucrative AI business to start in 2027》](https://x.com/thedankoe/status/2117664712532123680)，仅作分享，版权归原作者。
 
 
 最赚钱的技能，向来都是“捕获注意力”。

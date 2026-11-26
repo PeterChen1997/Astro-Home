@@ -15,7 +15,7 @@ tags:
   - Dan Koe
 ---
 
-> 本文译自 Dan Koe 的《The deep work routine that changed my life (1 hour every morning)》，原文链接：[https://x.com/thedankoe/status/2125643815122002300](https://x.com/thedankoe/status/2125643815122002300)，仅作分享，版权归原作者。
+> 本文译自 Dan Koe 的[《The deep work routine that changed my life (1 hour every morning)》](https://x.com/thedankoe/status/2125643815122002300)，仅作分享，版权归原作者。
 
 
 既然你每天能花 8 个小时去帮别人筑梦，就一定能抽出 1 个小时来打造属于自己的梦想。
