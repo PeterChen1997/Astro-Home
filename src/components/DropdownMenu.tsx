@@ -3,12 +3,30 @@ import React, { Fragment } from 'react'
 import { IoMenu, IoLogoGithub } from 'react-icons/io5/index.js'
 import { BiRss } from 'react-icons/bi/index.js'
 
+interface MenuItem {
+  key: string
+  path: string
+  title: string
+  target?: string
+  icon?: React.ComponentType<{ className?: string }>
+  hideIcon?: boolean
+  hideTitle?: boolean
+  umamiEvent?: string
+}
+
 // 桌面端导航菜单 - 简洁版
-export const MENUS = [
+export const MENUS: MenuItem[] = [
   {
     key: 'posts',
     path: '/posts/index.html',
     title: '文章'
+  },
+  {
+    key: 'weekly',
+    path: 'https://blog.peterchen97.cn/ai-news/weekly/index.html',
+    title: 'AI 周刊',
+    target: '_blank',
+    umamiEvent: 'nav_ai_weekly_open'
   },
   {
     key: 'cangshuge',
@@ -62,8 +80,15 @@ export const MENUS = [
 ]
 
 // 移动端菜单分组
-const MOBILE_MENUS = [
+const MOBILE_MENUS: MenuItem[] = [
   { key: 'posts', path: '/posts/index.html', title: '文章' },
+  {
+    key: 'weekly',
+    path: 'https://blog.peterchen97.cn/ai-news/weekly/index.html',
+    title: 'AI 周刊',
+    target: '_blank',
+    umamiEvent: 'nav_ai_weekly_open'
+  },
   { key: 'cangshuge', path: 'https://book.hweb.peterchen97.cn/', title: '藏书阁', target: '_blank' },
   { key: 'projects', path: '/projects/index.html', title: '项目' },
   { key: 'links', path: '/links/index.html', title: '友链' },
@@ -107,6 +132,8 @@ export default function DropdownMenu({ open }: { open?: boolean }) {
                   <a
                     href={menu.path}
                     target={menu.target}
+                    rel={menu.target === '_blank' ? 'noopener noreferrer' : undefined}
+                    data-umami-event={menu.umamiEvent}
                     className={`
                       flex items-center justify-between px-4 py-2.5 text-sm transition-colors
                       ${active 

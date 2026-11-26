@@ -19,7 +19,12 @@ import DropdownMenu, { MENUS } from './DropdownMenu'
       {/* 桌面端导航 */}
       <div class="items-center gap-1 hidden md:flex ml-2">
         {MENUS.map((menu) => (
-          <HeaderLink href={menu.path} target={menu.target}>
+          <HeaderLink
+            href={menu.path}
+            target={menu.target}
+            rel={menu.target === '_blank' ? 'noopener noreferrer' : undefined}
+            data-umami-event={menu.umamiEvent}
+          >
             {menu.hideIcon ? '' : (menu.icon && <menu.icon className="w-4 h-4" />)}
             {menu.hideTitle ? '' : menu.title}
           </HeaderLink>
