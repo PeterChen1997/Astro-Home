@@ -129,34 +129,34 @@ const posts = [
         description="精选的开源项目合集，记录我的技术探索之路"
       />
 
-      <div class="max-w-6xl mx-auto px-4">
+      <div>
         <section class="mb-12">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {
               posts.map(post => (
-                <div class="group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-orange-300 dark:hover:border-orange-400">
+                <div class="group relative rounded-lg overflow-hidden border border-[color:var(--line)]">
                   {/* 图片区域 */}
                   <div class="relative  overflow-hidden">
                     <CommonPicture image={post.image} />
                   </div>
 
                   {/* 内容区域 */}
-                  <div class="px-6 py-4">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-orange-500 transition-colors duration-200">
+                  <div class="px-4 pt-3 pb-4">
+                    <h3 class="text-lg font-semibold">
                       {post.title}
                     </h3>
                     {post.description && (
-                      <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed line-clamp-3">
+                      <p class="mt-1 text-sm leading-6 text-[color:var(--secondary)] line-clamp-3">
                         {post.description}
                       </p>
                     )}
 
                     {/* 按钮区域 */}
-                    <div class="flex gap-3">
+                    <div class="flex gap-3 mt-3">
                       <a
                         target="_blank"
                         href={post.demoUrl}
-                        class="flex-1 inline-flex items-center justify-center px-4 py-2.5 bg-orange-600 text-white text-sm font-medium rounded-xl hover:bg-orange-700 transition-all duration-200 shadow-md hover:shadow-lg "
+                        class="flex-1 inline-flex items-center justify-center px-4 py-2 text-sm rounded-md bg-[color:var(--ink)] text-[color:var(--paper)] hover:opacity-85 transition-opacity"
                       >
                         <svg
                           class="w-4 h-4 mr-2"
@@ -177,7 +177,7 @@ const posts = [
                         <a
                           target="_blank"
                           href={post.sourceUrl}
-                          class="flex-1 inline-flex items-center justify-center px-4 py-2.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-200 shadow-md hover:shadow-lg "
+                          class="flex-1 inline-flex items-center justify-center px-4 py-2 text-sm rounded-md border border-[color:var(--line)] hover:bg-[color:var(--wash)] transition-colors"
                         >
                           <svg
                             class="w-4 h-4 mr-2"
@@ -198,8 +198,6 @@ const posts = [
                     </div>
                   </div>
 
-                  {/* 悬停效果 */}
-                  <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 </div>
               ))
             }

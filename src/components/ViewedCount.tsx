@@ -33,14 +33,10 @@ const ViewedCount = ({ postId }: { postId: string }) => {
   }, [postId])
 
   return (
-    <p>
-      Viewed:{' '}
-      {viewedCount !== null
-        ? `${viewedCount} times`
-        : loading
-        ? 'loading...'
-        : 'unavailable'}
-    </p>
+    <span>
+      阅读{' '}
+      {viewedCount !== null ? `${viewedCount} 次` : loading ? '…' : '—'}
+    </span>
   )
 }
 export default ViewedCount

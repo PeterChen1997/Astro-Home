@@ -4,11 +4,40 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 
+/* 正文衬线体：与 AI 周刊同源（思源宋体 CN VF 子集，SIL OFL 1.1），生成方式见 scripts/subset-font.py */
+@font-face {
+  font-family: 'Longchang Serif';
+  src: url('../assets/fonts/longchang-serif.woff2') format('woff2');
+  font-weight: 250 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 配色跟周刊一致：黑白灰为主，品牌橙只留给 Logo 和链接下划线 */
+:root {
+  --paper: #ffffff;
+  --ink: #202020;
+  --secondary: #505050;
+  --muted: #666666;
+  --line: #dddddd;
+  --wash: #f4f4f4;
+  --brand: #f97316;
+  --code-bg: #24292e;
+}
+
+.dark {
+  --paper: #181818;
+  --ink: #e8e8e8;
+  --secondary: #c7c7c7;
+  --muted: #b2b2b2;
+  --line: #444444;
+  --wash: #272727;
+}
+
 body {
-  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont,
-    'Segoe UI Variable Display', 'Segoe UI', Helvetica, 'PingFang SC',
-    'Microsoft YaHei', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
-    'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-family: 'Longchang Serif', 'Songti SC', 'Noto Serif SC',
+    'Source Han Serif SC', serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  font-synthesis: none;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-wrap: break-word;
@@ -38,12 +67,10 @@ ul:not(:only-child):not(:last-child) {
 
 .article ol li {
   list-style: decimal;
-  word-break: break-all;
 }
 
 .article ul li {
   list-style: disc;
-  word-break: break-all;
 }
 
 ::-webkit-scrollbar,
@@ -58,13 +85,20 @@ ul:not(:only-child):not(:last-child) {
   border-radius: 10px;
 }
 
+/* 代码块：手机上横向滚动，左右两侧出现渐隐阴影提示还能拖 */
 pre.astro-code {
-  margin: 1rem 0;
-  padding: 1rem;
-  background-color: #17191e;
-  border: 1px solid #2a95fa;
-  border-radius: 0.3rem;
+  margin: 1.4em 0;
+  padding: 14px 16px;
+  border-radius: 6px;
+  font-size: 13px;
   line-height: 1.65;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background: linear-gradient(to right, var(--code-bg) 30%, transparent) left / 40px 100% no-repeat local,
+    linear-gradient(to left, var(--code-bg) 30%, transparent) right / 40px 100% no-repeat local,
+    linear-gradient(to right, rgba(255, 255, 255, 0.22), transparent) left / 14px 100% no-repeat scroll,
+    linear-gradient(to left, rgba(255, 255, 255, 0.22), transparent) right / 14px 100% no-repeat scroll,
+    var(--code-bg) !important;
 }
 
 code {
@@ -80,7 +114,7 @@ p:only-child {
 }
 
 tr:not(:last-child) {
-  border-bottom: 1px solid rgb(221, 221, 221);
+  border-bottom: 1px solid var(--line);
 }
 
 td:first-child {
@@ -92,7 +126,7 @@ th {
 }
 
 table {
-  border: 1px solid rgb(221, 221, 221);
+  border: 1px solid var(--line);
   border-collapse: collapse;
   font-size: 14px;
   width: 100%;
@@ -116,6 +150,177 @@ li > p {
   margin-bottom: 0 !important;
 }
 
-p {
-  padding: 10px 2px;
+
+/* ---------- 文章正文排版（参考 AI 周刊「龙场来信」） ---------- */
+.article {
+  font-size: 17px;
+  line-height: 2;
+  letter-spacing: 0.01em;
+  overflow-wrap: anywhere;
+  color: var(--ink);
+}
+
+.article p {
+  margin: 0 0 1.15em;
+}
+
+.article h1,
+.article h2,
+.article h3,
+.article h4,
+.article h5,
+.article h6 {
+  font-weight: 650;
+  line-height: 1.5;
+  scroll-margin-top: 72px;
+}
+.article h1 { font-size: 24px; margin: 1.9em 0 0.7em; }
+.article h2 { font-size: 22px; margin: 1.9em 0 0.7em; }
+.article h3 { font-size: 19px; margin: 1.6em 0 0.6em; }
+.article h4,
+.article h5,
+.article h6 { font-size: 17px; margin: 1.4em 0 0.5em; }
+
+.article a {
+  text-decoration: underline;
+  text-decoration-color: var(--brand);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.article ul,
+.article ol {
+  padding-left: 1.4em;
+  margin: 0 0 1.15em;
+}
+.article li {
+  margin: 0.35em 0;
+  padding-left: 2px;
+}
+
+.article strong {
+  font-weight: 650;
+}
+
+.article blockquote {
+  margin: 1.3em 0;
+  padding: 0.1em 0 0.1em 1em;
+  border-left: 2px solid var(--line);
+  color: var(--secondary);
+}
+.article blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+.article :not(pre) > code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.86em;
+  padding: 0.12em 0.4em;
+  margin: 0 0.15em;
+  border-radius: 4px;
+  background: var(--wash);
+}
+
+.article pre code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.article img {
+  display: block;
+  max-width: 100%;
+  max-height: 500px;
+  height: auto;
+  margin: 1.4em auto;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+/* 封面图组件自带边框和裁切，内部 img 不吃正文图片样式 */
+.article .common-picture img {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  max-height: none;
+}
+
+.article hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 2.2em 0;
+}
+
+.article .table-wrapper {
+  margin: 1.4em 0;
+}
+.article table {
+  line-height: 1.75;
+}
+.article th {
+  text-align: left;
+  font-weight: 600;
+  background: var(--wash);
+}
+.article th,
+.article td {
+  padding: 10px 8px;
+  vertical-align: top;
+}
+
+@media (min-width: 768px) {
+  .article { font-size: 18px; }
+  .article h1 { font-size: 28px; }
+  .article h2 { font-size: 25px; }
+  .article h3 { font-size: 21px; }
+}
+
+/* 文章头部 */
+.article .post-title {
+  font-size: 26px;
+  line-height: 1.45;
+  font-weight: 700;
+  margin: 0.6em 0 0.4em;
+}
+@media (min-width: 768px) {
+  .article .post-title { font-size: 34px; }
+}
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 0.6em;
+  font-size: 13px;
+  line-height: 2;
+  color: var(--muted);
+}
+/* 浏览数是 React 岛，分隔点挂在岛内的 span 上，避免岛的包裹元素多出空白 */
+.post-meta astro-island {
+  display: contents;
+}
+.post-meta astro-island > span::before,
+.post-meta > :not(astro-island) + :not(astro-island)::before {
+  content: '·';
+  margin-right: 0.6em;
+}
+
+/* 可折叠目录（参考周刊「本期目录」） */
+.article .toc {
+  margin: 1.6em 0 0.4em;
+  padding: 12px 18px;
+  font-size: 14px;
+  line-height: 1.9;
+  background: var(--wash);
+  border-radius: 4px;
+}
+.article .toc summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.article .toc ol {
+  margin: 8px 0 4px;
+}
+.article .toc li {
+  margin: 0.15em 0;
+}
+.article .toc a {
+  text-decoration: none;
 }

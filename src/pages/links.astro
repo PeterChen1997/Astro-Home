@@ -115,16 +115,16 @@ const sites = [
         description="很赞的博客列表，欢迎在下方 issues 中留言，交换友链～"
       />
 
-      <div class="max-w-6xl mx-auto px-4">
+      <div>
         <section class="mb-12">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-4">
             {
               sites.map(site => (
                 <a
                   href={site.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="group relative block p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700 hover:border-orange-400 dark:hover:border-orange-400"
+                  class="group relative block p-4 rounded-lg border border-[color:var(--line)] hover:bg-[color:var(--wash)] transition-colors"
                 >
                   <div class="flex items-center space-x-4">
                     <div class="flex-shrink-0">
@@ -135,23 +135,22 @@ const sites = [
                           class="w-12 h-12 rounded-full object-cover"
                         />
                       ) : (
-                        <div class="w-12 h-12 rounded-full bg-orange-400 flex items-center justify-center text-white text-2xl">
+                        <div class="w-12 h-12 rounded-full bg-[color:var(--wash)] flex items-center justify-center text-2xl">
                           {site.avatar || '🔗'}
                         </div>
                       )}
                     </div>
                     <div class="flex-1 min-w-0">
-                      <h3 class="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-orange-400 transition-colors duration-200 truncate">
+                      <h3 class="text-[17px] leading-7 font-semibold truncate">
                         {site.title}
                       </h3>
                       {site.description && (
-                        <p class="text-sm text-gray-600 dark:text-gray-300 mt-1 line-clamp-2">
+                        <p class="text-sm leading-6 text-[color:var(--secondary)] line-clamp-2">
                           {site.description}
                         </p>
                       )}
                     </div>
                   </div>
-                  <div class="absolute inset-0 rounded-xl bg-orange-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </a>
               ))
             }
@@ -160,15 +159,15 @@ const sites = [
       </div>
     </Main>
 
-    <div class="max-w-6xl mx-auto px-4 pb-12">
+    <div class="max-w-3xl mx-auto px-[22px] md:px-8 pb-12">
       <div class="text-center">
         <div
-          class="inline-flex items-center justify-center p-6 bg-orange-50 dark:bg-gray-800 rounded-2xl border border-orange-200 dark:border-gray-600"
+          class="inline-flex items-center justify-center p-6 bg-[color:var(--wash)] rounded-lg"
         >
           <div class="text-center">
             <div class="text-3xl mb-2">🤝</div>
             <h3
-              class="text-lg font-semibold text-gray-800 dark:text-white mb-2"
+              class="text-lg font-semibold mb-3"
             >
               友链交换
             </h3>
@@ -176,7 +175,7 @@ const sites = [
             <a
               target="_blank"
               href="https://github.com/PeterChen1997/Astro-Home/issues/17"
-              class="inline-flex items-center px-6 py-3 bg-orange-400 text-white font-medium rounded-lg hover:bg-orange-500 transition-colors duration-200 shadow-lg hover:shadow-xl"
+              class="inline-flex items-center px-5 py-2 text-sm rounded-md bg-[color:var(--ink)] text-[color:var(--paper)] hover:opacity-85 transition-opacity"
             >
               <span>来吧朋友</span>
               <svg

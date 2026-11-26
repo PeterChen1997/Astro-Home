@@ -26,6 +26,16 @@ export interface Props {
 const {
   content: { title, description, pubDate, updatedDate, heroImage }
 } = Astro.props
+
+const readingTime =
+  typeof Astro.props.compiledContent === 'function'
+    ? getReadingTime(Astro.props.compiledContent())
+    : Astro.props.content.readingTime
+
+// 长文目录：只取二级标题，少于 3 个不显示
+const headings: { depth: number; slug: string; text: string }[] =
+  Astro.props.headings ?? []
+const tocHeadings = headings.filter(h => h.depth === 2)
 ---
 
 <html lang="zh" style="min-height: 100vh;">
@@ -38,20 +48,28 @@ const {
     <Main>
       <Content>
         {heroImage && <CommonPicture image={heroImage} />}
-        <h1 class="text-4xl font-bold py-4">{title}</h1>
+        <h1 class="post-title">{title}</h1>
+        <div class="post-meta">
+          {pubDate && <time datetime={pubDate}>{dayjs(pubDate).format('YYYY-MM-DD')}</time>}
+          {updatedDate && <time datetime={updatedDate}>更新于 {dayjs(updatedDate).format('YYYY-MM-DD')}</time>}
+          {readingTime && <span>约 {readingTime} 分钟</span>}
+          <ViewedCount postId={title} client:load />
+        </div>
         {
-          pubDate && (
-            <time>Created At: {dayjs(pubDate).format('YYYY-MM-DD')}</time>
+          tocHeadings.length >= 3 && (
+            <details class="toc">
+              <summary>目录</summary>
+              <ol>
+                {tocHeadings.map(h => (
+                  <li>
+                    <a href={`#${h.slug}`}>{h.text}</a>
+                  </li>
+                ))}
+              </ol>
+            </details>
           )
         }
-        {
-          updatedDate && (
-            <time>Last updated: {dayjs(updatedDate).format('YYYY-MM-DD')}</time>
-          )
-        }
-        <ViewedCount postId={title} client:load />
-        <p>{typeof Astro.props.compiledContent === 'function' ? getReadingTime(Astro.props.compiledContent()) : (Astro.props.content.readingTime || '')} minutes to read</p>
-        <hr class="border-top border-zinc-400 my-4" />
+        <hr class="border-t border-[color:var(--line)] mt-5 mb-6" />
         <slot />
       </Content>
       <Comments client:visible />

@@ -5,13 +5,13 @@ import logoSvg from '/favicon.svg'
 import DropdownMenu, { MENUS } from './DropdownMenu'
 ---
 
-<header class="fixed w-full p-2 z-20 backdrop-blur-md bg-white/80 dark:bg-transparent border-b border-gray-200/30 dark:border-gray-700/30">
+<header class="fixed w-full py-2 px-2.5 md:px-2 z-20 bg-[color:var(--paper)] border-b border-[color:var(--line)]">
   <div class="mx-auto max-w-4xl">
     <nav class="flex items-center gap-2 text-base">
       {/* Logo */}
       <a href="/" class="group flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-gray-100/80 dark:hover:bg-white/5 transition-colors duration-200">
         <img src={logoSvg} class="w-6 h-6" alt="logo" />
-        <span class="font-semibold text-gray-800 dark:text-gray-100 group-hover:text-orange-500 transition-colors">
+        <span class="font-semibold text-[17px] tracking-[.04em] group-hover:text-orange-500 transition-colors">
           龙场茶室
         </span>
       </a>
@@ -35,7 +35,7 @@ import DropdownMenu, { MENUS } from './DropdownMenu'
       <div class="flex-1"></div>
       
       {/* 工具栏 */}
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-1">
         <ThemeToggle client:visible />
         <DropdownMenu client:visible />
       </div>

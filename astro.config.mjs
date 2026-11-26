@@ -3,7 +3,6 @@ import { defineConfig } from 'astro/config'
 import react from '@astrojs/react'
 import tailwind from '@astrojs/tailwind'
 import mdx from '@astrojs/mdx'
-import addClasses from 'rehype-add-classes'
 import compress from 'astro-compress'
 import { astroImageTools } from 'astro-imagetools'
 import rehypeWrapTables from './src/libs/rehypeWrapTables.js'
@@ -54,31 +53,8 @@ export default defineConfig({
   // },
   markdown: {
     extendDefaultPlugins: true,
+    // 正文排版统一在 src/styles/global.css 的 .article 下维护
     rehypePlugins: [
-      [
-        addClasses,
-        {
-          code: 'bg-gray-200 dark:bg-gray-800 p-1 rounded-md text-red-500 mx-1',
-          h1: 'text-3xl font-bold py-4',
-          h2: 'text-2xl font-bold py-4',
-          h3: 'text-xl font-bold py-3',
-          h4: 'text-lg font-bold py-2',
-          h5: 'font-bold py-1',
-          h6: 'font-bold',
-          img: 'border border-slate-300 dark:border-zinc-700 rounded-xl mb-6 max-h-[500px] mx-auto',
-          p: 'leading-8 tracking-[.1em]',
-          a: 'underline underline-offset-2 hover:text-orange-500 decoration-orange-500',
-          li: 'leading-7 text-justify',
-          ul: 'pl-5',
-          ol: 'pl-5',
-          blockquote:
-            'my-1 leading-7 border-l-4 border-gray-500 pl-4 text-justify',
-          strong: 'dark:text-white',
-          table: 'divide-y divide-gray-200',
-          th: 'px-2 py-3 text-left  font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider bg-gray-50 dark:bg-gray-600',
-          td: 'px-2 py-4 h-10'
-        }
-      ],
       rehypeWrapTables
     ]
   }

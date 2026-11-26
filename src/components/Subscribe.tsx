@@ -38,7 +38,7 @@ const Subscribe = () => {
   }
 
   return (
-    <div className="max-w-2xl rounded-md mx-auto p-3 mb-10 border dark:bg-gray-800 bg-orange-100 flex flex-col items-center">
+    <div className="max-w-2xl rounded-md mx-auto p-3 mb-10 bg-[color:var(--wash)] flex flex-col items-center">
       <div className="my-1 text-xl">📰 邮箱订阅 📰</div>
       <div className="my-1">不错过每篇更新~</div>
       <input

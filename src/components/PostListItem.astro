@@ -1,0 +1,56 @@
+---
+// 列表条目（文章 / 推荐博客通用）：文字在左、小缩略图在右，条目之间细线分隔（参考 AI 周刊目录）
+export interface Props {
+  url: string
+  title: string
+  description?: string
+  heroImage?: string
+  meta: string[]
+  tags?: string[]
+}
+
+const { url, title, description, heroImage, meta, tags = [] } = Astro.props
+---
+
+<article class="border-b border-[color:var(--line)]">
+  <a href={url} class="group flex gap-4 py-5">
+    <div class="flex-1 min-w-0">
+      <div class="text-xs leading-5 text-[color:var(--muted)]">
+        {meta.filter(Boolean).join(' · ')}
+      </div>
+      <h2
+        class="mt-1 text-[18px] md:text-[20px] leading-[1.55] font-semibold line-clamp-2 group-hover:underline underline-offset-4 decoration-1"
+      >
+        {title}
+      </h2>
+      {
+        description && (
+          <p class="mt-1 text-sm leading-6 text-[color:var(--secondary)] line-clamp-2">
+            {description}
+          </p>
+        )
+      }
+      {
+        tags.length > 0 && (
+          <div class="mt-2 flex flex-wrap gap-1.5 text-xs text-[color:var(--muted)]">
+            {tags.slice(0, 3).map(tag => (
+              <span class="px-1.5 leading-5 border border-[color:var(--line)] rounded">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )
+      }
+    </div>
+    {
+      heroImage && (
+        <img
+          src={heroImage}
+          alt=""
+          loading="lazy"
+          class="flex-shrink-0 mt-1 w-[88px] h-[66px] md:w-[132px] md:h-[88px] object-cover rounded border border-[color:var(--line)]"
+        />
+      )
+    }
+  </a>
+</article>

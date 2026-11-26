@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { IoSunny, IoMoon } from 'react-icons/io5/index.js'
-
-const themes = ['light', 'dark']
+import { IoSunnyOutline, IoMoonOutline } from 'react-icons/io5/index.js'
 
 export default function ThemeToggle() {
   const [isMounted, setIsMounted] = useState(false)
@@ -39,25 +37,20 @@ export default function ThemeToggle() {
     setIsMounted(true)
   }, [])
 
+  // 单个线框图标按钮：浅色时显示月亮（点击切到深色），深色时显示太阳
   return isMounted ? (
-    <div className="inline-flex items-center p-[1px] rounded-3xl bg-orange-300 dark:bg-zinc-600">
-      {themes.map(t => {
-        const checked = t === theme
-        return (
-          <button
-            key={t}
-            className={`${
-              checked ? 'bg-white text-black' : ''
-            } cursor-pointer rounded-3xl p-2`}
-            onClick={toggleTheme}
-            aria-label="Toggle theme"
-          >
-            {t === 'light' ? <IoSunny /> : <IoMoon />}
-          </button>
-        )
-      })}
-    </div>
+    <button
+      className="inline-flex items-center justify-center w-9 h-9 rounded-lg text-[color:var(--secondary)] hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+      onClick={toggleTheme}
+      aria-label={theme === 'light' ? '切换到深色模式' : '切换到浅色模式'}
+    >
+      {theme === 'light' ? (
+        <IoMoonOutline className="w-[18px] h-[18px]" />
+      ) : (
+        <IoSunnyOutline className="w-[18px] h-[18px]" />
+      )}
+    </button>
   ) : (
-    <div />
+    <div className="w-9 h-9" />
   )
 }

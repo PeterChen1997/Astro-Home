@@ -2,11 +2,13 @@
 import BaseHead from '../components/BaseHead.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
-import { SITE_TITLE, SITE_DESCRIPTION, HOMEPAGE_URL } from '../config'
+import { SITE_TITLE, SITE_DESCRIPTION } from '../config'
 import Body from '../components/Body.astro'
 import Main from '../components/Main.astro'
 import PageHeader from '../components/PageHeader.astro'
-import PostCard from '../components/PostCard.astro'
+import PostListItem from '../components/PostListItem.astro'
+import { readingTimeLabel } from '../libs/readingTime'
+import dayjs from 'dayjs'
 import { IoArrowForward } from 'react-icons/io5/index.js'
 
 const posts = (await Astro.glob('./posts/*.{md,mdx}'))
@@ -26,50 +28,49 @@ const posts = (await Astro.glob('./posts/*.{md,mdx}'))
   <Body>
     <Header />
     <Main>
-      <PageHeader title="龙场茶室" />
+      <PageHeader title="龙场茶室" description={SITE_DESCRIPTION} />
+      <a
+        class="-mt-3 inline-flex items-center gap-1 text-[15px] underline underline-offset-4 decoration-orange-500 decoration-1"
+        href={'/about'}
+      >
+        关于我
+        <IoArrowForward className="w-4 h-4" />
+      </a>
 
-      <div class="max-w-6xl mx-auto px-4">
-        {/* 关于我的部分 */}
-        <section class="mb-12 text-center">
-          <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            {SITE_DESCRIPTION}
-          </p>
+      <section class="mt-10 mb-12">
+        <div class="flex items-baseline justify-between pb-3 border-b border-[color:var(--line)] text-sm text-[color:var(--muted)]">
+          <h2 class="text-base font-semibold text-[color:var(--ink)]">最新文章</h2>
+          <span>最近 {posts.length} 篇</span>
+        </div>
+
+        <div>
+          {
+            posts.map((post: any) => (
+              <PostListItem
+                url={post.url}
+                title={post.frontmatter.title}
+                description={post.frontmatter.description}
+                heroImage={post.frontmatter.heroImage}
+                tags={post.frontmatter.tags}
+                meta={[
+                  dayjs(post.frontmatter.pubDate).format('YYYY-MM-DD'),
+                  readingTimeLabel(post.compiledContent?.())
+                ]}
+              />
+            ))
+          }
+        </div>
+
+        <div class="mt-6">
           <a
-            class="text-orange-500 hover:text-orange-600 underline underline-offset-2 transition-colors duration-200"
-            href={'/about'}
+            class="inline-flex items-center gap-1 text-[15px] underline underline-offset-4 decoration-orange-500 decoration-1"
+            href={'/posts'}
           >
-            关于我的
-            <IoArrowForward className="inline w-4 h-4 ml-1" />
+            查看所有文章
+            <IoArrowForward className="w-4 h-4" />
           </a>
-        </section>
-
-        {/* 最新文章部分 */}
-        <section class="mb-12">
-          <div class="flex items-baseline gap-4 mb-8">
-            <h2 class="text-2xl font-bold text-gray-900 dark:text-white">
-              一些文章
-            </h2>
-            <div class="text-sm text-gray-500 dark:text-gray-400 font-medium">
-              最近的 {posts.length} 篇文章
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            {posts.map(post => <PostCard post={post} />)}
-          </div>
-
-          {/* 查看更多按钮 */}
-          <div class="text-center mt-8">
-            <a
-              class="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
-              href={'/posts'}
-            >
-              查看所有文章
-              <IoArrowForward className="w-4 h-4" />
-            </a>
-          </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </Main>
     <Footer />
   </Body>
